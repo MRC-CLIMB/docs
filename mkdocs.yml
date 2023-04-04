@@ -29,6 +29,10 @@ markdown_extensions:
   - attr_list
   - toc:
       permalink: "#"
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+
 copyright: |
   &copy; CLIMB-BIG-DATA 2023
 nav:
