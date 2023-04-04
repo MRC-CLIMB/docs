@@ -6,8 +6,6 @@ All CLIMB-BIG-DATA resouces are accessed via the Bryn web interface.
 
 You can login to Bryn at [https://bryn.climb.ac.uk/account/login/](https://bryn.climb.ac.uk/account/login/)
 
-![Bryn login page](img/bryn-login-page.png){ width=250 }
-
 ## Two-factor authentication
 
 Two-factor authentication is mandatory, and users will be required to set this up on first login. This means that a code will be required from an authenticator app on a mobile or desktop device, in addition to your password.
@@ -26,11 +24,11 @@ Hit enable and proceed to follow the instructions. You will be prompted to insta
 - [Microsoft Authenticator](https://www.microsoft.com/en-us/security/mobile-authenticator-app)
 - [Google Authenticator](https://googleauthenticator.net/)
 
-![Authenticator logos](img/authenticator-logos.png){ width=450 }
+<!-- prettier-ignore -->
+!!! info
+    Authy and Microsoft Authenticator make it easier to backup and recover your codes in the case of loss or change of device, whereas Google requires a manual export/import.
 
-Authy and Microsoft Authenticator make it easier to backup and recover your codes in the case of loss or change of device, whereas Google requires a manual export/import.
-
-_**Please do enable backups for your app at this stage, before you forget!**_
+    **Please do enable backups for your app at this stage, before you forget!**
 
 ### Authy backups
 
@@ -62,7 +60,7 @@ Next, hit the 'Generate tokens' button.
 
 Print, save or otherwise make a note of these codes and keep them in a secure place.
 
-**You can now proceed to the [Bryn dashboard](https://bryn.climb.ac.uk/)**
+You can now proceed to the [Bryn dashboard](https://bryn.climb.ac.uk/)
 
 ### Logging in to Bryn after 2FA is set up
 

@@ -8,9 +8,13 @@ We divide users into three categories:
 - **Secondary users**: Those working under the direction of primary users who include students, post-doctoral researchers and overseas collaborators.
 - **Industrial users**: Users in industry should contact us to discuss terms and conditions for industrial users.
 
-Please note: **only primary users should register to create a new team** at the [Bryn registration page](https://bryn.climb.ac.uk/user/register/) to get started.
+Primary users should head over to the [Bryn registration page](https://bryn.climb.ac.uk/user/register/) to get started.
 
-Too add secondary users to a team, please see [inviting users to your team]()
+To add secondary users to a team, please see [inviting users to your team]()
+
+<!-- prettier-ignore -->
+!!! warning
+    Please note: **only primary users should register to create a new team**
 
 ## Primary user registration
 
@@ -22,4 +26,6 @@ Accept the terms if you are happy, and you will then be asked information regard
 
 The registration request will be reviewed by a member of our management team. Please provide as much information as possible about your role and research to speed up the process. If we do not feel enough information has been provided, we may contact you. If your registration is successful, you will receive a verification email. Following verification, you will be taken to the [Bryn portal](https://bryn.climb.ac.uk/).
 
-Please we aware that primary users will be provided to renew a group licence every 3 months. For paying users, the length of a valid licence period will be extended. If this licence is not renewed, your access to resources will be blocked. You will be sent an email reminder for this.
+<!-- prettier-ignore -->
+!!! warning
+    Please we aware that primary users will be provided to renew a group licence every 3 months. For paying users, the length of a valid licence period will be extended. If this licence is not renewed, your access to resources will be blocked. You will be sent an email reminder for this.
