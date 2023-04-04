@@ -2,10 +2,12 @@ site_name: CLIMB-BIG-DATA Documentation
 theme:
   name: material
   features:
-    - navigation.tabs
     - navigation.sections
-    - toc.integrate
+    - navigation.expand
+    - navigation.path
     - navigation.top
+    - navigation.indexes
+    - toc.integrate
     - search.suggest
     - search.highlight
     - content.tabs.link
@@ -25,9 +27,13 @@ theme:
         name: Switch to light mode
 markdown_extensions:
   - attr_list
+  - toc:
+      permalink: "#"
 copyright: |
   &copy; CLIMB-BIG-DATA 2023
 nav:
+  - "Overview": "index.md"
   - "Getting started":
       - "How to Register": "getting-started/how-to-register.md"
       - "Authentication": "getting-started/authentication.md"
+  - "Notebook Servers": "notebook-servers/index.md"
