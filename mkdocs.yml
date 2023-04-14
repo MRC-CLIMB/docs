@@ -40,4 +40,6 @@ nav:
   - "Getting started":
       - "How to Register": "getting-started/how-to-register.md"
       - "Authentication": "getting-started/authentication.md"
-  - "Notebook Servers": "notebook-servers/index.md"
+  - "Notebook Servers":
+      - "Introduction": "notebook-servers/introduction.md"
+      - "Getting started": "notebook-servers/getting-started.md"
