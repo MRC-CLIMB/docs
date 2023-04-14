@@ -23,4 +23,4 @@ Absolutely not. Whilst the new service is certainly far easier to get started wi
 
 ## How do I get started?
 
-Head over to our [getting started guide](notebook-servers/getting-started.md), or check out some of the tutorials.
+Head over to our [getting started guide](/notebook-servers/getting-started.md), or check out some of the tutorials.
