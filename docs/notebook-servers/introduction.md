@@ -17,7 +17,7 @@ So, why would you want to use these over Virtual Machines?
 - **Easier collaboration and sharing**: The virtual machine usage model tended to produce siloed data on volumes that could only be attached to one VM at a time. The collection of software installed on a VM was also siloed, in the sense that it was not easily reproduced from scratch. Under the new usage model of container notebooks, you'll find a a pre-mounted share at `/shared/team` that every team member has read/write access to, and backed by our high speed SSDs. Your S3 bucket keys are also pre-injected as environment variables, making bucket access a breeze. Need to share something with an external collaborator? Just make a public bucket and upload your files.
 - **The ideal teaching environment**: Running workshops becomes a breeze. Simply create a team on Bryn, invite attendees and prepare your materials on the shared team drive or S3 buckets. No more losing half a day getting everyone logged in via SSH.
 
-## Is this just for begginners?
+## Is this just for beginners?
 
 Absolutely not. Whilst the new service is certainly far easier to get started with, it is also far more powerful for advanced users. We've ensured that each team gets a pre-mounted kubernetes service user with permissions scoped to your team's namespace. This allows users to run nextflow workflows on the external K8s execution environment, but also to run other containers in pods within their namespace via kubectl.
 
