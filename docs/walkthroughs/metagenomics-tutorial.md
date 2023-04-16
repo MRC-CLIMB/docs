@@ -164,7 +164,7 @@ If you wanted to run Kraken2 through Nextflow the same way as before you could r
 
 ```python
 !nextflow run metashot/kraken2 \
-  --reads canalseq.fastq \
+  --reads canalseq.fasta \
   --kraken2_db /shared/public/db/kraken2/k2_standard_16gb \
   --read_len 100 \
   --outdir canalseq-standard \
