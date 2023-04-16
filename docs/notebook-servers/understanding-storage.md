@@ -10,7 +10,7 @@ Your home directory is also the default/base location for the file browser pane 
 
 You'll find a writable 'team share' mounted at `/shared/team`, and symlinked to your home directory by default as `shared-team` (hence it shows in the file browser).
 
-This is a larger storage location (1GB+ depending on tier) that all team members share simultaneous read/write access to. It's also SSD-backed, so its extremely fast.
+This is a larger storage location (1TB+ depending on tier) that all team members share simultaneous read/write access to. It's also SSD-backed, so its extremely fast.
 
 ## S3 Buckets
 
