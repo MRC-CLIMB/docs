@@ -184,7 +184,7 @@ With the `extract_kraken_reads.py` script in `krakentools` we can quite easily e
 
 If you wished you could go and take these reads and BLAST them over at NCBI-BLAST. There is also the `nr` BLAST database available on CLIMB-BIG-DATA if you wanted to run `blastx` on them. The BLAST databases are found in `/shared/team/db/blast`.
 
-It was a bit disappointing that only 33% of the reads in our dataset were assigned. We could try a much bigger database than `k2_standard_16hb` such as `k2_pluspfp` which contains protozoal and fungal sequences as well as the other ones. 
+It was a bit disappointing that only 33% of the reads in our dataset were assigned. We could try a much bigger database than `k2_standard_16gb` such as `k2_pluspfp` which contains protozoal, fungal and plant sequences, as well as taxa contained in `k2_standard`. 
 
 To do this we will need to use the Kubernetes cluster in CLIMB-BIG-DATA. With the Kubernetes cluster we can run much bigger tasks requiring much more CPU power, or more memory than in a notebook container like this.
 
