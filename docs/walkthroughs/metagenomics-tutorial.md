@@ -2,7 +2,9 @@
 
 In this tutorial we will look at some metagenomics sequences that were sequenced from DNA extracted from the Worcester and Birmingham Canal at the University of Birmingham. In this case the canal water was fetched, DNA extracted and data was generated on the Oxford Nanopore MinION sequencing platform by Josh Quick.
 
-![image.png](attachment:a366a578-7bed-45e1-be5f-43f9ccc07e7e.png)
+![image.png](https://s0.geograph.org.uk/geophotos/03/42/44/3424466_b680b84c_original.jpg)
+
+The Worcester and Birmingham Canal near University Station (photo by Philip Halling)
 
 ## Setting up the environment
 
