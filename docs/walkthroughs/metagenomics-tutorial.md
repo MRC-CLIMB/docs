@@ -6,6 +6,14 @@ In this tutorial we will look at some metagenomics sequences that were sequenced
 
 The Worcester and Birmingham Canal near University Station (photo by Philip Halling)
 
+## Before you begin
+
+This tutorial assumes you are working on CLIMB-BIG-DATA in a JupyterHub notebook. That is why many of the commands are prepended with the "!" (exclamation mark) symbol - which tells the notebook to run the command as if it was on the command line.
+
+You could do the tutorial without JupyterHub notebooks in the Terminal, in which case remove the "!" before each command.
+
+Have a look around this documentation site if you would like to understand more about what a JupyterHub notebook is.
+
 ## Setting up the environment
 
 When working on CLIMB-BIG-DATA with Conda, always work in a new Conda environment. You will not be able to add software to the base environment.
@@ -258,12 +266,13 @@ Now we can do some magic with R.
 
 For the next part, either change the running kernel type (using the dropdown menu on the top right) to "R", or flip over to RStudio (via File - New Launcher in the menu bar).
 
-Now we can do some magic with R.
-
 
 ```python
 library(tidyverse)
 ```
+
+    UsageError: Cell magic `%%R` not found.
+
 
 
 ```python
@@ -309,7 +318,7 @@ df %>%
 
 
     
-![svg](output_46_0.svg)
+![svg](output_47_0.svg)
     
 
 
