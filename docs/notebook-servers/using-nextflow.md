@@ -73,7 +73,7 @@ Once the workflow has finished, run the above command again:
 ```console
 jovyan:~$ kubectl get pods
 NAME                                         READY   STATUS    RESTARTS   AGE
-jupyter-andysmith-2eclimb-2dbig-2ddata-2dd   1/1     Running   0          17m
+jupyter-demouser-2eclimb-2dbig-2ddata-2dd   1/1     Running   0          17m
 jovyan:~$
 ```
 

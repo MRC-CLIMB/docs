@@ -24,7 +24,7 @@ When you first launch a notebook server, we generate a default `.condarc` in you
 ```console
 jovyan:~$ cat ~/.condarc
 envs_dirs:
-  - /shared/team/conda/andysmith.andy-bryn-dev-t
+  - /shared/team/conda/demouser.andy-bryn-dev-t
 [...]
 ```
 
@@ -65,7 +65,7 @@ jovyan:~$ conda info --envs
 # conda environments:
 #
 base                     /opt/conda
-bactopia                 /shared/team/conda/andysmith.andy-bryn-dev-t/bactopia
+bactopia                 /shared/team/conda/demouser.andy-bryn-dev-t/bactopia
 ```
 
 And finally lets activate the environment

@@ -13,7 +13,7 @@
 
 ## Finding your way around the JupyterLab interface
 
-We highly recommend spending a few moments familiarising yourself with the basic JupyterLab interface. Head on over to the [JupyterLab interface docs](https://jupyterlab.readthedocs.io/en/stable/user/interface.html) to get started.
+We highly recommend spending a few moments familiarizing yourself with the basic JupyterLab interface. Head on over to the [JupyterLab interface docs](https://jupyterlab.readthedocs.io/en/stable/user/interface.html) to get started.
 
 Fundamentally, your screen is divided into a few areas. You'll see context menus at the top (File, Edit, View, Run etc.), a file browser pane on the left, and an activity area that initially displays a launcher interface with tiles. Clicking on one of these tiles will open a new tab in the activity area.
 

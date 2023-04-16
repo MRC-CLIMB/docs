@@ -2,7 +2,7 @@
 
 ## Home directory
 
-Your home directory `/home/jovyan` (~) is actually a mount that maps to persistant storage for your CLIMB user. Anything written here will be persisted, even after the container is stopped and restarted. Home directories are intentionally small (20GB by default, depending on your tier) and are not intended for large conda environments or databases, for example. This will make more sense once you understand the other storage options available to you.
+Your home directory `/home/jovyan` (~) is actually a mount that maps to persistent storage for your CLIMB user. Anything written here will be persisted, even after the container is stopped and restarted. Home directories are intentionally small (20GB by default, depending on your tier) and are not intended for large conda environments or databases, for example. This will make more sense once you understand the other storage options available to you.
 
 Your home directory is also the default/base location for the file browser pane on the left.
 
@@ -10,7 +10,7 @@ Your home directory is also the default/base location for the file browser pane 
 
 You'll find a writable 'team share' mounted at `/shared/team`, and symlinked to your home directory by default as `shared-team` (hence it shows in the file browser).
 
-This is a larger storage location (1GB+ depending on teir) that all team members share simultaneus read/write access to. It's also SSD-backed, so its extremely fast.
+This is a larger storage location (1GB+ depending on tier) that all team members share simultaneous read/write access to. It's also SSD-backed, so its extremely fast.
 
 ## S3 Buckets
 

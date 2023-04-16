@@ -4,7 +4,7 @@ Select `File -> New -> Terminal`, or click the Terminal icon on the launcher pan
 
 <!-- prettier-ignore -->
 !!! info "Who is jovyan?"
-    Looking at your bash prompot, you'll notice that your username is `jovyan` (there's a backstory, but it means 'related to Jupyter'). Why is everyone's username the same? Your notebook server is running as a [container](https://cloud.google.com/learn/what-are-containers). The container instance is private and linked to your Bryn user's storage, but the image it runs is the same for everyone. As a result, it is not necessary or desirable to have unique system users.
+    Looking at your bash prompt, you'll notice that your username is `jovyan` (there's a backstory, but it means 'related to Jupyter'). Why is everyone's username the same? Your notebook server is running as a [container](https://cloud.google.com/learn/what-are-containers). The container instance is private and linked to your Bryn user's storage, but the image it runs is the same for everyone. As a result, it is not necessary or desirable to have unique system users.
 
     TLDR: don't worry about it. Inside your notebook server, your username is `jovyan`
 
