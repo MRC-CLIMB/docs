@@ -33,4 +33,7 @@ How to use the terminal inside a notebook server, with an explanation of caveats
 An explanation of the different storage options available and when to use what.
 
 [Installing software with Conda](notebook-servers/installing-software-with-conda.md)  
-How to install software using Conda, in the context of a containerised environment.
+How to install software using Conda, in the context of a containerized environment.
+
+[Using Nextflow](notebook-servers/using-nextflow.md)  
+How to use Nextflow with CLIMB-BIG-DATA.

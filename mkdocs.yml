@@ -47,3 +47,4 @@ nav:
       - "Using the terminal": "notebook-servers/using-the-terminal.md"
       - "Understanding storage": "notebook-servers/understanding-storage.md"
       - "Installing software with Conda": "notebook-servers/installing-software-with-conda.md"
+      - "Using Nextflow": "notebook-servers/using-nextflow.md"
