@@ -2,7 +2,7 @@
 
 ## Where do I sign in?
 
-All CLIMB-BIG-DATA resouces are accessed via the Bryn web interface.
+All CLIMB-BIG-DATA resources are accessed via the Bryn web interface.
 
 You can login to Bryn at [https://bryn.climb.ac.uk/account/login/](https://bryn.climb.ac.uk/account/login/)
 
@@ -48,7 +48,7 @@ Congratulations, two-factor authentication is now enabled.
 
 ### Backup codes
 
-You will now have the option to generate backup codes. This is a list of single-use codes that enable you to gain access in the event of the loss of your device. **This is strongly reccommended**.
+You will now have the option to generate backup codes. This is a list of single-use codes that enable you to gain access in the event of the loss of your device. **This is strongly recommended**.
 
 Follow the link to 'setup your backup codes' as seen in the screenshot below:
 
@@ -114,7 +114,7 @@ If you have setup your authentication but the 6-digit code does not work, you ma
 
 #### Why are my backup codes not working ?
 
-You will only have X backup codes to use. Once they have been used up, you will not be able to access your account. These are to be used when either the app/desktop autheticators do not work. You can check your codes and how many you have left, please see 2FA Management.
+You will only have X backup codes to use. Once they have been used up, you will not be able to access your account. These are to be used when either the app/desktop authenticators do not work. You can check your codes and how many you have left, please see 2FA Management.
 
 #### I have the authenticator app, why wont it let me scan anything ?
 
