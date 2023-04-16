@@ -22,3 +22,7 @@ Everything you need to understand, use and get the most out of Jupyter Notebook 
 
 [Introduction](notebook-servers/introduction.md)  
 An introduction to notebook servers.
+
+[Metagenomics walkthrough](walkthroughs/metagenomics.md)
+A simple walk-through of some CLIMB-BIG-DATA functionality
+
