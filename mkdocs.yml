@@ -52,3 +52,4 @@ nav:
       - "Using Nextflow": "notebook-servers/using-nextflow.md"
   - "Walkthroughs":
       - "Metagenomics": "walkthroughs/metagenomics-tutorial.md"
+      - "Genome assembly": "walkthroughs/genome-assembly/spades.md"

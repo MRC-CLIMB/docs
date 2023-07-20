@@ -1,9 +1,18 @@
 # Using RStudio
 
-Was originally an interface to interactive with `R` programming language. Since July 2022, it is now known as Posit as they support other languages such as python. The main feature remains the same, to easily edit scripts and view input/ouput files. Our version of RStudio only supports the R programming language.
+RStudio is an integrated development environment (IDE) specifically designed for the R programming language. It provides a user-friendly interface that simplifies the process of coding, debugging, data visualization, and data analysis using R. RStudio is available in both open-source and commercial editions.
 
-If you are not familiar with `R` or RStudio you can find more information here: https://education.rstudio.com/learn/beginner/ 
+RStudio was originally an interface to interactive with `R` programming language. Since July 2022, it is now known as Posit as they support other languages such as python. The main feature remains the same, to easily edit scripts and view input/ouput files. Our version of RStudio only supports the `R` programming language. Here are the top five features of RStudio:
 
+* **Intuitive Code Editor**: RStudio provides an intuitive code editor with syntax highlighting, code completion, and code folding. These features make it easier to write, edit, and navigate through R code, reducing errors and improving coding efficiency.
+* **Interactive Data Visualization**: RStudio has an integrated plot viewer that supports interactive and high-quality data visualizations using popular R packages like ggplot2 and plotly. Users can easily explore and customize visualizations to gain insights from data.
+* **Workspace and Data Management**: RStudio offers a workspace panel that displays all the variables and data objects currently in memory. Users can inspect, manipulate, and remove objects directly from the workspace, making it easy to manage data and perform exploratory data analysis.
+* **R Markdown Support**: RStudio has strong support for R Markdown, a format that allows users to create dynamic documents that combine R code, visualizations, and narrative text. This feature is beneficial for creating reproducible reports, research papers, and data-driven presentations.
+* **Integrated R Console and Terminal**: RStudio includes a built-in R console that allows users to interactively execute R code and see the output in real-time. Additionally, it provides a terminal console for executing system commands and running scripts from the command line, making it a versatile tool for data analysis and workflow management.
+
+If you are not familiar with `R` or RStudio you can find more information here: [https://education.rstudio.com/learn/beginner/ 
+](https://education.rstudio.com/learn/beginner/ 
+)
 ## How to start?
 
 Both `R` and RStudio are already installed for you. You will find them under the “Notebooks” section of the Main Work Area. 
