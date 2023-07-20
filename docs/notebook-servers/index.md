@@ -2,7 +2,7 @@
 
 Everything you need to understand, use and get the most out of Jupyter Notebook Servers.
 
-[Introduction](introduction.md)  
+[Introduction](read-this-first.md)  
 An introduction to the what and why of notebook servers.
 
 [Quick start](quick-start.md)  
