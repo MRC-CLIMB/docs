@@ -8,6 +8,8 @@ Select `File -> New -> Terminal`, or click the Terminal icon on the launcher pan
 
     TLDR: don't worry about it. Inside your notebook server, your username is `jovyan`
 
+![By jove comic](../img/by-jove.jpg)
+
 ## Where am I? Who am I?
 
 By default, you're in a bash shell running against the base operating system of the climb-jupyterhub container image (which is based on Ubuntu). You'll see in your bash prompt that you're in your home directory (represented by the tilde character `~`).
