@@ -42,7 +42,7 @@ nav:
       - "Authentication": "getting-started/authentication.md"
   - "Notebook Servers":
       - notebook-servers/index.md
-      - "Introduction": "notebook-servers/introduction.md"
+      - "Read This First!": "notebook-servers/read-this-first.md"
       - "Quick start": "notebook-servers/quick-start.md"
       - "Using the terminal": "notebook-servers/using-the-terminal.md"
       - "Understanding storage": "notebook-servers/understanding-storage.md"
