@@ -173,5 +173,5 @@ conda deactivate
 
 ## Post assembly steps
 
-Once assembly is finished you can do a more in depth check of the quality and completeness using the BUSCO and Bandage worksheet.
+Once assembly is finished you can do a more in depth check of the quality and completeness using the BUSCO and Bandage.
 You can get basic metrics such as N50 using the tool [Quast](https://github.com/ablab/quast) which can be [downloaded via conda](https://anaconda.org/bioconda/quast)
