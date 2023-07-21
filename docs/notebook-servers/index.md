@@ -11,7 +11,7 @@ How to launch, access and get started using a notebook server.
 [Using the terminal](using-the-terminal.md)  
 How to use the terminal inside a notebook server, with an explanation of caveats.
 
-[Understanding storage](understanding-storage.md)  
+[Understanding storage](../storage/index.md)  
 An explanation of the different storage options available and when to use what.
 
 [Installing software with Conda](installing-software-with-conda.md)  

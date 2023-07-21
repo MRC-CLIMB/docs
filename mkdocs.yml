@@ -47,7 +47,7 @@ nav:
       - "Using Jupyter notebooks": "notebook-servers/using-jupyter.md"
       - "Using RStudio": "notebook-servers/using-rstudio.md"
       - "Using the terminal": "notebook-servers/using-the-terminal.md"
-      - "Understanding storage": "notebook-servers/understanding-storage.md"
+      - "Understanding storage": "storage/index.md"
       - "Installing software with Conda": "notebook-servers/installing-software-with-conda.md"
       - "Using Nextflow": "notebook-servers/using-nextflow.md"
   - "Walkthroughs":

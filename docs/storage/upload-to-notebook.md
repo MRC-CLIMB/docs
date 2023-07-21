@@ -1,4 +1,4 @@
-# Transferring from your local machine to the CLIMB-BIG-DATA S3 buckets
+# Transferring from your local machine to and from your CLIMB-BIG-DATA notebook server
 
 Transfer between your notebook server and other systems can be done in a number of ways:
 
