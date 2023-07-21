@@ -20,7 +20,7 @@ How to login to Bryn, and setup two-factor authentication.
 
 Everything you need to understand, use and get the most out of Jupyter Notebook Servers.
 
-[Introduction](notebook-servers/introduction.md)  
+[Introduction](notebook-servers/read-this-first.md)  
 An introduction to the what and why of notebook servers.
 
 [Quick start](notebook-servers/quick-start.md)  
