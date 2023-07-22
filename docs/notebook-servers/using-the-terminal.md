@@ -26,3 +26,13 @@ jovyan:~$ pwd
 ## How do I install software?
 
 In the first instance, check out [installing software with conda](installing-software-with-conda.md).
+
+## What next?
+
+You many want to read the reference material on using the Linux command line
+
+* [Linux Commands](../reference/linux-commands.md)
+* [Linux Pipelines](../reference/linux-pipelines.md)
+* [File Permissions in Linux](../reference/file-permissions.md)
+* [Copying files with scp](../reference/scp.md)
+* [Copying files with rsync](../reference/rsync.md)

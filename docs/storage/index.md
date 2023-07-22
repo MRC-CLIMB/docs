@@ -2,8 +2,8 @@
 
 This section of the documentation will explain how to transfer data between CLIMB-BIG-DATA and other systems. It will cover the following topics:
 
-* [Transferring within your CLIMB-BIG-DATA notebook server (S3 to notebook)](fetch-s3-to-notebook.md)
 * [Transferring from your local machine to and from your CLIMB-BIG-DATA notebook server](upload-to-notebook.md)
+* [Transferring within your CLIMB-BIG-DATA notebook server (S3 to notebook)](fetch-s3-to-notebook.md)
 * [Transferring from your local machine to the CLIMB-BIG-DATA S3 buckets](upload-local-to-s3.md)
 * [Transferring programmatically between an S3 bucket and CLIMB-BIG-DATA notebook server (using python)](program-s3-fetch.md)
 
