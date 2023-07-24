@@ -49,7 +49,7 @@ sm3cmd ls
 
 ## Creating a bucket
 
-If you have not created a bucket for your data, you should do so now in the [BRYN interface](https://bryn.climb.ac.uk/teams/V83D0V0XNKZ/buckets). You can do this by clicking on the *Create bucket* button.
+If you have not created a bucket for your data, you should do so now in the [BRYN interface](https://bryn.climb.ac.uk/teams/V83D0V0XNKZ/buckets). You can do this by clicking on the *New bucket* button.
 
 ![BRYN's web interface](./img/bryn-s3-bucket-key.png)
 
