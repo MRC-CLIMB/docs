@@ -7,6 +7,7 @@ This in short introduction, we will introduce the notebook server and help you *
 
 These notebooks are truly powerful if used correctly, as shown in these walkthroughs:
 
+* [Assembling a genome from short reads (e.g. Illumina) using SPAdes](../walkthroughs/genome-assembly/spades.md)
 * [Metagenomics in Brum](../walkthroughs/metagenomics-tutorial.md)
 
 ## Advantages of the Notebook 
@@ -120,11 +121,11 @@ jovyan:~$ touch  /usr/local/bin
 touch: setting times of '/usr/local/bin': Permission denied
 ```
 
-For more information about data storage, please read the [Understanding Storage](understanding-storage.md) guide.
+For more information about data storage, please read the [Understanding Storage](../storage/index.md) guide.
 
 ## What's next?
 
-The notebook server is flexible, allowing you work the way you want. You may have existing data and workflows that you want to bring to the notebook server, if so please read the [Understanding Storage](understanding-storage.md) guide.
+The notebook server is flexible, allowing you work the way you want. You may have existing data and workflows that you want to bring to the notebook server, if so please read the [Understanding Storage](../storage/index.md) guide.
 
 You may also want to read more about the specific features of the notebook server:
 
