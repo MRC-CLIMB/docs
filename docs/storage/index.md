@@ -12,6 +12,8 @@ This section of the documentation will explain how to transfer data between CLIM
     For best performance, we recommend storing primary data (sequenced reads) on S3 buckets and pulling them down on demand for analysis. This can 
     be automated with workflow languages such as nextflow. 
 
+If you are moving from an older CLIMB VM to the new notebook model, [you can read a dedicated guide here](transfer-from-vm-to-s3.md).
+
 To first understand how to transfer data, it is important to understand how data is stored in CLIMB-BIG-DATA. This is covered in the next section.
 
 ## Understanding storage
