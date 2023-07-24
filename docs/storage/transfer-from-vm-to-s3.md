@@ -60,7 +60,7 @@ The create bucket interface will then appear. You should give your bucket a name
 
 ## A worked example
 
-Now with `s3cmd` ready to go, I will demonstrate how to transfer data with a worked example. This worked example using my own (important) data, that I am transferring from my VM to S3. I have a output of a recent run of ClonalFrameML on my VM, and I want to transfer it to S3. 
+Now with `s3cmd` ready to go, I will demonstrate how to transfer data with a worked example. This worked example uses my own (important) data, that I am transferring from my VM to S3. I have a output of a recent run of ClonalFrameML on my VM, and I want to transfer it to S3. 
 
 We will need to correct name for our bucket which we can see using `s3cmd ls`
 
