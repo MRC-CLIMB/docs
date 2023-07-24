@@ -117,7 +117,7 @@ upload: 'clonal_heidl/clean.full.aln' -> 's3://quadram-bioinfo-training/clean.fu
 Done. Uploaded 3594366897 bytes in 330.1 seconds, 10.38 MB/s.
 ```
 
-Once the transfer is complete, you can check that the data is in S3 by listing the contents of the bucket. For me, I see the following:
+Once the transfer is complete, you can check that the data is in S3 by listing the contents of the bucket. For me, I do the following:
 
 ```bash
 s3cmd ls s3://quadram-bioinfo-training/clonal_heidl/
