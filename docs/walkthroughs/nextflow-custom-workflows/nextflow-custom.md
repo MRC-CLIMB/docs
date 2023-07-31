@@ -6,13 +6,13 @@ Suggested reading before starting this tutorial:
 * [Using Nextflow](../../notebook-servers/using-nextflow.md)
 * [Understanding Storage](../../storage/index.md)
 
-Workflow management systems such as nextflow can be used to create reproducible and scalable workflows. This tutorial consists of taking a test pipeline with following workflow
+Workflow management systems such as nextflow can be used to create reproducible and scalable workflows. This tutorial consists of taking a test pipeline with the following workflow:
 
-[Workflow 1](../../img/workflow1.png)
+<img src="../../img/workflow1.png" alt= "Workflow1" height="400">
 
-And modifying and extending it to follow this workflow
+And modifying and extending it to follow this workflow:
 
-[Workflow 2](../../img/workflow2.png)
+<img src="../../img/workflow2.png" alt= "Workflow2" height="500">
 
 ## TASK 1: Try running the test pipeline
 
@@ -67,9 +67,9 @@ You will see the processes contain the following definitions:
 
 * **Tag:** Custom label for a process (makes it easier to identify a task in the nextflow logs)
 
-* **Cpus:** Number of cpus to allocate to a task
+* **Cpus:** Number of cpus to allocate to a process
 
-* **Memory:** Memory allocated to a task
+* **Memory:** Memory allocated to a process
 
 * **Container:** Container used to run the process. Pulled from the climb-big-data [quay.io](https://quay.io/organization/climb-big-data) repository
 
@@ -83,7 +83,7 @@ And the following declarations:
 
 * **Script:** The command/script to run
 
-Note that to run a nextflow pipeline using Kubernetes (k8s), `cpu`, `memory` and `container` must be defined for every process.
+Note that to run a nextflow pipeline using Kubernetes (k8s): `cpu`, `memory` and `container` must be defined for every process.
 
 Nextflow uses input and output channels to pass data and files between processes. These channels define the execution flow of the pipeline. The script string is executed as a Bash script.
 
@@ -149,9 +149,9 @@ CPU hours   : 0.3
 Succeeded   : 3
 ```
 
-Notice that one process ran locally, and two processes with the k8s `executor >  local (1), k8s (2)`. If you take a look at the process `tbfastqs` within `modules/test-datasets/tbfastqs.nf`, you'll see the directive `executor 'local'` has been defined, telling nextflow to run this process locally. By default processes will run on the k8s unless otherwise specified (due to the defaults set in the CLIMB nextflow config, you can see what the config looks like using `nextflow config`).
+Notice that one process ran locally, and two processes with the k8s `executor >  local (1), k8s (2)`. If you take a look at the process `tbfastqs` within `modules/test-datasets/tbfastqs.nf`, you'll see the directive `executor 'local'` has been defined, telling nextflow to run this process locally. By default, processes will run on the k8s unless otherwise specified (due to the defaults set in the CLIMB nextflow config, you can see what the config looks like using the command `nextflow config`).
 
-Open a new terminal window, If you run `ls /shared/team/nxf_work/$JUPYTERHUB_USER`, you’ll see a `work` directory has been created (this is the directory nextflow uses when running the processes). An output directory with the results from the pipeline will also be created at the path you set in the nextflow.config (the `publishDir` declaration in a process identifies which output files from a process should be copied from the `work` directory to the `output` directory).
+Open a new terminal window, if you run `ls /shared/team/nxf_work/$JUPYTERHUB_USER`, you’ll see a `work` directory has been created (this is the directory nextflow uses when running the processes). An output directory with the results from the pipeline will also be created at the path you set in the nextflow.config (the `publishDir` declaration in a process identifies which output files from a process should be copied from the `work` directory to the `output` directory).
 
 ## TASK 2: Remove tbfastqs process and create a channel for fastqs
 
@@ -161,12 +161,12 @@ The test-pipeline pulls a pair of fastqs from the ENA for testing purposes. In t
 
 ### Step 1: Remove tbfastqs process from main.nf
 
-Open the `modules/test-pipeline/main.nf` file in text editor, e.g. `nano main.nf`. Remove the `include` statement for tbfastqs and remove the tbfastqs process from the workflow itself. 
+Open the `modules/test-pipeline/main.nf` file in a text editor, e.g. `nano main.nf`. Remove the `include` statement for tbfastqs and remove the tbfastqs process from the workflow itself. 
 
 
 ### Step 2: Add a parameter to the nextflow.config for the input fastq directory
 
-First let's download the 2 pairs of fastqs from the ENA to a directory within `/shared/team/`, e.g. `/shared/team/test-fastqs`. We are using `/shared/team/` as it is mounted to the Kubernetes pods.
+First, let's download 2 pairs of fastqs from the ENA to a directory within `/shared/team/`, e.g. `/shared/team/test-fastqs`. We are using `/shared/team/` as it is mounted to the Kubernetes pods.
 
 ```console
 jovyan:~$ cd /shared/team/
@@ -187,17 +187,17 @@ We want to add this directory with the fastqs as a parameter to the `nextflow.co
 PARAM_NAME=/PATH/GLOB_FOR_FASTQS
 ```
 where
-* **PARAM_NAME:** Set a name for the parameter
+* **PARAM_NAME:** Set a name for the parameter.
 
 * **PATH:** Path to the fastqs.
 
-* **GLOB_FOR_FASTQS:** We need to set a glob pattern for Nextflow to identify the fastqs pairs.
+* **GLOB_FOR_FASTQS:** We need to set a glob pattern for nextflow to identify the fastqs pairs.
 Hint: Take a look at the example in https://www.nextflow.io/docs/latest/channel.html#fromfilepairs
 
 
 ### Step 3: Add a Channel for the input fastqs
 
-In main.nf, add a channel for the input fastqs. In nextflow, data is passed to processes using channels. An input channel for paired fastqs takes the following general form:
+In `main.nf`, add a channel for the input fastqs. In nextflow, data is passed to processes using channels. An input channel for paired fastqs takes the following general form:
 ```
 Channel.fromFilePairs(INPUT_PATH, OPTIONS)
        .set{ CHANNEL_NAME }
@@ -215,9 +215,9 @@ to match the cardinality set in the input declaration for the trimgalore module 
 
 The input channel for the trimgalore process is set to the output of the tbfastq process, e.g. `trimgalore(tbfastqs.out.tbfastqs_out)`. This now needs to be changed to the `CHANNEL_NAME` you set in Step 3.
 
-Now, try running the pipeline again, but this time run the pipeline in the background using the `-bg` option, and redirect the `STDOUT` to a file
+Now, try running the pipeline again, but this time run the pipeline in the background using the `-bg` option and redirect the `STDOUT` to a file:
 ```console
-nextflow run main.nf -bg > task2.txt
+jovyan:~/modules/test-pipeline$ nextflow run main.nf -bg > task2.txt
 ```
 You check the progress of the pipeline with `cat task2.txt`
 
@@ -225,33 +225,37 @@ You check the progress of the pipeline with `cat task2.txt`
 
 Background reading: https://www.nextflow.io/docs/latest/operator.html#collect
 
-Take a look at the structure of the current workflow, and try to add the processes from `modules/abricate.nf` and `modules/quast.nf` to the workflow
+Take a look at the structure of the current workflow, and try to add the processes from `modules/abricate.nf` and `modules/quast.nf` to the workflow.
 
 ### Step 1: Add abricate process to the workflow (remember to add include statement!)
 
-A process declaration takes the general form :
+A process declaration takes the general form:
 ```
 PROCESS_NAME(INPUT_CHANNEL_1, INPUT_CHANNEL_2, …, INPUT_CHANNEL_N)
 ```
 where
-* **PROCESS_NAME:** name of the process as named in the module file
+* **PROCESS_NAME:** Name of the process as named in the module file.
 
-* **INPUT_CHANNEL_{1:N}:** Input channels to the process separated by commas
+* **INPUT_CHANNEL_{1:N}:** Input channels to the process separated by commas.
 
 E.g. `shovill(trimgalore.out.trimgalore_out)` uses the output channel `trimgalore_out` from trimgalore (as defined in the process in `modules/trimgalore.nf`) for its input channel. For abricate, we have the one input channel which is the output channel from shovill `shovill_out`
 
 ### Step 2: Add quast process to workflow
 
-Next, try to add the process from `modules/quast.nf` to the workflow. Quast takes as its input channel the output `shovill_quast` channel from shovill. However, this time we also need to use an operator on the channel. In the process declaration, operators are used like so:
+Next, try to add the process from `modules/quast.nf` to the workflow. Quast takes the output channel `shovill_quast` from shovill as its input channel. However, this time we also need to use an operator on the channel. In the process declaration, operators are used like so:
 ```
 PROCESS_NAME(INPUT_CHANNEL.OPERATOR)
 ```
 If we look at the script for the quast process in `modules/quast.nf`
 ```
-quast.py -t ${task.cpus} -o . --contig-thresholds 0 --no-html --no-plots *.fasta
+script:
+
+      """
+      quast.py -t ${task.cpus} -o . --contig-thresholds 0 --no-html --no-plots *.fasta
+      """
 ```
 
-you’ll see from the `*.fasta` wildcard that quast can run on multiple fastas at once. As such, we want to gather the output fastas from all of our run shovill processes (in this example, the shovill process will run twice as we have two pairs of fastq to assemble). To do this we will use the operator `.collect()`.
+you’ll see from the `*.fasta` wildcard that quast can run on multiple fastas at once. As such, we want to gather the output fastas from all our run shovill processes (note in this example, the shovill process will run only once as we have one pair of fastq to assemble, but if we had multiple pairs of fastqs the shovill process would run multiple times). To do this we will use the operator `.collect()`.
 
 Try running the pipeline again, to see if you’ve correctly added abricate and quast to the workflow.
 
@@ -273,16 +277,16 @@ Note that `/shared/public` is also mounted to the Kubenetes pods.
 
 ### Step 2: Create a channel for the database 
 
-In `main.nf` create a channel for the kraken2 database files. This time use the `Channel.fromPath` directive (https://www.nextflow.io/docs/latest/channel.html#frompath), using the parameter you set in step 1 as the path.
+In `main.nf` create a channel for the kraken2 database files. This time use the `Channel.fromPath` directive (https://www.nextflow.io/docs/latest/channel.html#frompath), using the parameter you set in Step 1 as the path.
 
 ### Step 3: Add the kraken2 process to the workflow
 
-Add the kraken2 process defined in `modules/kraken2.nf` to the main workflow. Kraken2 will take 2 input channels: the output from trimgalore `trimgalore_out`, and the kraken2 database channel from step 2. Use the operator `.toList()` for the kraken2 database channel (this will emit the kraken2 database files as a single item).
+Add the kraken2 process defined in `modules/kraken2.nf` to the main workflow. Kraken2 will take 2 input channels: the output from trimgalore `trimgalore_out`, and the kraken2 database channel from Step 2. Use the operator `.toList()` for the kraken2 database channel (this will emit the kraken2 database files as a single item).
 
 Once you've completed the above steps, try running the workflow again. Your workflow should now resemble the second figure at the top of this page.
 
 ## Solution 
-Once you have completed all the tasks, your workflow and config should look something like the following
+Once you have completed all the tasks, your workflow and config should look something like the following:
 
 main.nf
 ```
