@@ -166,7 +166,7 @@ Open the `modules/test-pipeline/main.nf` file in a text editor, e.g. `nano main.
 
 ### Step 2: Add a parameter to the nextflow.config for the input fastq directory
 
-First, let's download 2 pairs of fastqs from the ENA to a directory within `/shared/team/`, e.g. `/shared/team/test-fastqs`. We are using `/shared/team/` as it is mounted to the Kubernetes pods.
+First, let's download a pair of fastqs from the ENA to a directory within `/shared/team/`, e.g. `/shared/team/test-fastqs`. We are using `/shared/team/` as it is mounted to the Kubernetes pods.
 
 ```console
 jovyan:~$ cd /shared/team/
@@ -221,7 +221,7 @@ jovyan:~/modules/test-pipeline$ nextflow run main.nf -bg > task2.txt
 ```
 You check the progress of the pipeline with `cat task2.txt`
 
-## TASK 4:  Add abricate and quast processes
+## TASK 3:  Add abricate and quast processes
 
 Background reading: https://www.nextflow.io/docs/latest/operator.html#collect
 
