@@ -89,11 +89,11 @@ There are many “cheat sheets” available for [individual packages which you c
 2. Click on the **Upload** tab in the **Output** section.
 ![Rstudio](../img/rstudio-Upload.png)
 
-3. A pop-up windon names *Upload Files* will be open.
+3. A pop-up window *Upload Files* will be open.
 ![Rstudio](../img/rstudio-Upload-files.png) 
 
 4. Click on the  *Choose file* and browse to the location of the file within the local machine and then select the file you want to upload and click on "Open".
-![Rstudio](../img/rstudio-Upload-files2.png)
+![Rstudio](../img/rstudio-upload-files2.png)
 
 4. Click **OK**
 
