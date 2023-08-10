@@ -80,3 +80,22 @@ ggplot(mpg, aes(displ, hwy, colour = class)) +
 There are many “cheat sheets” available for [individual packages which you can find here.](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-visualization-2.1.pdf 
 )
 
+
+## How to upload file to Rstudio from local machine
+
+1. Open the Rstudio session.
+![Rstudio](../img/rstudio.png)
+
+2. Click on the **Upload** tab in the **Output** section.
+![Rstudio](../img/rstudio-Upload.png)
+
+3. A pop-up windon names *Upload Files* will be open.
+![Rstudio](../img/rstudio-Upload-files.png) 
+
+4. Click on the  *Choose file* and browse to the location of the file within the local machine and then select the file you want to upload and click on "Open".
+![Rstudio](../img/rstudio-Upload-files2.png)
+
+4. Click **OK**
+
+5. Now you can see the file in the **Output** section.
+![Rstudio](../img/rstudio-uploaded-files.png)
