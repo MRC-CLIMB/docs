@@ -54,3 +54,4 @@ nav:
       - "Metagenomics": "walkthroughs/metagenomics-tutorial.md"
       - "Genome assembly": "walkthroughs/genome-assembly/spades.md"
       - "Custom Nextflow Workflows": "walkthroughs/nextflow-custom-workflows/nextflow-custom.md"
+      - "QIIME 2": "walkthroughs/qiime2.md"
