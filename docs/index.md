@@ -39,4 +39,7 @@ How to install software using Conda, in the context of a containerized environme
 How to use Nextflow with CLIMB-BIG-DATA.
 
 [Metagenomics walkthrough](walkthroughs/metagenomics-tutorial.md)
-A simple walk-through of some CLIMB-BIG-DATA functionality
+A simple walk-through of some CLIMB-BIG-DATA functionality/
+
+[QIIME 2](walkthroughs/qiime2.md)
+How to install QIIME 2 on a notebook server and basic usage.
