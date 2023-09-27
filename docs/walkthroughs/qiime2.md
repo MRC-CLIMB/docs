@@ -13,11 +13,11 @@ To install via Conda first you must download the environment YAML file supplied 
 
 ```wget https://data.qiime2.org/distro/core/qiime2-2023.7-py38-linux-conda.yml```
 
-This will download a YAML file called ```qiime2-2023.7-py38-linux-conda.yml```. The  You can create an evironment from this YAML:
+This will download a YAML file called ```qiime2-2023.7-py38-linux-conda.yml```. The  You can create an environment from this YAML:
 
 ```conda env create -n qiime2 --file qiime2-2023.7-py38-linux-conda.yml```
 
-In some instances the creation of the QIIME 2 Conda environment will not solve. This may be caused by the conda cofiguration being set to to having a strict priority. Briefly, Conda channels are locations where the packages are stored. When you install a conda package you are downloading and installing them from remote URLs. These channels are the warehouse where packages are managed. Different channels can host the same package. This can be to the users' benefit as they can access different management structures for a given package, but it can also be to their detriment as there can be collisions in how these packages are managed. 
+In some instances the creation of the QIIME 2 Conda environment will not solve. This may be caused by the conda configuration being set to to having a strict priority. Briefly, Conda channels are locations where the packages are stored. When you install a conda package you are downloading and installing them from remote URLs. These channels are the warehouse where packages are managed. Different channels can host the same package. This can be to the users' benefit as they can access different management structures for a given package, but it can also be to their detriment as there can be collisions in how these packages are managed. 
 
 In short, strict channel priority can lead to lower priority channels to not be considered if a package is in a higher priority channel. For more information, see [here](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-channels.html). As QIIME 2 has a large number of dependencies, this can lead to difficulty installing it.
 
@@ -76,12 +76,12 @@ qiime demux emp-single \
   --o-error-correction-details demux-details.qza
 ```
 
-The QIIME 2 ecosystem is substational. For a reference of the different functionalities, see [here](https://docs.qiime2.org/2023.7/tutorials/).
+The QIIME 2 ecosystem is substantial. For a reference of the different functionalities, see [here](https://docs.qiime2.org/2023.7/tutorials/).
 
 
 #### Nextflow
 
-The same CLI tools can be encorperated into Nextflow pipelines. There is a pre-existing Nextflow config file that allows any Nextflow process running in a Docker container to be launched using the Kubernetes executor. Please see the ["Using Nextflow"](https://docs.climb.ac.uk/notebook-servers/using-nextflow/) tutorial for a full walkthrough. A number of functions in QIIME 2 can be parallelised, which serve as great candidates for being launched in Nextflow as they can take full advantge of the Kubernetes pods. Below is an example process to compute a multiple sequence alignment using [MAFFT](https://mafft.cbrc.jp/alignment/software/):
+The same CLI tools can be incorporated into Nextflow pipelines. There is a pre-existing Nextflow config file that allows any Nextflow process running in a Docker container to be launched using the Kubernetes executor. Please see the ["Using Nextflow"](https://docs.climb.ac.uk/notebook-servers/using-nextflow/) tutorial for a full walkthrough. A number of functions in QIIME 2 can be parallelized, which serve as great candidates for being launched in Nextflow as they can take full advantage of the Kubernetes pods. Below is an example process to compute a multiple sequence alignment using [MAFFT](https://mafft.cbrc.jp/alignment/software/):
 
 ```
 process mafft {
