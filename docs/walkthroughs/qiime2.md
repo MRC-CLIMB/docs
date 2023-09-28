@@ -15,13 +15,13 @@ To install via Conda first you must download the environment YAML file supplied 
 
 This will download a YAML file called ```qiime2-2023.7-py38-linux-conda.yml```. The  You can create an environment from this YAML:
 
-```conda env create -n qiime2 --file qiime2-2023.7-py38-linux-conda.yml```
+```conda env create -n qiime --file qiime2-2023.7-py38-linux-conda.yml```
 
 In some instances the creation of the QIIME 2 Conda environment will not solve. This may be caused by the conda configuration being set to to having a strict priority. Briefly, Conda channels are locations where the packages are stored. When you install a conda package you are downloading and installing them from remote URLs. These channels are the warehouse where packages are managed. Different channels can host the same package. This can be to the users' benefit as they can access different management structures for a given package, but it can also be to their detriment as there can be collisions in how these packages are managed. 
 
 In short, strict channel priority can lead to lower priority channels to not be considered if a package is in a higher priority channel. For more information, see [here](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-channels.html). As QIIME 2 has a large number of dependencies, this can lead to difficulty installing it.
 
-To see if strict priority is enabled run ```conda config --show | grep channel_priority``` and if it is then ```channel_priority: strict``` will be returned. To rectify this run:
+To see if strict priority is enabled run ```conda config --show | grep channel_priority```. If it is enabled then ```channel_priority: strict``` will be returned. To rectify this run:
 
 ```conda config --set channel_priority flexible```
 
