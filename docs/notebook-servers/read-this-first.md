@@ -3,7 +3,7 @@
 Welcome to CLIMB's Jupyter Notebook Servers, your new home on CLIMB-BIG-DATA. 
 The Notebook server is a lightweight virtualised installation of Linux, capable of running complex data science and bioinformatics tasks.
 
-This in short introduction, we will introduce the notebook server and help you *move in* into your new home. The working pattern maybe slightly different to what you are used to, so we encourage you to peruse this and associated documentation to get the most out of the Jupyter Notebook Servers. 
+In this short introduction, we will introduce the notebook server and help you *move in* into your new home. The working pattern maybe slightly different to what you are used to, so we encourage you to peruse this and associated documentation to get the most out of the Jupyter Notebook Servers. 
 
 These notebooks are truly powerful if used correctly, as shown in these walkthroughs:
 
