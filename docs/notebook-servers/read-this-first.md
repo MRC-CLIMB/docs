@@ -3,7 +3,7 @@
 Welcome to CLIMB's Jupyter Notebook Servers, your new home on CLIMB-BIG-DATA. 
 The Notebook server is a lightweight virtualised installation of Linux, capable of running complex data science and bioinformatics tasks.
 
-In this short introduction, we will introduce the notebook server and help you *move in* into your new home. The working pattern maybe slightly different to what you are used to, so we encourage you to peruse this and associated documentation to get the most out of the Jupyter Notebook Servers. 
+In this short introduction, we will introduce the notebook server and help you *move in* into your new home. The working pattern may be slightly different to what you are used to, so we encourage you to peruse this and associated documentation to get the most out of the Jupyter Notebook Servers. 
 
 These notebooks are truly powerful if used correctly, as shown in these walkthroughs:
 
@@ -16,7 +16,7 @@ Just as if you have your own physical machine, you'll have terminal access and a
 
 |   | Benefits                                             | Details                                                                                                                                                                       |
 |---|------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|  ![Checked yes](../img/checked.png) | Accesible anywhere in the world  | Eliminates key loss and VM lockouts. Access notebook servers through a user-friendly web interface, with time-limited sharing links for convenience.                                           |
+|  ![Checked yes](../img/checked.png) | Accessible anywhere in the world  | Eliminates key loss and VM lockouts. Access notebook servers through a user-friendly web interface, with time-limited sharing links for convenience.                                           |
 | ![Checked yes](../img/checked.png)  | Flexible resource usage                              | Tier-based access to minimum and maximum vCPUs and memory for notebook servers. Upgrade for larger servers or use K8s for additional cluster resources. No need to reinstall. |
 |  ![Checked yes](../img/checked.png) | GPU access                                           | Containers enable equitable GPU sharing, making them affordable compared to the VM model. CLIMB-BIG-DATA base image is pre-configured for easy A100 utilization.              |
 | ![Checked yes](../img/checked.png)  | Sandboxed environment for teaching and training      | Simplifies workshops: create a team, invite attendees, and share materials on team drive or S3. No SSH login hassles.                                                         |
@@ -98,7 +98,7 @@ You can list the contents of the `shared-team` folder:
 ls ~/shared-team
 ```
 
-It will likely be empty, if this is your first time using CLIMB. You have full access to this location and can create folders and files as you wish. Try this with touch that will create an empty file (if it doesn't exist).
+It will likely be empty, if this is your first time using CLIMB. You have full access to this location and can create folders and files as you wish. Try this with `touch`, that will create an empty file (if it doesn't exist).
 Try using `touch` on other locations, and you will see that you can only write to your home directory, the `shared-team` folder and special locations like `tmp/`.
 
 In locations where you can write, you will see the empty file `this` appear:
