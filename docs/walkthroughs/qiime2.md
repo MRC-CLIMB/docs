@@ -2,7 +2,7 @@
 
 ## What is QIIME 2?
 
-QIIME 2 ([Boylan et al., 2019](https://www.nature.com/articles/s41587-019-0209-9)) is a micrbiome analysis package with an emphasis on data transparency. In short it allows for end-to-end analysis, including demupltiplexing, noise correction, taxonomic classification, phylogeny inference and plotting. Below is a flow chart of the conceptual outline of QIIME 2 (courtesy of the authors, found [here](https://docs.qiime2.org/2023.7/tutorials/overview/)).
+QIIME 2 ([Boylan et al., 2019](https://www.nature.com/articles/s41587-019-0209-9)) is a microbiome analysis package with an emphasis on data transparency. In short it allows for end-to-end analysis, including demupltiplexing, noise correction, taxonomic classification, phylogeny inference and plotting. Below is a flow chart of the conceptual outline of QIIME 2 (courtesy of the authors, found [here](https://docs.qiime2.org/2023.7/tutorials/overview/)).
 
 <img src="../img/qiime.png" alt= "Qiime">
 
@@ -13,7 +13,7 @@ To install via Conda first you must download the environment YAML file supplied 
 
 ```wget https://data.qiime2.org/distro/core/qiime2-2023.7-py38-linux-conda.yml```
 
-This will download a YAML file called ```qiime2-2023.7-py38-linux-conda.yml```. The  You can create an environment from this YAML:
+This will download a YAML file called ```qiime2-2023.7-py38-linux-conda.yml```. You can create an environment from this YAML:
 
 ```conda env create -n qiime --file qiime2-2023.7-py38-linux-conda.yml```
 
