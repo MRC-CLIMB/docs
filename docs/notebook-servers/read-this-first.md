@@ -129,9 +129,9 @@ The notebook server is flexible, allowing you work the way you want. You may hav
 
 You may also want to read more about the specific features of the notebook server:
 
+* [Using the Terminal](using-the-terminal.md)
 * [Using Jupyter Notebooks](using-jupyter.md)
 * [Using RStudio](using-rstudio.md)
-* [Using the Terminal](using-the-terminal.md)
 
 Or there's the Walkthroughs, that will take you through a worked example of a bioinformatics analysis:
 
