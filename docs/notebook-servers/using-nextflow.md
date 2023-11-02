@@ -1,12 +1,12 @@
 # Using Nextflow
 
-## What is nextflow and how does it fit into the CLIMB-BIG-DATA platform?
+## What is Nextflow and how does it fit into the CLIMB-BIG-DATA platform?
 
 In their words, _"[Nextflow](https://nextflow.io) enables scalable and reproducible scientific workflows using software containers. It allows the adaptation of pipelines written in the most common scripting languages."_
 
 We've made Nextflow a first class citizen in CLIMB-BIG-DATA. You'll find an up-to-date stable version pre-installed in your notebook server and, more importantly, pre-configured to take advantage of our scalable kubernetes infrastructure.
 
-## How can I start using nextflow?
+## How can I start using Nextflow?
 
 [Create a notebook server](quick-start.md) and start a [terminal session](using-the-terminal.md). Now type:
 
@@ -16,11 +16,11 @@ jovyan:~$ nextflow -v
 nextflow version 23.04.0.5857
 ```
 
-Your version may be newer than the above, but the point is that nextflow is pre-installed and you should usually use this binary rather than downloading another. You don't need to follow the installation instructions in the nextflow docs.
+Your version may be newer than the above, but the point is that Nextflow is pre-installed and you should usually use this binary rather than downloading another. You don't need to follow the installation instructions in the Nextflow docs.
 
 ## Tutorial using nf-core
 
-[nf-core](https://nf-co.re/) is a community-curated set of analysis pipelines that use nextflow. We'll try running nf-core/rnaseq as an example, to demonstrate some features of how nextflow is configured to work on CLIMB.
+[nf-core](https://nf-co.re/) is a community-curated set of analysis pipelines that use Nextflow. We'll try running `nf-core/rnaseq` as an example, to demonstrate some features of how Nextflow is configured to work on CLIMB.
 
 We'll be using `-profile test`, which includes links to appropriate data. As a result, we'll only need to specify `--outdir` for now.
 
@@ -64,9 +64,9 @@ nf-a57472aaef0073c9e77a0a7e6001a849          0/1     ContainerCreating   0      
 nf-f8d94c52e9120b7b8ba117d530f77c3a          0/1     Completed
 ```
 
-[kubectl](https://kubernetes.io/docs/reference/kubectl/) is the kubernetes command line tool. It's also pre-installed in the CLIMB notebook environment, and pre-configured with credentials that map to a ServiceUser for your team.
+[`kubectl`](https://kubernetes.io/docs/reference/kubectl/) is the kubernetes command line tool. It's also pre-installed in the CLIMB notebook environment, and pre-configured with credentials that map to a ServiceUser for your team.
 
-This service user has certain privileges within your _[namespace](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/)_, or in other words an isolated part of our cluster created specifically for your team. The command `kubectl get pods` above is returning a list of pods currently running in your namespace. You'll see your notebook server (`jupyter-demouser-2eclimb-2dbig-2ddata-2dd`) and a number of nextflow pods that are running workflow process containers. These will be in various states as they execute and then disappear.
+This service user has certain privileges within your _[namespace](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/)_, or in other words an isolated part of our cluster created specifically for your team. The command `kubectl get pods` above is returning a list of pods currently running in your namespace. You'll see your notebook server (`jupyter-demouser-2eclimb-2dbig-2ddata-2dd`) and a number of Nextflow pods that are running workflow process containers. These will be in various states as they execute and then disappear.
 
 Once the workflow has finished, run the above command again:
 
@@ -91,27 +91,27 @@ CPU hours : 0.4
 Succeeded : 196
 ```
 
-We specified `nfout` as out outdir and you'll see the directory in the file browser on the left hand side of the JupyterLab interface. Take a look in `nfout/pipeline_info/` inside your file browser. Try double clicking on the various html, yaml and csv files here and you'll see that they open in new tabs for immediate reading.
+We specified `nfout` as out outdir and you'll see the directory in the file browser on the left hand side of the JupyterLab interface. Take a look in `nfout/pipeline_info/` inside your file browser. Try double clicking on the various HTML, YAML and CSV files here and you'll see that they open in new tabs for immediate reading.
 
-One thing to note here, when opening `html` files such as `execution_report_[date].html`, javascript is disabled in the tab by default. Right click the file and select `Open in New Browser Tab` from the context window to see the full report.
+One thing to note here, when opening HTML files such as `execution_report_[date].html`, JavaScript is disabled in the tab by default. Right click the file and select `Open in New Browser Tab` from the context window to see the full report.
 
-### Where are nextflow assets and temporary/intermediate (workdir) outputs stored?
+### Where are Nextflow assets and temporary/intermediate (workdir) outputs stored?
 
-By default, the CLIMB nextflow config sets nextflow 'home' to `/shared/team/nxf_work/$JUPYTERHUB_USER`. You'll see a number of subdirectories exist at that location, including `assets`, which will now contain the rnaseq workflow we just used, and `work`: where the intermediate outputs are located.
+By default, the CLIMB Nextflow config sets Nextflow 'home' to `/shared/team/nxf_work/$JUPYTERHUB_USER`. You'll see a number of subdirectories exist at that location, including `assets`, which will now contain the rnaseq workflow we just used, and `work`: where the intermediate outputs are located.
 
 ```console
 jovyan:~$ ls /shared/team/nxf_work/demouser.climb-big-data-d/
 assets  capsule  framework  plugins  secrets  tmp  work
 ```
 
-## CLIMB nextflow config defaults
+## CLIMB Nextflow config defaults
 
-We have tried to make it as easy as possible to use nextflow on CLIMB, and to make full use of available resources via our Kubernetes infrastructure. Out-of-the box, we set a number of configuration defaults.
+We have tried to make it as easy as possible to use Nextflow on CLIMB, and to make full use of available resources via our Kubernetes infrastructure. Out-of-the box, we set a number of configuration defaults.
 
 - Nextflow home is set to `/shared/team/nxf_work/$JUPYTERHUB_USER`
 - WorkDir is set to `/shared/team/nxf_work/$JUPYTERHUB_USER/work`
 - Executor is set to `k8s` (plus some supporting config)
-- `/shared/team` and `/shared/public` (read only) are mounted as PVCs to all nextflow pods
+- `/shared/team` and `/shared/public` (read only) are mounted as PVCs to all Nextflow pods
 - A K8s ServiceUser is pre-mounted (no credentials setup required)
 - S3 bucket path-style access is enabled, with `s3.climb.ac.uk` set as the endpoint
 - S3 keys have also been injected from Bryn

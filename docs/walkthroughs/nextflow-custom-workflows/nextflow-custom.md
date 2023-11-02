@@ -1,12 +1,13 @@
 # Creating Custom Nextflow Workflows
 
 Suggested reading before starting this tutorial:
+
 * [Notebook Servers, Quick Start](../../notebook-servers/quick-start.md)
 * [Using the Terminal](../../notebook-servers/using-the-terminal.md)
 * [Using Nextflow](../../notebook-servers/using-nextflow.md)
 * [Understanding Storage](../../storage/index.md)
 
-Workflow management systems such as nextflow can be used to create reproducible and scalable workflows. This tutorial consists of taking a test pipeline with the following workflow:
+Workflow management systems such as Nextflow can be used to create reproducible and scalable workflows. This tutorial consists of taking a test pipeline with the following workflow:
 
 <img src="../../img/workflow1.png" alt= "Workflow1" height="400">
 
@@ -65,7 +66,7 @@ process shovill {
 
 You will see the processes contain the following definitions:
 
-* **Tag:** Custom label for a process (makes it easier to identify a task in the nextflow logs)
+* **Tag:** Custom label for a process (makes it easier to identify a task in the Nextflow logs)
 
 * **Cpus:** Number of cpus to allocate to a process
 
@@ -83,7 +84,7 @@ And the following declarations:
 
 * **Script:** The command/script to run
 
-Note that to run a nextflow pipeline using Kubernetes (k8s): `cpu`, `memory` and `container` must be defined for every process.
+Note that to run a Nextflow pipeline using Kubernetes (k8s): `cpu`, `memory` and `container` must be defined for every process.
 
 Nextflow uses input and output channels to pass data and files between processes. These channels define the execution flow of the pipeline. The script string is executed as a Bash script.
 
@@ -149,9 +150,9 @@ CPU hours   : 0.3
 Succeeded   : 3
 ```
 
-Notice that one process ran locally, and two processes with the k8s `executor >  local (1), k8s (2)`. If you take a look at the process `tbfastqs` within `modules/test-datasets/tbfastqs.nf`, you'll see the directive `executor 'local'` has been defined, telling nextflow to run this process locally. By default, processes will run on the k8s unless otherwise specified (due to the defaults set in the CLIMB nextflow config, you can see what the config looks like using the command `nextflow config`).
+Notice that one process ran locally, and two processes with the k8s `executor >  local (1), k8s (2)`. If you take a look at the process `tbfastqs` within `modules/test-datasets/tbfastqs.nf`, you'll see the directive `executor 'local'` has been defined, telling Nextflow to run this process locally. By default, processes will run on the k8s unless otherwise specified (due to the defaults set in the CLIMB Nextflow config, you can see what the config looks like using the command `nextflow config`).
 
-Open a new terminal window, if you run `ls /shared/team/nxf_work/$JUPYTERHUB_USER`, you’ll see a `work` directory has been created (this is the directory nextflow uses when running the processes). An output directory with the results from the pipeline will also be created at the path you set in the nextflow.config (the `publishDir` declaration in a process identifies which output files from a process should be copied from the `work` directory to the `output` directory).
+Open a new terminal window, if you run `ls /shared/team/nxf_work/$JUPYTERHUB_USER`, you’ll see a `work` directory has been created (this is the directory Nextflow uses when running the processes). An output directory with the results from the pipeline will also be created at the path you set in the `nextflow.config` (the `publishDir` declaration in a process identifies which output files from a process should be copied from the `work` directory to the `output` directory).
 
 ## TASK 2: Remove tbfastqs process and create a channel for fastqs
 
@@ -164,7 +165,7 @@ The test-pipeline pulls a pair of fastqs from the ENA for testing purposes. In t
 Open the `modules/test-pipeline/main.nf` file in a text editor, e.g. `nano main.nf`. Remove the `include` statement for tbfastqs and remove the tbfastqs process from the workflow itself. 
 
 
-### Step 2: Add a parameter to the nextflow.config for the input fastq directory
+### Step 2: Add a parameter to the `nextflow.config` for the input fastq directory
 
 First, let's download a pair of fastqs from the ENA to a directory within `/shared/team/`, e.g. `/shared/team/test-fastqs`. We are using `/shared/team/` as it is mounted to the Kubernetes pods.
 
@@ -191,13 +192,13 @@ where
 
 * **PATH:** Path to the fastqs.
 
-* **GLOB_FOR_FASTQS:** We need to set a glob pattern for nextflow to identify the fastqs pairs.
+* **GLOB_FOR_FASTQS:** We need to set a glob pattern for Nextflow to identify the fastqs pairs.
 Hint: Take a look at the example in https://www.nextflow.io/docs/latest/channel.html#fromfilepairs
 
 
 ### Step 3: Add a Channel for the input fastqs
 
-In `main.nf`, add a channel for the input fastqs. In nextflow, data is passed to processes using channels. An input channel for paired fastqs takes the following general form:
+In `main.nf`, add a channel for the input fastqs. In Nextflow, data is passed to processes using channels. An input channel for paired fastqs takes the following general form:
 ```
 Channel.fromFilePairs(INPUT_PATH, OPTIONS)
        .set{ CHANNEL_NAME }

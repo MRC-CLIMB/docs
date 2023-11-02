@@ -20,7 +20,7 @@ Just as if you have your own physical machine, you'll have terminal access and a
 | ![Checked yes](../img/checked.png)  | Flexible resource usage                              | Tier-based access to minimum and maximum vCPUs and memory for notebook servers. Upgrade for larger servers or use K8s for additional cluster resources. No need to reinstall. |
 |  ![Checked yes](../img/checked.png) | GPU access                                           | Containers enable equitable GPU sharing, making them affordable compared to the VM model. CLIMB-BIG-DATA base image is pre-configured for easy A100 utilization.              |
 | ![Checked yes](../img/checked.png)  | Sandboxed environment for teaching and training      | Simplifies workshops: create a team, invite attendees, and share materials on team drive or S3. No SSH login hassles.                                                         |
-| ![Checked yes](../img/checked.png)  | Pre-installed software and tools                     | CLIMB-BIG-DATA container has pre-installed Conda, nextflow, and CLI tools, ready to use, simplifying OS setup and team integration.                                           |
+| ![Checked yes](../img/checked.png)  | Pre-installed software and tools                     | CLIMB-BIG-DATA container has pre-installed Conda, Nextflow, and CLI tools, ready to use, simplifying OS setup and team integration.                                           |
 
 ## Key differences to standard Linux installation
 
@@ -42,7 +42,7 @@ If you are unsure how to reach this, please see the [quick start guide](quick-st
 
 The JupyterLab interface is divided into a few areas. You'll see context menus at the top (File, Edit, View, Run etc.), a file browser pane on the left, and an activity area that initially displays a launcher interface with tiles. Clicking on one of these tiles will open a new tab in the activity area.
 
-These tiles are shortcuts to launch different applications. The most common one is the `Terminal`, which will open a terminal in the activity area. You can also launch a `Jupyter Notebook`, `RStudio`, or a text editor.
+These tiles are shortcuts to launch different applications. The most common one is the `Terminal`, which will open a terminal in the activity area. You can also launch a Jupyter Notebook, RStudio, or a text editor.
 
 You can have multiple tabs open in the activity area, and you can drag and drop them to rearrange them. You can also drag and drop files from the file browser into the activity area to open them in the appropriate application. To create a new tab, click the `+` icon in the top right of the activity area, or use `File > New Launcher`.
 
@@ -53,7 +53,7 @@ For this reason, there is no option to launch multiple notebook servers from Bry
 
 ## Is this just for beginners?
 
-Absolutely not. Whilst the new service is certainly far easier to get started with, it is also far more powerful for advanced users. We've ensured that each team gets a pre-mounted kubernetes service user with permissions scoped to your team's namespace. This allows users to run nextflow workflows on the external K8s execution environment, but also to run other containers in pods within their namespace via kubectl.
+Absolutely not. Whilst the new service is certainly far easier to get started with, it is also far more powerful for advanced users. We've ensured that each team gets a pre-mounted Kubernetes service user with permissions scoped to your team's namespace. This allows users to run Nextflow workflows on the external K8s execution environment, but also to run other containers in pods within their namespace via `kubectl`.
 
 ## Organising your data storage 
 
@@ -129,9 +129,9 @@ The notebook server is flexible, allowing you work the way you want. You may hav
 
 You may also want to read more about the specific features of the notebook server:
 
+* [Using the Terminal](using-the-terminal.md)
 * [Using Jupyter Notebooks](using-jupyter.md)
 * [Using RStudio](using-rstudio.md)
-* [Using the Terminal](using-the-terminal.md)
 
 Or there's the Walkthroughs, that will take you through a worked example of a bioinformatics analysis:
 

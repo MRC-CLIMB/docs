@@ -44,9 +44,9 @@ nav:
       - notebook-servers/index.md
       - "Read This First!": "notebook-servers/read-this-first.md"
       - "Quick start": "notebook-servers/quick-start.md"
+      - "Using the terminal": "notebook-servers/using-the-terminal.md"
       - "Using Jupyter notebooks": "notebook-servers/using-jupyter.md"
       - "Using RStudio": "notebook-servers/using-rstudio.md"
-      - "Using the terminal": "notebook-servers/using-the-terminal.md"
       - "Understanding storage": "storage/index.md"
       - "Installing software with Conda": "notebook-servers/installing-software-with-conda.md"
       - "Using Nextflow": "notebook-servers/using-nextflow.md"

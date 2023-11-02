@@ -18,7 +18,6 @@ Let's start with some fundamental commands to get you acquainted with the Unix c
 
 1. `pwd` (Print Working Directory):
    Displays the current directory (folder) you are in.
-
    ```
    pwd
    /Users/username/documents
@@ -26,7 +25,6 @@ Let's start with some fundamental commands to get you acquainted with the Unix c
 
 2. `ls` (List):
    Lists the files and directories in the current directory.
-
    ```
    ls
    file1.txt  file2.txt  folder1  folder2
@@ -34,28 +32,24 @@ Let's start with some fundamental commands to get you acquainted with the Unix c
 
 3. `cd` (Change Directory):
    Allows you to navigate to a different directory.
-
    ```
    cd folder1
    ```
 
 4. `mkdir` (Make Directory):
    Creates a new directory.
-
    ```
    mkdir new_folder
    ```
 
 5. `touch`:
    Creates an empty file.
-
    ```
    touch new_file.txt
    ```
 
 6. `rm` (Remove):
    Deletes files or directories.
-
    ```
    rm file1.txt
    rm -r folder1
@@ -63,7 +57,6 @@ Let's start with some fundamental commands to get you acquainted with the Unix c
 
 7. `mv` (Move):
    Moves or renames files and directories.
-
    ```
    mv file2.txt folder2/
    mv file2.txt new_filename.txt
@@ -71,7 +64,6 @@ Let's start with some fundamental commands to get you acquainted with the Unix c
 
 8. `cp` (Copy):
    Copies files or directories.
-
    ```
    cp file1.txt folder2/
    ```
@@ -82,7 +74,6 @@ The Unix file system is organized in a hierarchical structure. Each directory ca
 
 1. `cd` (Change Directory):
    As mentioned earlier, `cd` allows you to change your current directory. You can use absolute or relative paths.
-
    ```
    cd /path/to/directory  # Absolute path
    cd ../parent_directory  # Relative path (move up one level)
@@ -91,7 +82,6 @@ The Unix file system is organized in a hierarchical structure. Each directory ca
 
 2. `ls` (List):
    You can use various options with `ls` to customize the output:
-
    ```
    ls -l  # Long listing format with detailed information
    ls -a  # List all files, including hidden ones (those starting with .)
@@ -111,24 +101,20 @@ Now let's explore some additional commands to manipulate files:
 
 1. `cat` (Concatenate):
    Displays the content of a file.
-
    ```
    cat file1.txt
    ```
 
 2. `less` and `more`:
    Allow you to view the content of large files interactively.
-
    ```
    less large_file.txt
    more another_large_file.txt
    ```
-
    Use the arrow keys to scroll, and press `q` to exit.
 
 3. `head` and `tail`:
    Display the beginning or end of a file.
-
    ```
    head file1.txt  # Show the first few lines
    tail file1.txt  # Show the last few lines
@@ -136,14 +122,12 @@ Now let's explore some additional commands to manipulate files:
 
 4. `grep`:
    Searches for a pattern in a file.
-
    ```
    grep "keyword" file1.txt
    ```
 
 5. `wc` (Word Count):
    Counts the number of lines, words, and characters in a file.
-
    ```
    wc file1.txt
    ```
