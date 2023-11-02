@@ -73,7 +73,7 @@ drwx------ 7 jovyan  1000   9 Jul 20 17:13 ..
 -rw-r--r-- 1 jovyan users 63M Jul 13 21:00 DRR187559_2.fastqsanger.bz2
 ```
 
-### Install SPAdes and trimmomatic using conda
+### Install SPAdes and trimmomatic using Conda
 It is recommended to always install packages for a project in their own environments so here will we create an enironment and install SPAdes in one step.
 ```
 conda create --solver libmamba -y -n assembly -c bioconda spades trimmomatic
@@ -81,7 +81,7 @@ conda activate assembly
 ```
 <!-- prettier-ignore -->
 !!! Warning 
-    Remember you can not install packages in the base conda environment. You must create a new environment and activate it first.
+    Remember you can not install packages in the base Conda environment. You must create a new environment and activate it first.
 
 ### Use trimmomatic to filter out bad reads and trim the ends as needed
 
@@ -165,7 +165,7 @@ GAAAACCCTGAAGATAATAGAGAACTTGCTTTGTTAGGATCAAGGAAGTTCTCTGCTGCT
 TTCATAGAACCATTTCTAGTTTTCATGAAAAGTTGATTGCCATATACCGGGTTCCAAGAA
 ```
 
-Deactivate your conda environment when you are finished
+Deactivate your Conda environment when you are finished
 
 ```
 conda deactivate
@@ -174,4 +174,4 @@ conda deactivate
 ## Post assembly steps
 
 Once assembly is finished you can do a more in depth check of the quality and completeness using the BUSCO and Bandage.
-You can get basic metrics such as N50 using the tool [Quast](https://github.com/ablab/quast) which can be [downloaded via conda](https://anaconda.org/bioconda/quast)
+You can get basic metrics such as N50 using the tool [Quast](https://github.com/ablab/quast) which can be [downloaded via Conda](https://anaconda.org/bioconda/quast)

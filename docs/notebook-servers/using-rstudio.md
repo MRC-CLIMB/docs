@@ -2,7 +2,7 @@
 
 RStudio is an integrated development environment (IDE) specifically designed for the R programming language. It provides a user-friendly interface that simplifies the process of coding, debugging, data visualization, and data analysis using R. RStudio is available in both open-source and commercial editions.
 
-RStudio was originally an interface to interactive with `R` programming language. Since July 2022, it is now known as Posit as they support other languages such as python. The main feature remains the same, to easily edit scripts and view input/ouput files. Our version of RStudio only supports the `R` programming language. Here are the top five features of RStudio:
+RStudio was originally an interface to interactive with `R` programming language. Since July 2022, it is now known as Posit as they support other languages such as Python. The main feature remains the same, to easily edit scripts and view input/output files. Our version of RStudio only supports the `R` programming language. Here are the top five features of RStudio:
 
 * **Intuitive Code Editor**: RStudio provides an intuitive code editor with syntax highlighting, code completion, and code folding. These features make it easier to write, edit, and navigate through R code, reducing errors and improving coding efficiency.
 * **Interactive Data Visualization**: RStudio has an integrated plot viewer that supports interactive and high-quality data visualizations using popular R packages like ggplot2 and plotly. Users can easily explore and customize visualizations to gain insights from data.
@@ -19,7 +19,7 @@ Both `R` and RStudio are already installed for you. You will find them under the
 
 ![RStudio](../img/r-open.png)
 
-For pure access to `R` you can use the jupyter notebook. For access to RStudio, a separate tab will be opened:
+For pure access to `R` you can use the Jupyter Notebook. For access to RStudio, a separate tab will be opened:
 
 ![RStudio](../img/rstudio.png)
 

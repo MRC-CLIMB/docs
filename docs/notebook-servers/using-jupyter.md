@@ -17,7 +17,7 @@ The Jupyter Notebook interface consists of four main components:
 
 * **Menu Bar**: The menu bar at the top contains various options for managing the notebook, such as saving, adding new cells, changing cell types, and more.
 * **Toolbar**: The toolbar provides quick access to frequently used actions, like running cells, saving the notebook, and adding new cells.
-* **File broswer**: The file browser, allows you to navigate directories and upload/download files.
+* **File browser**: The file browser, allows you to navigate directories and upload/download files.
 * **Notebook Area**: The notebook area is where you create and edit your notebook. Each notebook is divided into a series of cells, which can be of two main types: code cells and markdown cells.
 
 *There is a detailed debugger panel on the right side as well.*
