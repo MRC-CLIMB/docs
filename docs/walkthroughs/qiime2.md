@@ -9,6 +9,7 @@ QIIME 2 ([Boylan et al., 2019](https://www.nature.com/articles/s41587-019-0209-9
 ## Installation
 
 ### Conda
+
 To install via Conda first you must download the environment YAML file supplied by the QIIME 2 authors. 
 
 ```wget https://data.qiime2.org/distro/core/qiime2-2023.7-py38-linux-conda.yml```
