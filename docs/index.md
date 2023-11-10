@@ -8,7 +8,7 @@ These docs are designed to help you get the best out of the CLIMB-BIG-DATA infra
 
 ### Getting started
 
-How to access CLIMB-BIG-DATA and find your way around via. the Bryn web interface.
+How to access CLIMB-BIG-DATA and find your way around via the Bryn web interface.
 
 [Registration](getting-started/how-to-register.md)  
 How to register and access CLIMB-BIG-DATA.
@@ -39,7 +39,7 @@ How to install software using Conda, in the context of a containerized environme
 How to use Nextflow with CLIMB-BIG-DATA.
 
 [Metagenomics walkthrough](walkthroughs/metagenomics-tutorial.md)
-A simple walk-through of some CLIMB-BIG-DATA functionality/
+A simple walk-through of some CLIMB-BIG-DATA functionality.
 
 [QIIME 2](walkthroughs/qiime2.md)
 How to install QIIME 2 on a notebook server and basic usage.
