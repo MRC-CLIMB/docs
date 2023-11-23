@@ -2,24 +2,24 @@
 
 ## Creating an environment
 
-In the [terminal](../notebook-servers/using-the-terminal.md), create a new enviroment called `s3training` and activate it:
+In the [terminal](../notebook-servers/using-the-terminal.md), create a new environment called `s3training` and activate it:
 
 ```bash
-conda create --solver libmamba -y -n s3training  ipykernel
+conda create --solver libmamba -y -n s3training ipykernel
 conda activate s3training
 ```
 
-Once this is complete, you should see the enviroment available as a notebook in the Launcher window (`File > New Launcher`)
+Once this is complete, you should see the environment available as a notebook in the Launcher window (`File > New Launcher`)
 
 ![conda activate s3training](img/training-env.png)
 
-Click the tile and open a new juypter notebook. You should see s3training in as the name of the kernel in the top right of the notebook.
+Click the tile and open a new Jupyter notebook. You should see s3training in as the name of the kernel in the top right of the notebook.
 
 ![conda activate s3training](img/kernel.png)
 
 ## Uploading and downloading a file to S3
 
-Let's create a test file to up load to a bucket. In the jupyter notebook, create a new cell and add the following:
+Let's create a test file to up load to a bucket. In the Jupyter notebook, create a new cell and add the following:
 
 ```
 !source ~/.bashrc
@@ -32,7 +32,7 @@ This creates a text file called `s3test.txt` with the text "Bless this mess".
 !!! tip
     The ! allows us to run a shell command in the notebook. You could also do this in the terminal directly.
 
-We will need to `boto3` and `dotenv` python module which we can install in a new cell with
+We will need to `boto3` and `dotenv` Python module which we can install in a new cell with
 
 ```
 pip install boto3 python-dotenv

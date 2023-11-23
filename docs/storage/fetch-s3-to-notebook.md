@@ -5,7 +5,7 @@ The easiest and ready way to transfer to/from your notebook to the S3 buckets is
 
 If you've started using S3 buckets via Bryn, your access keys will have already been injected into the notebook server as environment variables. We've also pre-configured `aws cli` and `s3cmd` to use the CLIMB S3 endpoints by default. As a result, you should be able to access buckets with no additional setup.
 
-Your S3 bucket storage is pre-configured for you through the `$AWS_SECRET_ACCESS_KEY` and `$AWS_ACCESS_KEY_ID` variables and the configuration file `~/.s3cfg`. Do not change any of these unless you are very confident with s3 and can use it without support. The commandline tool [s3cmd](https://s3tools.org/s3cmd-howto) provides convenient access for moving files around. Here are some commands to get you started.
+Your S3 bucket storage is pre-configured for you through the `$AWS_SECRET_ACCESS_KEY` and `$AWS_ACCESS_KEY_ID` variables and the configuration file `~/.s3cfg`. Do not change any of these unless you are very confident with S3 and can use it without support. The command line tool [`s3cmd`](https://s3tools.org/s3cmd-howto) provides convenient access for moving files around. Here are some commands to get you started.
 
 If you are moving from an older CLIMB VM to the new notebook model, [you can read a dedicated guide here](transfer-from-vm-to-s3.md).
 
@@ -55,7 +55,7 @@ s3cmd sync ~/mys3bucket/ s3://teamname-bucketname1/path_to_sync_with/
 
 #### Additional Options
 
-S3cmd provides many more options and features. You can explore them by running:
+`s3cmd` provides many more options and features. You can explore them by running:
 
 ```
 s3cmd --help

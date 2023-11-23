@@ -3,7 +3,7 @@
 Transfer between your local machine to the notebook server can be done in a number of ways:
 
 * Using the file upload in the browser - for Windows, MacOSX and Linux
-* Using the command line - for Linux and MacOSX 
+* Using the command line - for Linux and MacOSX
 
 ## Using the file upload in the browser
 
@@ -21,20 +21,18 @@ There are complete step-by-step instructions on how to upload files to JupyterLa
 
 ## Using the command line
 
-You can use certain Linux commands copy between your local machine and your notebook server. You must do this from within your notebook server. This can be done with tools such as [scp](../reference/scp.md) and [rsync](../reference/rsync.md). 
+You can use certain Linux commands copy between your local machine and your notebook server. You must do this from within your notebook server. This can be done with tools such as [`scp`](../reference/scp.md) and [`rsync`](../reference/rsync.md).
 
-From within notebook server terminal, I can use [scp](../reference/scp.md) to copy files from my local machine to the notebook server. For example, to copy a file called `some_file` from my local machine to the notebook server, I would use the following command:
+From within notebook server terminal, I can use [`scp`](../reference/scp.md) to copy files from my local machine to the notebook server. For example, to copy a file called `some_file` from my local machine to the notebook server, I would use the following command:
 
 ```
 jovyan:$ scp nabil@101.123.112.1:some_file .
 ```
 
-Where `101.123.112.1` is the IP address of my local machine. The `.` at the end of the command means that the file will be copied to the current directory. If I wanted to copy the file to a different directory, I would specify the path to that directory instead of `.`. 
+Where `101.123.112.1` is the IP address of my local machine. The `.` at the end of the command means that the file will be copied to the current directory. If I wanted to copy the file to a different directory, I would specify the path to that directory instead of `.`.
 
 <!-- prettier-ignore -->
 !!! warning
-    This requires access to a local machine (i.e. your local machine should be visible to CLIMB-BIG-DATA) and your local machine has SSH enabled. 
+    This requires access to a local machine (i.e. your local machine should be visible to CLIMB-BIG-DATA) and your local machine has SSH enabled.
 
-For more information about `scp` in general please read the page about [scp](../reference/scp.md).
-
-
+For more information about `scp` in general please read the page about [`scp`](../reference/scp.md).

@@ -104,22 +104,22 @@ Confirm you are sure, and you will be logged out. Log back in to restart the 2FA
 
 #### I can no longer access my 2FA device or phone, and I can't recover from a backup
 
-If you are still logged in to bryn, follow the steps in 2FA Management.
+If you are still logged in to Bryn, follow the steps in 2FA Management.
 
-Otherwise, please contact our support team at [support@climb.ac.uk](mailto:support@climb.ac.uk)
+Otherwise, please contact our support team at [support@climb.ac.uk](mailto:support@climb.ac.uk).
 
-#### Why are my authenticator codes not working ?
+#### Why are my authenticator codes not working?
 
 If you have setup your authentication but the 6-digit code does not work, you may need to check that the time on your device is set to auto-sync. Without this setting, the time on the device and server will not match and the codes will not work. This may be a term such as: "Use network provided time/time-zone".
 
-#### Why are my backup codes not working ?
+#### Why are my backup codes not working?
 
 You will only have X backup codes to use. Once they have been used up, you will not be able to access your account. These are to be used when either the app/desktop authenticators do not work. You can check your codes and how many you have left, please see 2FA Management.
 
-#### I have the authenticator app, why wont it let me scan anything ?
+#### I have the authenticator app, why won't it let me scan anything?
 
 If you are not prompted to scan the QR code, you may need to change the permissions for the app to access your camera.
 
-#### I don’t have a smart phone, how do I login ?
+#### I don't have a smart phone, how do I login?
 
 There are desktop versions of authenticators that you can use, such as Authy.

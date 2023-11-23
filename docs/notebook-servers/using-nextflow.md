@@ -4,7 +4,7 @@
 
 In their words, _"[Nextflow](https://nextflow.io) enables scalable and reproducible scientific workflows using software containers. It allows the adaptation of pipelines written in the most common scripting languages."_
 
-We've made Nextflow a first class citizen in CLIMB-BIG-DATA. You'll find an up-to-date stable version pre-installed in your notebook server and, more importantly, pre-configured to take advantage of our scalable kubernetes infrastructure.
+We've made Nextflow a first class citizen in CLIMB-BIG-DATA. You'll find an up-to-date stable version pre-installed in your notebook server and, more importantly, pre-configured to take advantage of our scalable Kubernetes infrastructure.
 
 ## How can I start using Nextflow?
 
@@ -64,7 +64,7 @@ nf-a57472aaef0073c9e77a0a7e6001a849          0/1     ContainerCreating   0      
 nf-f8d94c52e9120b7b8ba117d530f77c3a          0/1     Completed
 ```
 
-[`kubectl`](https://kubernetes.io/docs/reference/kubectl/) is the kubernetes command line tool. It's also pre-installed in the CLIMB notebook environment, and pre-configured with credentials that map to a ServiceUser for your team.
+[`kubectl`](https://kubernetes.io/docs/reference/kubectl/) is the Kubernetes command line tool. It's also pre-installed in the CLIMB notebook environment, and pre-configured with credentials that map to a ServiceUser for your team.
 
 This service user has certain privileges within your _[namespace](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/)_, or in other words an isolated part of our cluster created specifically for your team. The command `kubectl get pods` above is returning a list of pods currently running in your namespace. You'll see your notebook server (`jupyter-demouser-2eclimb-2dbig-2ddata-2dd`) and a number of Nextflow pods that are running workflow process containers. These will be in various states as they execute and then disappear.
 

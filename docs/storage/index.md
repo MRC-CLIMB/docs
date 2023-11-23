@@ -21,7 +21,7 @@ To first understand how to transfer data, it is important to understand how data
 Data in CLIMB-BIG-DATA can be found in four major locations:
 
 * Your home directory `/home/jovyan` (~)
-* A writable 'team share' mounted at `~/shared-team/` and linked to your home directory as `shared-team`
+* A writeable 'team share' mounted at `~/shared-team/` and linked to your home directory as `shared-team`
 * Read-only shares mounted at `/shared/public` and linked to your home directory as `shared-public`
 * S3 buckets
 
@@ -31,11 +31,11 @@ These interact with each other as shown in the diagram below:
 
 ### Home directory
 
-The home directory `/home/jovyan` (~) is mounted to persistent storage for the CLIMB user, ensuring data retention after container restarts. It is small working directory location. Its intentional small size (usually 20GB) makes it unsuitable for large conda environments or databases. Alternative storage options are available. Additionally, the home directory serves as the default/base location for the file browser pane.
+The home directory `/home/jovyan` (`~`) is mounted to persistent storage for the CLIMB user, ensuring data retention after container restarts. It is a small working directory location. Its intentional small size (usually 20GB) makes it unsuitable for large Conda environments or databases. Alternative storage options are available. Additionally, the home directory serves as the default/base location for the file browser pane.
 
 ### Team share (shared-team)
 
-A writable 'team share' is accessible at `/shared/team`, symlinked to your home directory as `shared-team` for easy file browsing. It offers significant storage space (1TB+ depending on tier) and grants all team members simultaneous read/write access. Additionally, it benefits from SSD-backed technology, ensuring exceptionally fast performance.
+A writeable 'team share' is accessible at `/shared/team`, symlinked to your home directory as `shared-team` for easy file browsing. It offers significant storage space (1TB+ depending on tier) and grants all team members simultaneous read/write access. Additionally, it benefits from SSD-backed technology, ensuring exceptionally fast performance.
 
 ### S3 Buckets
 

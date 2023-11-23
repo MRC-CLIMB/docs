@@ -2,7 +2,7 @@
 
 Transfer between your local machine to the S3 buckets can be done in a number of ways:
 
-* [Using BRYN's web interface - for Windows, MacOSX and Linux](#using-bryns-web-interface)
+* [Using Bryn's web interface - for Windows, MacOSX and Linux](#using-bryns-web-interface)
 * [Using a file transfer client (like cyberduck) - for Windows and MacOSX](#using-a-file-transfer-client)
 * [Using the command line - for Windows, MacOSX and Linux](#using-s3cmd-on-the-command-line)
 
@@ -10,27 +10,27 @@ Transfer between your local machine to the S3 buckets can be done in a number of
 
 S3 (Simple Storage Service) buckets are cloud storage containers provided by Amazon Web Services (AWS). They allow users to store and retrieve any amount of data securely, making it a scalable and cost-effective solution for storing various types of data, such as files, images, videos, backups, and application data. S3 buckets are highly durable and accessible over the internet, making them a popular choice for hosting static websites, data archiving, and serving as the backend for various cloud applications.
 
-## Using BRYN's web interface
+## Using Bryn's web interface
 
-This option is available to all users, via the [BRYN](https://bryn.climb.ac.uk) web interface. First navigate to the section on S3 buckets, using the sidemenu:
+This option is available to all users, via the [Bryn](https://bryn.climb.ac.uk) web interface. First navigate to the section on S3 buckets, using the side menu:
 
-![BRYN's web interface](./img/bryn-s3.png)
+![Bryn's web interface](./img/bryn-s3.png)
 
 You will then see a list of all the S3 buckets for your team. Click on the bucket you want to upload to.
 
-![BRYN's web interface](./img/bryn-s3-bucket.png)
+![Bryn's web interface](./img/bryn-s3-bucket.png)
 
-This will should the contents of the bucket, and there are buttom in the top right to add files or folders to the bucket.
+This will should the contents of the bucket, and there are buttons in the top right to add files or folders to the bucket.
 
-![BRYN's web interface](./img/bryn-s3-bucket-upload.png)
+![Bryn's web interface](./img/bryn-s3-bucket-upload.png)
 
 ## Using a file transfer client
 
-You can a number of file transfer client software to transfer files to the S3 buckets. You will require *API keys* to use such clients. These are availabe in the *S3 buckets* section of BRYN. Click on the *API keys* button to reveal your keys.
+You can a number of file transfer client software to transfer files to the S3 buckets. You will require *API keys* to use such clients. These are available in the *S3 buckets* section of Bryn. Click on the *API keys* button to reveal your keys.
 
-![BRYN's web interface](./img/bryn-s3-bucket-key.png)
+![Bryn's web interface](./img/bryn-s3-bucket-key.png)
 
-To demostrate, how to transfer files using a file transfer client, we will use [Cyberduck](https://cyberduck.io/). This is available for Windows and MacOSX. [Download and install the software](https://cyberduck.io/download/), and then open it. You will be presented with a window like this:
+To demonstrate, how to transfer files using a file transfer client, we will use [Cyberduck](https://cyberduck.io/). This is available for Windows and MacOSX. [Download and install the software](https://cyberduck.io/download/), and then open it. You will be presented with a window like this:
 
 ![Cyberduck](./img/cyberduck.png)
 
@@ -41,29 +41,29 @@ Click on the *Open Connection* button, and then select *Amazon S3* from the drop
 Enter the following details:
 
 * **Server**: s3.climb.ac.uk
-* **Access Key ID**: Your access key ID from BRYN
-* **Secret Access Key**: Your secret access key from BRYN
+* **Access Key ID**: Your access key ID from Bryn
+* **Secret Access Key**: Your secret access key from Bryn
 
-Then click *Connect*. You will then be presented with a window of all the buckets, mirroring that in BRYN. Double click on the bucket you want to upload to, and you will see the contents of the bucket.
+Then click *Connect*. You will then be presented with a window of all the buckets, mirroring that in Bryn. Double click on the bucket you want to upload to, and you will see the contents of the bucket.
 
 You can upload to the bucket using the upload button in the top left of the window. You can also drag and drop files and folders into the window to upload them.
 You can right click on files and folders to download them.
 
 ![Cyberduck](./img/cyberduck-s3-download.png)
 
-For more information about cyberduck, see [here](https://docs.cyberduck.io/cyberduck/).
+For more information about Cyberduck, see [here](https://docs.cyberduck.io/cyberduck/).
 
-## Using s3cmd on the command line 
+## Using `s3cmd` on the command line
 
-You can also use the command line to transfer files from your local machine to the S3 buckets. You will require *API keys* to use the command line. These are availabe in the *S3 buckets* section of BRYN. Click on the *API keys* button to reveal your keys.
+You can also use the command line to transfer files from your local machine to the S3 buckets. You will require *API keys* to use the command line. These are available in the *S3 buckets* section of Bryn. Click on the *API keys* button to reveal your keys.
 
-![BRYN's web interface](./img/bryn-s3-bucket-key.png)
+![Bryn's web interface](./img/bryn-s3-bucket-key.png)
 
 <!-- prettier-ignore -->
 !!! warning
     Remember, these are the steps required for you local machine, not the notebook server. The notebook server already has the `s3cmd` installed and configured.
 
-To demostrate, how to transfer files using the command line, we will use [s3cmd](https://s3tools.org/s3cmd). This is available for Windows, Linux and MacOSX. [Download and install the software](https://s3tools.org/download). 
+To demonstrate, how to transfer files using the command line, we will use [`s3cmd`](https://s3tools.org/s3cmd). This is available for Windows, Linux and MacOSX. [Download and install the software](https://s3tools.org/download).
 
 You can also install `s3cmd` using pip:
 
@@ -80,23 +80,23 @@ Once `s3cmd` is installed, use the following command to configure it:
 It will then ask a series of questions. The answers are:
 
 
-* **Access Key:** *Your access key, as displayed in BRYN (see above)*
-* **Secret Key:** *Your access key, as displayed in BRYN (see above)*
+* **Access Key:** *Your access key, as displayed in Bryn (see above)*
+* **Secret Key:** *Your access key, as displayed in Bryn (see above)*
 * **S3 Endpoint:** s3.climb.ac.uk
 * **DNS-style bucket+hostname:port template for accessing a bucket:** %(bucket)s.s3.climb.ac.uk
 
 All other options just use the default values, listed in the square brackets [ ]. You can just press enter to accept the default values.
 
-If we use s3cmd to list the buckets, we can see the buckets for our team:
+If we use `s3cmd` to list the buckets, we can see the buckets for our team:
 
 ```bash
 (s3cmd) ubuntu@eroll:~$ s3cmd ls
 2023-07-21 08:50  s3://quadram-bioinfo-training
 ```
 
-Once this is configured correctly, s3cmd will behave the same as running it on the notebook server. There is more information on [how to use s3cmd here](fetch-s3-to-notebook.md).
+Once this is configured correctly, `s3cmd` will behave the same as running it on the notebook server. There is more information on [how to use `s3cmd` here](fetch-s3-to-notebook.md).
 
-This is the full configuration process, for reference. 
+This is the full configuration process, for reference.
 
 ```bash
 (s3cmd) ubuntu@eroll:~$ s3cmd --configure
