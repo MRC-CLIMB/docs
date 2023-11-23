@@ -9,7 +9,7 @@ $ conda info --envs
 base                     /opt/conda
 ```
 
-The base Conda env is installed at `/opt/conda`. Since we are running instide a container, any changes made to this part of the filesystem will not be retained once the container is stopped and restarted (unlike your home dir and shares, which are persisted).
+The base Conda env is installed at `/opt/conda`. Since we are running inside a container, any changes made to this part of the filesystem will not be retained once the container is stopped and restarted (unlike your home dir and shares, which are persisted).
 
 We've made the base environment read only to prevent any confustion.
 
@@ -38,7 +38,17 @@ Understanding the above, you can create new Conda environments in the usual way.
 
 Lets go ahead and install [bactopia](https://bactopia.github.io/v2.2.0/quick-start/) as an example.
 
-If you try listing channels, you'll see you already have conda-forge and bioconda set.
+If you try listing channels, you'll see you already have `conda-forge` and `bioconda` set:
+
+```console
+jovyan:~$ conda config --show channels
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+```
+
+Now, lets install `bactopia`:
 
 ```console
 jovyan:~$ conda create -y -n bactopia bactopia ipykernel
@@ -68,7 +78,7 @@ base                     /opt/conda
 bactopia                 /shared/team/conda/demouser.andy-bryn-dev-t/bactopia
 ```
 
-And finally lets activate the environment
+And finally, lets activate the environment:
 
 ```console
 jovyan:~$ conda activate bactopia
