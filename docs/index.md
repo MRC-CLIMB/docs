@@ -20,8 +20,11 @@ How to login to Bryn, and setup two-factor authentication.
 
 Everything you need to understand, use and get the most out of Jupyter Notebook Servers.
 
-[Introduction](notebook-servers/read-this-first.md)
-An introduction to the what and why of notebook servers.
+[Why Notebook Servers?](notebook-servers/why-notebook-servers.md)
+An explanation of the why CLIMB-BIG-DATA uses Notebook Servers.
+
+[Notebook Server Basics]
+The basics of how to launch and use Notebook Servers.
 
 [Using the terminal](notebook-servers/using-the-terminal.md)
 How to use the terminal inside a notebook server, with an explanation of caveats.
