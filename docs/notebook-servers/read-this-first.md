@@ -2,13 +2,13 @@
 
 Welcome to CLIMB's Jupyter Notebook Servers, your new home on CLIMB-BIG-DATA.
 A Notebook Server is a lightweight virtualised installation of Linux
-that users interact with through a [JupyterLab](https://jupyterlab.readthedocs.io/)
-environment, which grants access to various applications (e.g. 
-[terminals](/notebook-servers/using-the-terminal/),
-[Jupyter notebooks](/notebook-servers/using-jupyter/),
-[RStudio](/notebook-servers/using-jupyter/),
-[Nextflow](/notebook-servers/using-nextflow/))
-through which users can run complex data science and bioinformatics tasks.
+that users interact with through [JupyterLab](https://jupyterlab.readthedocs.io/),
+which grants access to various applications (e.g. 
+[terminals](using-the-terminal.md),
+[Jupyter notebooks](using-jupyter.md),
+[RStudio](using-jupyter.md),
+[Nextflow](using-nextflow.md))
+and enables users to run complex data science and bioinformatics tasks.
 The possibilities are demonstrated in the walkthroughs in the sidebar.
 
 ## Advantages of the Notebook Server
@@ -35,7 +35,7 @@ The notebook server is a virtualised installation of Linux, and as such there ar
 
 ## How to launch and access a notebook server
 
-1. [Log in to Bryn](/getting-started/authentication).
+1. [Log in to Bryn](../getting-started/authentication.md).
 2. Using the navigation menu on the left hand side, select 'Notebook servers' under the 'Compute' subheading.
 3. Click the 'Launch notebook server' green action button on the right hand side.
 4. Select a profile, for example 'Standard server' or 'GPU server' (tier dependent).
@@ -87,8 +87,8 @@ jovyan:~$ ls -l
 
 Your home directory will look similar to home directories on other UNIX-based system, as a collection of files of folders. There are two special folders, specific to notebooks:
 
-* `shared-team` - this is a symlink to the team share, which is a large, fast, shared storage location for your team. You can read and write to this folder, and it is shared with all members of your team.
-* `shared-public` - this is a read-only share, managed by the CLIMB-BIG-DATA team. This contains some useful data and public resources for bioinformatics workflows.
+* `shared-team` is a symbolic link (a kind of shortcut, indicated by `->`) to the team share, which is a large, fast, shared storage location for your team. You can read and write to this folder, and it is shared with all members of your team.
+* `shared-public` is a symbolic link to a read-only share managed by the CLIMB-BIG-DATA team. This contains some useful data and public resources for bioinformatics workflows.
 
 Try listing the contents of the `shared-public/db` folder and you'll see a few folders:
 ```
@@ -101,7 +101,9 @@ drwxrwxr-x+  2 4744 users   9 Apr 16 17:36 taxonomy
 jovyan:~$
 ```
 
-These are large databases for bioinformatics tools. For example, the `kraken2` folder contains the databases for Kraken 2 and Bracken. You can use these in your workflows, without having to download them yourself. These locations do not count to your storage quota.
+These are large databases for bioinformatics tools. For example, the `kraken2` folder contains the databases for Kraken 2 and Bracken.
+You can use these in your workflows, without having to download them yourself.
+These locations do not count towards your storage quota.
 
 The `shared-team` folder is a good place to store your data. It is visible to everyone in your team, making it easy to collaborate on projects.
 
@@ -110,7 +112,7 @@ You can list the contents of the `shared-team` folder:
 jovyan:~$ ls ~/shared-team
 ```
 
-It will likely be empty, if this is your first time using CLIMB. You have full access to this location and can create folders and files as you wish. Try this with `touch`, that will create an empty file (if it doesn't exist).
+It will likely be empty, if this is your first time using CLIMB. You have full access to this location and can create folders and files as you wish. Try this with `touch`, which will create an empty file (if it doesn't exist).
 Try using `touch` on other locations, and you will see that you can only write to your home directory, the `shared-team` folder and special locations like `tmp/`.
 
 In locations where you can write, you will see the empty file `this` appear:
@@ -146,6 +148,9 @@ You may also want to read more about the specific features of the notebook serve
 * [Using RStudio](using-rstudio.md)
 * [Using Nextflow](using-nextflow.md)
 
-Or there's the Walkthroughs, that will take you through a worked example of a bioinformatics analysis:
+Or there are walkthroughs that will take you through a worked example of a bioinformatics analysis:
 
-* [Metagenomics in Brum](/walkthroughs/metagenomics-tutorial)
+* [Metagenomics in Brum](../walkthroughs/metagenomics-tutorial.md)
+* [Genome assembly](../walkthroughs/genome-assembly/spades.md)
+* [Custom Nextflow Workflows](../walkthroughs/nextflow-custom-workflows/nextflow-custom.md)
+* [QIIME 2](../walkthroughs/qiime2.md)

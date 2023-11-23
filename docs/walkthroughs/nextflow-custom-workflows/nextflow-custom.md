@@ -21,7 +21,7 @@ Background reading: [nextflow docs: basic concepts](https://www.nextflow.io/docs
 
 This tutorial uses the [MRC-CLIMB/modules](https://github.com/MRC-CLIMB/modules) GitHub repository. The module files in this repo contain the processes which we’ll use to build the workflow.
 
-[Create a notebook server](/notebook-servers/read-this-first/#how-to-launch-and-access-a-notebook-server) 
+[Create a notebook server](../../notebook-servers/read-this-first.md#how-to-launch-and-access-a-notebook-server) 
 and start a [terminal session](../../notebook-servers/using-the-terminal.md). Next, clone the MRC-CLIMB/modules repo and take a look at the module files in the directory `modules/modules` using `cat`. E.g. `cat shovill.nf`
 
 ```console
