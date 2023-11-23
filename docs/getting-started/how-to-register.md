@@ -28,4 +28,4 @@ The registration request will be reviewed by a member of our management team. Pl
 
 <!-- prettier-ignore -->
 !!! warning
-    Please we aware that primary users will be provided to renew a group license every 3 months. For paying users, the length of a valid license period will be extended. If this license is not renewed, your access to resources will be blocked. You will be sent an email reminder for this.
+    Please be aware that primary users will be required to renew a group license every 3 months. For paying users, the length of a valid license period will be extended. If this license is not renewed, your access to resources will be blocked. You will be sent an email reminder for this.

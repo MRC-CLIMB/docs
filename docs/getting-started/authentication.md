@@ -4,7 +4,7 @@
 
 All CLIMB-BIG-DATA resources are accessed via the Bryn web interface.
 
-You can login to Bryn at [https://bryn.climb.ac.uk/user/login/](https://bryn.climb.ac.uk/user/login/).
+You can login to Bryn [here](https://bryn.climb.ac.uk/account/login/).
 
 ## Two-factor authentication
 
@@ -54,13 +54,13 @@ Follow the link to 'setup your backup codes' as seen in the screenshot below:
 
 ![Backup codes link](img/bryn-2fa-success-backup-link.png){ width=600 }
 
-Next, hit the 'Generate tokens' button.
+Next, hit the 'Generate tokens' button:
 
 ![Generate tokens](img/bryn-generate-tokens.png){ width=600 }
 
 Print, save or otherwise make a note of these codes and keep them in a secure place.
 
-You can now proceed to the [Bryn dashboard](https://bryn.climb.ac.uk/)
+You can now proceed to the [Bryn dashboard](https://bryn.climb.ac.uk/).
 
 ### Logging in to Bryn after 2FA is set up
 
@@ -68,7 +68,7 @@ When you next login to Bryn, after entering your username and password, a token 
 
 ![Generate tokens](img/bryn-login-2fa.png){ width=350 }
 
-If you wish, mark the check box "Don't ask again on this device for 30 days"
+If you wish, mark the check box "Don't ask again on this device for 30 days".
 
 ### Using one of your backup tokens
 
