@@ -24,11 +24,11 @@ The Jupyter Notebook interface consists of four main components:
 
 ![Notebook panel](../img/jp-notebook.png)
 
-# Working with the Jupyter Notebook
+## Jupyter Notebook basics
 
 You primarily interact with the notebook by writing and running *Code cells*. Code cells in Jupyter Notebooks are the areas where you can write, execute, and interact with live code. They are one of the fundamental building blocks of Jupyter Notebooks and are used to perform computations, run algorithms, manipulate data, and create visualizations. When you run a code cell, the code inside it is executed by the kernel associated with the notebook (e.g., IPython for Python code).
 
- To run a code cell, select it and either press the "Run" button in the toolbar or use the keyboard shortcut "Shift + Enter." The code will be executed, and the output (if any) will be displayed below the cell. Try this now with a simple "hello world" example.
+To run a code cell, select it and either press the "Run" button in the toolbar or use the keyboard shortcut "Shift + Enter". The code will be executed, and the output (if any) will be displayed below the cell. Try this now with a simple "hello world" example.
 
 ![Hello world](../img/jp-hello.png)
 
@@ -49,7 +49,7 @@ You can also change the type of a cell from the toolbar. Try changing the type o
 
 ## Saving and exporting your work
 
-To save your notebook, use either the "Save" option from the menu bar or press "Ctrl + S" or "Cmd + S" (on Mac) keyboard shortcuts. To export your notebook in various formats (e.g., HTML, PDF, Python script), go to "File" -> "Save and export As" in the menu bar and select the desired format.
+To save your notebook, use either the "Save" option from the menu bar or press "Ctrl + S" or "Cmd + S" (on Mac) keyboard shortcuts. To export your notebook in various formats (e.g., HTML, PDF, Python script), go to "File" -> "Save and Export Notebook As..." in the menu bar and select the desired format.
 
 ## Markdown formatting
 
@@ -86,3 +86,16 @@ These are just some of the basic Markdown syntax elements you can use to format 
 * **Shareability and Reproducibility**: Notebooks can be easily shared with others, facilitating collaboration and reproducibility. By sharing the code and output together, others can reproduce the same results and understand the analysis.
 * **Code Modularity**: Notebooks allow breaking down complex analyses into smaller, more manageable code cells. This modularity makes the code easier to read, test, and maintain.
 * **Kernel Support**: Jupyter Notebooks support multiple kernels, enabling users to work with different programming languages (Python, R, etc.) in the same environment.
+
+## Installing Python packages in Jupyter Notebooks
+
+Conda is the recommended way to [install software on your Jupyter
+Notebook Servers](/notebook-servers/installing-software-with-conda).
+If you have Python packages software in a Conda environment, you 
+[can make them available](/notebook-servers/installing-software-with-conda/#using-conda-environments-in-jupyter-notebooks)
+by installing `ipykernel` in that Conda environment.  To switch to the
+kernel associated with that environment, click on the current kernel
+near the top-right of the notebook (usually "Python [conda env:root]"
+or "Python 3 (ipykernel)") and selecting the kernel from the options
+under **Start Preferred Kernel**.  e.g., "Python [conda
+env:bactopia]".
