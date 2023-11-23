@@ -37,7 +37,7 @@ You can Select “File” and “New File” to create and open a variety of fil
 You can install packages which provide additional features and documentation to the base `R` packages. You can do this via the GUI or via the terminal like so:
 
 ```
-install.packages(“ggplot2”)
+install.packages("ggplot2")
 ```
 
 Once a package is installed, you will need to load it:
@@ -47,7 +47,7 @@ library(ggplot2)
 
 Now all of the features from `ggplot2` will be available to you.
 
-All plots are highly customisable, you just need to know the right functions and layering them !
+All plots are highly customisable, you just need to know the right functions and layering them.
 
 <!-- prettier-ignore -->
 !!! tip
@@ -67,16 +67,15 @@ ggplot(mpg, aes(displ, hwy, colour = class)) +
 
 ## Other useful packages
 
-* `BactDating` – time scaled phylogenies
+* [`BactDating`](https://xavierdidelot.github.io/BactDating/) – time scaled phylogenies
 * `ggtree` – visualising phylogenetic trees
-* `gtsummary` – presentation ready data summary and analytic results tables
+* [`gtsummary`](https://www.danieldsjoberg.com/gtsummary/) – presentation ready data summary and analytic results tables
 * `lme4` – Linear Mixed-Effects Models
-* `phyloseq` – Handling and analysis of high-throughput microbial communities
-* `qiime2R` – importing Qiime output tables
-* `RcolorBrewer` – ColorBrewer Palettes
-* `tidyverse` - collection of R packages designed for data science
-* `VennDiagram` – Generates High-Resolution Venn and Euler Plots
+* [`phyloseq`](https://joey711.github.io/phyloseq/) – Handling and analysis of high-throughput microbial communities
+* [`qiime2R`](https://github.com/jbisanz/qiime2R) – importing Qiime output tables
+* [`RcolorBrewer`](https://r-graph-gallery.com/38-rcolorbrewers-palettes.html) – ColorBrewer Palettes
+* [`tidyverse`](https://www.tidyverse.org/) - collection of R packages designed for data science
+* [`VennDiagram`](https://r-graph-gallery.com/14-venn-diagramm) – Generates High-Resolution Venn and Euler Plots
 
-There are many “cheat sheets” available for [individual packages which you can find here.](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-visualization-2.1.pdf 
-)
+There are many "cheat sheets" available for [individual packages which you can find here](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-visualization-2.1.pdf).
 

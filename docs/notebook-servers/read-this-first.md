@@ -1,18 +1,18 @@
 # Read this first - Notebook Servers
 
-Welcome to CLIMB's Jupyter Notebook Servers, your new home on CLIMB-BIG-DATA. 
+Welcome to CLIMB's Jupyter Notebook Servers, your new home on CLIMB-BIG-DATA.
 The Notebook server is a lightweight virtualised installation of Linux, capable of running complex data science and bioinformatics tasks.
 
-In this short introduction, we will introduce the notebook server and help you *move in* into your new home. The working pattern may be slightly different to what you are used to, so we encourage you to peruse this and associated documentation to get the most out of the Jupyter Notebook Servers. 
+In this short introduction, we will introduce the notebook server and help you *move in* into your new home. The working pattern may be slightly different to what you are used to, so we encourage you to peruse this and associated documentation to get the most out of the Jupyter Notebook Servers.
 
 These notebooks are truly powerful if used correctly, as shown in these walkthroughs:
 
 * [Assembling a genome from short reads (e.g. Illumina) using SPAdes](../walkthroughs/genome-assembly/spades.md)
 * [Metagenomics in Brum](../walkthroughs/metagenomics-tutorial.md)
 
-## Advantages of the Notebook 
+## Advantages of the Notebook
 
-Just as if you have your own physical machine, you'll have terminal access and a filesystem. Your home directory is persisted, even when your server is terminated, and you'll have out-of-the-box access to fantastic features like a shared team volume, s3 buckets and more.
+Just as if you have your own physical machine, you'll have terminal access and a filesystem. Your home directory is persisted, even when your server is terminated, and you'll have out-of-the-box access to fantastic features like a shared team volume, S3 buckets and more.
 
 |   | Benefits                                             | Details                                                                                                                                                                       |
 |---|------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -29,7 +29,7 @@ The notebook server is a virtualised installation of Linux, and as such there ar
 | Restriction                     | Solution                                                                                                                 |
 |---------------------------------|--------------------------------------------------------------------------------------------------------------------------|
 | No system wide superuser (sudo) | Install software within home directory with package managers (e.g. conda) rather than apt/yum                             |
-| No running of webservices       | Static results (including html) can be hosted via S3.                                                                    |
+| No running of web services      | Static results (including HTML) can be hosted via S3.                                                                    |
 | No support for opening ports    | This is out of scope for notebooks, but CLIMB-BIG-DATA does have short term leases for more traditional virtual machines |
 
 ## Acclimatise yourself to the Notebook Server
@@ -55,7 +55,7 @@ For this reason, there is no option to launch multiple notebook servers from Bry
 
 Absolutely not. Whilst the new service is certainly far easier to get started with, it is also far more powerful for advanced users. We've ensured that each team gets a pre-mounted Kubernetes service user with permissions scoped to your team's namespace. This allows users to run Nextflow workflows on the external K8s execution environment, but also to run other containers in pods within their namespace via `kubectl`.
 
-## Organising your data storage 
+## Organising your data storage
 
 The notebook server has a few different storage locations available to you. We can explore those via the `terminal`.
 
@@ -65,7 +65,7 @@ From the terminal, you can see your home directory, which is where you'll be by 
 
 ```
 cd ~/
-ls 
+ls
 ```
 
 ![terminal home](../img/terminal-home.png)
@@ -91,7 +91,7 @@ drwxrwxr-x+  2 4744 users   9 Apr 16 17:36 taxonomy
 
 These are large databases for bioinformatics tools. For example, the `kraken2` folder contains the databases for Kraken2 and Bracken. You can use these in your workflows, without having to download them yourself. These locations do not count to your storage quota.
 
-The `shared-team` folder is a good place to store your data. It is visible to everyone in your team, making it easy to collaborate on projects. 
+The `shared-team` folder is a good place to store your data. It is visible to everyone in your team, making it easy to collaborate on projects.
 
 You can list the contents of the `shared-team` folder:
 ```

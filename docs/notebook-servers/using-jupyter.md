@@ -1,8 +1,8 @@
 # Using Jupyter Notebooks
 
-Jupyter Notebooks are a powerful and popular tool for interactive computing, data analysis, and data visualization. They allow you to create and share documents that contain live code, equations, visualizations, and explanatory text, making them an excellent choice for data scientists, researchers, and educators. In this tutorial, we'll walk you through the basics of Jupyter Notebooks and how to get started with them. [There is more detailed documentation here](https://jupyterlab.readthedocs.io/en/stable/user/running.html)
+Jupyter Notebooks are a powerful and popular tool for interactive computing, data analysis, and data visualization. They allow you to create and share documents that contain live code, equations, visualizations, and explanatory text, making them an excellent choice for data scientists, researchers, and educators. In this tutorial, we'll walk you through the basics of Jupyter Notebooks and how to get started with them. There is more detailed documentation in the [JupyterLab User Guide](https://jupyterlab.readthedocs.io/en/stable/user/index.html).
 
-Jupyter Notebooks can look very handsome, with a mix of code and formatted text. Here is an example explaining how to calculate the square root of a number. 
+Jupyter Notebooks can look very handsome, with a mix of code and formatted text. Here is an example explaining how to calculate the square root of a number.
 
 **Unformatted (i.e. the input you would enter):**
 
@@ -36,7 +36,7 @@ In the grey box. Type `print("Hello world")` and press `Shift + Enter`. You shou
 
 ![Add cell](../img/jp-add-cell.png)
 
-You can also change the type of a cell from the toolbar. Try changing the type of the new cell to "Markdown" and typing some text (see the dropdown in the toolbar). Then run the cell to see the formatted text. 
+You can also change the type of a cell from the toolbar. Try changing the type of the new cell to "Markdown" and typing some text (see the dropdown in the toolbar). Then run the cell to see the formatted text.
 
 ![MD cell](../img/jp-notebook-md.png)
 
@@ -51,7 +51,7 @@ You can also change the type of a cell from the toolbar. Try changing the type o
 
 To save your notebook, use either the "Save" option from the menu bar or press "Ctrl + S" or "Cmd + S" (on Mac) keyboard shortcuts. To export your notebook in various formats (e.g., HTML, PDF, Python script), go to "File" -> "Save and export As" in the menu bar and select the desired format.
 
-## Markdown formatting 
+## Markdown formatting
 
 These are just some of the basic Markdown syntax elements you can use to format text. Markdown allows you to easily create headings, emphasize text, create links, add images, create lists, quote text, and even include code blocks for different programming languages.
 
@@ -78,7 +78,7 @@ These are just some of the basic Markdown syntax elements you can use to format 
 * Jupyter Notebooks support auto-completion, which can be triggered by pressing "Tab" while typing code.
 * To get help on a function or object, append a question mark (?) at the end and run the cell.
 
-## Advantages of Jupyter Notebooks 
+## Advantages of Jupyter Notebooks
 
 * **Interactive Computing**: Jupyter Notebooks provide an interactive computing environment. Users can run code cells individually, making it easy to experiment, iterate, and visualize data in real-time.
 * **Data Visualization**: Jupyter Notebooks support rich data visualization libraries like Matplotlib, Seaborn, and Plotly. This allows users to create interactive plots, charts, and graphs directly within the notebook.

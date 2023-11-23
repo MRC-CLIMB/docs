@@ -10,7 +10,7 @@ We divide users into three categories:
 
 Primary users should head over to the [Bryn registration page](https://bryn.climb.ac.uk/user/register/) to get started.
 
-To add secondary users to a team, please see [inviting users to your team]()
+To add secondary users to a team, please see [inviting users to your team]().
 
 <!-- prettier-ignore -->
 !!! warning
@@ -22,7 +22,7 @@ When you head over to the [Bryn registration page](https://bryn.climb.ac.uk/user
 
 ![Bryn registration form](img/bryn-registration-form.png){ width=650 }
 
-Accept the terms if you are happy, and you will then be asked information regarding your “Primary user details” including contact information and your position. You will also be asked about your “Team details” for your CLIMB-BIG-DATA team account. This includes information on where you currently work and why you would like to use CLIMBs resources.
+Accept the terms if you are happy, and you will then be asked information regarding your “Primary user details” including contact information and your position. You will also be asked about your “Team details” for your CLIMB-BIG-DATA team account. This includes information on where you currently work and why you would like to use CLIMB's resources.
 
 The registration request will be reviewed by a member of our management team. Please provide as much information as possible about your role and research to speed up the process. If we do not feel enough information has been provided, we may contact you. If your registration is successful, you will receive a verification email. Following verification, you will be taken to the [Bryn portal](https://bryn.climb.ac.uk/).
 

@@ -2,16 +2,16 @@
 
 It's critical to understand how Conda works with notebook servers, and the caveats compared to using it locally or on a VM.
 
-Firstly, understand that **you cannot install new software to the base Conda environment**. Lets have a look at why.
+Firstly, understand that **you cannot install new software to the base Conda environment**. Let's have a look at why.
 
 ```console
 $ conda info --envs
 base                     /opt/conda
 ```
 
-The base Conda env is installed at `/opt/conda`. Since we are running instide a container, any changes made to this part of the filesystem will not be retained once the container is stopped and restarted (unlike your home dir and shares, which are persisted).
+The base Conda environment is installed at `/opt/conda`. Since we are running inside a container, any changes made to this part of the filesystem will not be retained once the container is stopped and restarted (unlike your home dir and shares, which are persisted).
 
-We've made the base environment read only to prevent any confustion.
+We've made the base environment read only to prevent any confusion.
 
 <!-- prettier-ignore -->
 !!! tip
@@ -19,7 +19,7 @@ We've made the base environment read only to prevent any confustion.
 
 ## Default .condarc
 
-When you first launch a notebook server, we generate a default `.condarc` in your home directory. This sets the path for your new environments to `/shared/team/conda/$JUPYTER_USERNAME`. Why? As mentioned above, your home directory is relatively small compared with your team share, so it makes sense to use the larger mount. In additon, it becomes easy to share Conda environments with other team members.
+When you first launch a notebook server, we generate a default `.condarc` in your home directory. This sets the path for your new environments to `/shared/team/conda/$JUPYTER_USERNAME`. Why? As mentioned above, your home directory is relatively small compared with your team share, so it makes sense to use the larger mount. In addition, it becomes easy to share Conda environments with other team members.
 
 ```console
 jovyan:~$ cat ~/.condarc
@@ -30,13 +30,13 @@ envs_dirs:
 
 ## Creating new Conda environments
 
-Understanding the above, you can create new Conda environments in the usual way. The only caveat is that if you wish to use this environment with IPython notebooks, you must install `ipykernel`.
+Understanding the above, you can create new Conda environments in the usual way. The only caveat is that if you wish to use this environment with Jupyter notebooks, you must install `ipykernel`.
 
 <!-- prettier-ignore -->
 !!! warning
     If you don't install `ipykernel` in a new Conda environment, it won't show up on the launcher or be available to select within the python notebooks interface. However, you can use the environment just fine within a terminal.
 
-Lets go ahead and install [bactopia](https://bactopia.github.io/v2.2.0/quick-start/) as an example.
+Let's go ahead and install [bactopia](https://bactopia.github.io/v2.2.0/quick-start/) as an example.
 
 If you try listing channels, you'll see you already have conda-forge and bioconda set.
 
@@ -58,7 +58,7 @@ Executing transaction: done
 #     $ conda deactivate
 ```
 
-Done. Listing your envs again to confirm the location:
+Done. Listing your environments again to confirm the location:
 
 ```console
 jovyan:~$ conda info --envs
@@ -68,7 +68,7 @@ base                     /opt/conda
 bactopia                 /shared/team/conda/demouser.andy-bryn-dev-t/bactopia
 ```
 
-And finally lets activate the environment
+And finally let's activate the environment:
 
 ```console
 jovyan:~$ conda activate bactopia
