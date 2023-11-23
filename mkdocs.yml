@@ -41,9 +41,7 @@ nav:
       - "How to Register": "getting-started/how-to-register.md"
       - "Authentication": "getting-started/authentication.md"
   - "Notebook Servers":
-      - notebook-servers/index.md
-      - "Read This First!": "notebook-servers/read-this-first.md"
-      - "Quick start": "notebook-servers/quick-start.md"
+      - "About Notebook Servers": "notebook-servers/read-this-first.md"
       - "Using the terminal": "notebook-servers/using-the-terminal.md"
       - "Using Jupyter notebooks": "notebook-servers/using-jupyter.md"
       - "Using RStudio": "notebook-servers/using-rstudio.md"

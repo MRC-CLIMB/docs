@@ -2,7 +2,7 @@
 
 Suggested reading before starting this tutorial:
 
-* [Notebook Servers, Quick Start](../../notebook-servers/quick-start.md)
+* [About Notebook Servers](../../notebook-servers/read-this-first.md)
 * [Using the Terminal](../../notebook-servers/using-the-terminal.md)
 * [Using Nextflow](../../notebook-servers/using-nextflow.md)
 * [Understanding Storage](../../storage/index.md)
@@ -21,7 +21,8 @@ Background reading: [nextflow docs: basic concepts](https://www.nextflow.io/docs
 
 This tutorial uses the [MRC-CLIMB/modules](https://github.com/MRC-CLIMB/modules) GitHub repository. The module files in this repo contain the processes which we’ll use to build the workflow.
 
-[Create a notebook server](../../notebook-servers/quick-start.md) and start a [terminal session](../../notebook-servers/using-the-terminal.md). Next, clone the MRC-CLIMB/modules repo and take a look at the module files in the directory `modules/modules` using `cat`. E.g. `cat shovill.nf`
+[Create a notebook server](/notebook-servers/read-this-first/#how-to-launch-and-access-a-notebook-server) 
+and start a [terminal session](../../notebook-servers/using-the-terminal.md). Next, clone the MRC-CLIMB/modules repo and take a look at the module files in the directory `modules/modules` using `cat`. E.g. `cat shovill.nf`
 
 ```console
 jovyan:~$ git clone https://github.com/MRC-CLIMB/modules.git
