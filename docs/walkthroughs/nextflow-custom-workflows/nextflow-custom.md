@@ -17,7 +17,7 @@ And modifying and extending it to follow this workflow:
 
 ## TASK 1: Try running the test pipeline
 
-Background reading: https://www.nextflow.io/docs/latest/basic.html
+Background reading: [nextflow docs: basic concepts](https://www.nextflow.io/docs/latest/basic.html).
 
 This tutorial uses the [MRC-CLIMB/modules](https://github.com/MRC-CLIMB/modules) GitHub repository. The module files in this repo contain the processes which we’ll use to build the workflow.
 
@@ -156,7 +156,7 @@ Open a new terminal window, if you run `ls /shared/team/nxf_work/$JUPYTERHUB_USE
 
 ## TASK 2: Remove tbfastqs process and create a channel for fastqs
 
-Background reading: https://www.nextflow.io/docs/latest/channel.html#fromfilepairs
+Background reading: [nextflow docs: fromFilePairs channel factory](https://www.nextflow.io/docs/latest/channel.html#fromfilepairs)
 
 The test-pipeline pulls a pair of fastqs from the ENA for testing purposes. In the real world, we would want to pass a directory containing fastq files to the workflow.
 
@@ -188,6 +188,7 @@ We want to add this directory with the fastqs as a parameter to the `nextflow.co
 PARAM_NAME=/PATH/GLOB_FOR_FASTQS
 ```
 where
+
 * **PARAM_NAME:** Set a name for the parameter.
 
 * **PATH:** Path to the fastqs.
@@ -204,6 +205,7 @@ Channel.fromFilePairs(INPUT_PATH, OPTIONS)
        .set{ CHANNEL_NAME }
 ```
 where
+
 * **CHANNEL_NAME:** Set a name for the channel.
 
 * **INPUT_PATH:** This should be the parameter you set in the config in Step 2.
@@ -224,7 +226,7 @@ You check the progress of the pipeline with `cat task2.txt`
 
 ## TASK 3:  Add abricate and quast processes
 
-Background reading: https://www.nextflow.io/docs/latest/operator.html#collect
+Background reading: [nextflow docs: collect operator](https://www.nextflow.io/docs/latest/operator.html#collect)
 
 Take a look at the structure of the current workflow, and try to add the processes from `modules/abricate.nf` and `modules/quast.nf` to the workflow.
 
@@ -235,6 +237,7 @@ A process declaration takes the general form:
 PROCESS_NAME(INPUT_CHANNEL_1, INPUT_CHANNEL_2, …, INPUT_CHANNEL_N)
 ```
 where
+
 * **PROCESS_NAME:** Name of the process as named in the module file.
 
 * **INPUT_CHANNEL_{1:N}:** Input channels to the process separated by commas.
@@ -260,36 +263,38 @@ you’ll see from the `*.fasta` wildcard that quast can run on multiple fastas a
 
 Try running the pipeline again, to see if you’ve correctly added abricate and quast to the workflow.
 
-## TASK 4: Create channel for kraken2 database and add kraken2 process
+## TASK 4: Create channel for Kraken 2 database and add Kraken 2 process
 
-Background reading: 
-1. https://www.nextflow.io/docs/latest/channel.html#frompath
-2. https://www.nextflow.io/docs/latest/operator.html#tolist
+Background reading:
 
-Kraken2 requires as input a reference database in order to assign species IDs to a sample. We will need to create an input channel for this database.
+1. [Nextflow docs: fromPath channel factory](https://www.nextflow.io/docs/latest/channel.html#frompath)
+2. [Nextflow docs: tolist operator](https://www.nextflow.io/docs/latest/operator.html#tolist)
+
+Kraken 2 requires as input a reference database in order to assign species IDs to a sample. We will need to create an input channel for this database.
 
 
-### Step 1: Add a parameter for the path to the kraken2 database
-Add a new parameter to the `nextflow.config` for the kraken2 database path
+### Step 1: Add a parameter for the path to the Kraken 2 database
+Add a new parameter to the `nextflow.config` for the Kraken 2 database path
 
-Kraken2 databases can be found at `/shared/public/db/kraken2`. We will use the `k2_pluspfp_16gb` database. The kraken2 database files have the extension `.k2d`. Use this information to construct a parameter for the kraken2 database path.
+Kraken 2 databases can be found at `/shared/public/db/kraken2`. We will use the `k2_pluspfp_16gb` database. The Kraken 2 database files have the extension `.k2d`. Use this information to construct a parameter for the Kraken 2 database path.
 
 Note that `/shared/public` is also mounted to the Kubenetes pods.
 
-### Step 2: Create a channel for the database 
+### Step 2: Create a channel for the database
 
-In `main.nf` create a channel for the kraken2 database files. This time use the `Channel.fromPath` directive (https://www.nextflow.io/docs/latest/channel.html#frompath), using the parameter you set in Step 1 as the path.
+In `main.nf` create a channel for the Kraken 2 database files. This time use the [`Channel.fromPath` directive](https://www.nextflow.io/docs/latest/channel.html#frompath), using the parameter you set in Step 1 as the path.
 
-### Step 3: Add the kraken2 process to the workflow
+### Step 3: Add the Kraken 2 process to the workflow
 
-Add the kraken2 process defined in `modules/kraken2.nf` to the main workflow. Kraken2 will take 2 input channels: the output from trimgalore `trimgalore_out`, and the kraken2 database channel from Step 2. Use the operator `.toList()` for the kraken2 database channel (this will emit the kraken2 database files as a single item).
+Add the Kraken 2 process defined in `modules/kraken2.nf` to the main workflow. Kraken 2 will take 2 input channels: the output from trimgalore `trimgalore_out`, and the Kraken 2 database channel from Step 2. Use the operator `.toList()` for the Kraken 2 database channel (this will emit the Kraken 2 database files as a single item).
 
 Once you've completed the above steps, try running the workflow again. Your workflow should now resemble the second figure at the top of this page.
 
 ## Solution 
+
 Once you have completed all the tasks, your workflow and config should look something like the following:
 
-main.nf
+### `main.nf`
 ```
 #!/usr/bin/env nextflow
 
@@ -328,7 +333,7 @@ workflow {
 
 }
 ```
-nextflow.config
+### `nextflow.config`
 ```
 params {
 
