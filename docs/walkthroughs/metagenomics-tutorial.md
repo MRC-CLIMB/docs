@@ -64,38 +64,38 @@ You can test `kraken2` was installed correctly by running it with no command-lin
 !kraken2
 ```
 
-Pre-computed Kraken2 databases are available on the `/shared/public` file system within CLIMB-BIG-DATA. These databases are downloaded from [Ben Langmad's publicly available Kraken2 indexes page](https://benlangmead.github.io/aws-indexes/k2). These datasets are updated monthly and we will keep the latest versions available.
+Pre-computed Kraken2 databases are available on the `/shared/public` file system within CLIMB-BIG-DATA. These databases are downloaded from [Ben Langmad's publicly available Kraken2 indexes page](https://benlangmead.github.io/aws-indexes/k2). These datasets are updated regularly and we will keep all versions that we download available permenantly. Within each database directory `latest` will always point towards the latest version available.
 
 The `/shared/public` area is designed to store frequently used, important databases for the microbial genomics community. We are just getting started building this resource so please contact us with suggestions for other databases you would like to see here.
 
-We can take a look at the databases that are available, and their sizes:
+We can take a look at the latest versions of the databases that are available, and their sizes:
 
 
 ```python
-!du -h -d1 /shared/public/db/kraken2
+!du -h /shared/public/db/kraken2/*/latest/
 ```
 
-    7.5G	/shared/public/db/kraken2/k2_pluspf_08gb
-    9.1G	/shared/public/db/kraken2/k2_minusb
-    556M	/shared/public/db/kraken2/k2_viral
-    69G	/shared/public/db/kraken2/k2_pluspf
-    7.5G	/shared/public/db/kraken2/k2_standard_08gb
-    15G	/shared/public/db/kraken2/k2_pluspf_16gb
-    65G	/shared/public/db/kraken2/k2_standard
-    15G	/shared/public/db/kraken2/k2_standard_16gb
-    264G	/shared/public/db/kraken2/downloads
-    7.6G	/shared/public/db/kraken2/k2_pluspfp_08gb
-    15G	/shared/public/db/kraken2/k2_pluspfp_16gb
-    145G	/shared/public/db/kraken2/k2_pluspfp
-    619G	/shared/public/db/kraken2
+11G     /shared/public/db/kraken2/eupathDB46/latest/
+9.6G    /shared/public/db/kraken2/minusb/latest/
+743G    /shared/public/db/kraken2/nt/latest/
+15G     /shared/public/db/kraken2/pluspf_16gb/latest/
+7.6G    /shared/public/db/kraken2/pluspf_8gb/latest/
+75G     /shared/public/db/kraken2/pluspf/latest/
+16G     /shared/public/db/kraken2/pluspfp_16gb/latest/
+7.9G    /shared/public/db/kraken2/pluspfp_8gb/latest/
+169G    /shared/public/db/kraken2/pluspfp/latest/
+15G     /shared/public/db/kraken2/standard_16gb/latest/
+7.6G    /shared/public/db/kraken2/standard_8gb/latest/
+70G     /shared/public/db/kraken2/standard/latest/
+633M    /shared/public/db/kraken2/viral/latest/
 
 
-We can run Kraken2 directly within this JupyterHub notebook which is running in a container. A standard container has 8 CPu cores and 64Gb of memory. Kraken2 doesn't run well unless the database fits into memory, so we can use one of the smaller databases for now such a `k2_standard_16gb` which contains archaea, bacteria, viral, plasmid, human and UniVec_Core sequences from RefSeq, but subsampled down to a 16Gb database. This will be fast, but we trade off specificity and sensitivity against bigger databases.
+We can run Kraken2 directly within this JupyterHub notebook which is running in a container. A standard container has 8 CPu cores and 64Gb of memory. Kraken2 doesn't run well unless the database fits into memory, so we can use one of the smaller databases for now such as `standard_16gb` which contains archaea, bacteria, viral, plasmid, human and UniVec_Core sequences from RefSeq, but subsampled down to a 16Gb database. This will be fast, but we trade off specificity and sensitivity against bigger databases.
 
 
 ```python
 !kraken2 --threads 8 \
-   --db /shared/public/db/kraken2/k2_standard_16gb \
+   --db /shared/public/db/kraken2/standard_16gb/latest \
    --output canalseq.hits.txt \
    --report canalseq.report.txt \
    canalseq.fasta
@@ -201,7 +201,7 @@ If you wanted to run Kraken2 through Nextflow the same way as before you could r
 !nextflow run metashot/kraken2 \
   -c /etc/nextflow.config \
   --reads canalseq.fastq \
-  --kraken2_db /shared/public/db/kraken2/k2_standard_16gb \
+  --kraken2_db /shared/public/db/kraken2/standard_16gb/latest \
   --read_len 100 \
   --outdir canalseq-standard16 \
   --single_end
@@ -212,7 +212,7 @@ But - and for our final trick - we would like to use a much bigger database `k2_
 
 
 ```python
-!du -h -d1 /shared/public/db/kraken2/k2_pluspfp
+!du -h -d1 /shared/public/db/kraken2/pluspfp/latest
 ```
 
 As this database is around 145Gb, we can ask Nextflow to give us 200 gigabytes of RAM when running this container, to ensure this database fits easily in memory. We could also ask for a lot more CPUs to speed things along further! Nextflow and Kubernetes will take care of finding a machine the best size for this workflow.
@@ -222,7 +222,7 @@ As this database is around 145Gb, we can ask Nextflow to give us 200 gigabytes o
 !nextflow run metashot/kraken2 \
   -c /etc/nextflow.config \
   --reads canalseq.fasta \
-  --kraken2_db /shared/public/db/kraken2/k2_pluspfp \
+  --kraken2_db /shared/public/db/kraken2/pluspfp/latest \
   --read_len 100 \
   --outdir canalseq-pluspfp \
   --single_end \
@@ -259,7 +259,7 @@ We can use a nice little tool called `taxpasta` to take the results of the two K
 ```python
 !cp canalseq-pluspfp/kraken2/canalseq.kraken2.report pluspfp.report
 !cp canalseq-standard16/kraken2/canalseq.kraken2.report standard16.report
-!taxpasta merge --profiler kraken2  --output-format tsv --add-name --add-rank --taxonomy /shared/public/db/taxonomy -o canalseq.merged.tsv pluspfp.report standard16.report
+!taxpasta merge --profiler kraken2  --output-format tsv --add-name --add-rank --taxonomy /shared/public/db/taxonomy/latest -o canalseq.merged.tsv pluspfp.report standard16.report
 ```
 
 Now we can do some magic with R.
