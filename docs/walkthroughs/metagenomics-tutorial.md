@@ -182,9 +182,9 @@ With the `extract_kraken_reads.py` script in `krakentools` we can quite easily e
 !cat leptospira.fasta
 ```
 
-If you wished you could go and take these reads and BLAST them over at NCBI-BLAST. There is also the `nr` BLAST database available on CLIMB-BIG-DATA if you wanted to run `blastx` on them. The BLAST databases are found in `/shared/team/db/blast`.
+If you wished you could go and take these reads and BLAST them over at NCBI-BLAST. There is also the `nr` BLAST database available on CLIMB-BIG-DATA if you wanted to run `blastx` on them. The BLAST databases are found in `/shared/public/db/blast`.
 
-It was a bit disappointing that only 33% of the reads in our dataset were assigned. We could try a much bigger database than `k2_standard_16gb` such as `k2_pluspfp` which contains protozoal, fungal and plant sequences, as well as taxa contained in `k2_standard`. 
+It was a bit disappointing that only 33% of the reads in our dataset were assigned. We could try a much bigger database than `standard_16gb` such as `pluspfp` which contains protozoal, fungal and plant sequences, as well as taxa contained in `standard`. 
 
 To do this we will need to use the Kubernetes cluster in CLIMB-BIG-DATA. With the Kubernetes cluster we can run much bigger tasks requiring much more CPU power, or more memory than in a notebook container like this.
 
@@ -207,7 +207,7 @@ If you wanted to run Kraken2 through Nextflow the same way as before you could r
   --single_end
 ```
 
-But - and for our final trick - we would like to use a much bigger database `k2_pluspfp`. We can just re-check it's size.
+But - and for our final trick - we would like to use a much bigger database `pluspfp`. We can just re-check it's size.
 
 
 
