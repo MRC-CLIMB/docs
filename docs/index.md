@@ -43,3 +43,6 @@ A simple walk-through of some CLIMB-BIG-DATA functionality.
 
 [QIIME 2](walkthroughs/qiime2.md)
 How to install QIIME 2 on a notebook server and basic usage.
+
+[Additional Information](additional-information/403ForbiddenError.md)
+Extra information about BRYN
