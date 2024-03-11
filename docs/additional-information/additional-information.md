@@ -1,0 +1,2 @@
+
+This issue commonly arises during transitions between teams within BRYN, especially when users are managing multiple tasks across various teams. It typically occurs when users have a notebook already open in one team and then proceed to switch to another team, attempting to open a new notebook.
