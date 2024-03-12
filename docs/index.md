@@ -38,8 +38,11 @@ How to install software using Conda, in the context of a containerized environme
 [Using Nextflow](notebook-servers/using-nextflow.md)  
 How to use Nextflow with CLIMB-BIG-DATA.
 
-[Metagenomics walkthrough](walkthroughs/metagenomics-tutorial.md)
+[Metagenomics walkthrough](walkthroughs/metagenomics-tutorial.md)  
 A simple walk-through of some CLIMB-BIG-DATA functionality.
 
-[QIIME 2](walkthroughs/qiime2.md)
+[QIIME 2](walkthroughs/qiime2.md)  
 How to install QIIME 2 on a notebook server and basic usage.
+
+[How to fix login error 403](notebook-servers/403-forbidden-error.md)  
+An explanation of how to resolve login error 403 when accessing notebooks.
