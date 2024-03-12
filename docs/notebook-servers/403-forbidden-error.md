@@ -20,6 +20,6 @@ Addressing this issue is straightforward with the following steps:
 
 ![forbiddenErrorStep4](../img/forbiddenErrorStep4.png)
 
-5.) You will then be able to access the notebook.
+5.) You will then be able to access the notebook. Enjoy!
 
 
