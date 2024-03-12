@@ -10,32 +10,32 @@ These docs are designed to help you get the best out of the CLIMB-BIG-DATA infra
 
 How to access CLIMB-BIG-DATA and find your way around via the Bryn web interface.
 
-[Registration](getting-started/how-to-register.md)  
+[Registration](getting-started/how-to-register.md)
 How to register and access CLIMB-BIG-DATA.
 
-[Authentication](getting-started/authentication.md)  
+[Authentication](getting-started/authentication.md)
 How to login to Bryn, and setup two-factor authentication.
 
 ### Notebook Servers
 
 Everything you need to understand, use and get the most out of Jupyter Notebook Servers.
 
-[Introduction](notebook-servers/read-this-first.md)  
-An introduction to the what and why of notebook servers.
+[Why Notebook Servers?](notebook-servers/why-notebook-servers.md)
+An explanation of the why CLIMB-BIG-DATA uses Notebook Servers.
 
-[Quick start](notebook-servers/quick-start.md)  
-How to launch, access and get started using a notebook server.
+[Notebook Server Basics]
+The basics of how to launch and use Notebook Servers.
 
-[Using the terminal](notebook-servers/using-the-terminal.md)  
+[Using the terminal](notebook-servers/using-the-terminal.md)
 How to use the terminal inside a notebook server, with an explanation of caveats.
 
-[Understanding storage](storage/index.md)  
+[Understanding storage](storage/index.md)
 An explanation of the different storage options available and when to use what.
 
-[Installing software with Conda](notebook-servers/installing-software-with-conda.md)  
+[Installing software with Conda](notebook-servers/installing-software-with-conda.md)
 How to install software using Conda, in the context of a containerized environment.
 
-[Using Nextflow](notebook-servers/using-nextflow.md)  
+[Using Nextflow](notebook-servers/using-nextflow.md)
 How to use Nextflow with CLIMB-BIG-DATA.
 
 [Metagenomics walkthrough](walkthroughs/metagenomics-tutorial.md)

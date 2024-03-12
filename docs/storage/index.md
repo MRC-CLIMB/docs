@@ -21,8 +21,8 @@ To first understand how to transfer data, it is important to understand how data
 Data in CLIMB-BIG-DATA can be found in four major locations:
 
 * Your home directory `/home/jovyan` (~)
-* A writeable 'team share' mounted at `~/shared-team/` and linked to your home directory as `shared-team`
-* Read-only shares mounted at `/shared/public` and linked to your home directory as `shared-public`
+* A writeable 'team share' mounted at `/shared/team/` and linked to your home directory as `shared-team`
+* Read-only shares mounted at `/shared/public/` and linked to your home directory as `shared-public`
 * S3 buckets
 
 These interact with each other as shown in the diagram below:

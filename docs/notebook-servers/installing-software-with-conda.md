@@ -10,7 +10,7 @@ base                     /opt/conda
 ```
 
 
-The base Conda environment is installed at `/opt/conda`. Since we are running inside a container, any changes made to this part of the filesystem will not be retained once the container is stopped and restarted (unlike your home dir and shares, which are persisted).
+The base Conda environment is installed at `/opt/conda`. Since we are running inside a container, any changes made to this part of the filesystem will not be retained once the container is stopped and restarted (unlike your home dir and shares, which are persistent).
 
 We've made the base environment read only to prevent any confusion.
 

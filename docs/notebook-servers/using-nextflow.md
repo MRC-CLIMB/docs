@@ -8,7 +8,8 @@ We've made Nextflow a first class citizen in CLIMB-BIG-DATA. You'll find an up-t
 
 ## How can I start using Nextflow?
 
-[Create a notebook server](quick-start.md) and start a [terminal session](using-the-terminal.md). Now type:
+[Create a notebook server](basics.md#how-to-launch-and-access-a-notebook-server) 
+and start a [terminal session](using-the-terminal.md). Now type:
 
 ```console
 jovyan:~$ nextflow -v
