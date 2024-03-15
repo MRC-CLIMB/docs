@@ -115,3 +115,21 @@ We have tried to make it as easy as possible to use Nextflow on CLIMB, and to ma
 - A K8s ServiceUser is pre-mounted (no credentials setup required)
 - S3 bucket path-style access is enabled, with `s3.climb.ac.uk` set as the endpoint
 - S3 keys have also been injected from Bryn
+
+# How to run NextFlow Locally with Mamba.
+
+Run Nextflow with Mamba for nf-core Pipelines: When running nf-core pipelines, you can specify the Mamba profile and set the process executor to local. 
+
+Simply add -profile mamba -process.executor=local to your Nextflow command:
+
+```console
+ nextflow run -profile mamba -process.executor=local <your_nfcore_pipeline.nf>
+ ```
+
+Replace `<your_nfcore_pipeline.nf>` with the filename of the nf-core pipeline you want to execute.
+
+If Mamba encounters issues with older pipelines, you can use the -profile conda option. However, note that this may be slower:
+
+```console
+nextflow run -profile conda <your_nfcore_pipeline.nf>
+```
