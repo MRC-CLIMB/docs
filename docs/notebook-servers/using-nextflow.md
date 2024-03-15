@@ -122,6 +122,12 @@ Run Nextflow with Mamba for nf-core Pipelines: When running nf-core pipelines, y
 
 Simply add -profile mamba -process.executor=local to your Nextflow command:
 
+# How to run NextFlow Locally with Mamba.
+
+Run Nextflow with Mamba for nf-core Pipelines: When running nf-core pipelines, you can specify the Mamba profile and set the process executor to local. 
+
+Simply add -profile mamba -process.executor=local to your Nextflow command:
+
 ```console
  nextflow run -profile mamba -process.executor=local <your_nfcore_pipeline.nf>
  ```
