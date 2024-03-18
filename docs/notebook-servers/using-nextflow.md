@@ -123,7 +123,7 @@ Run Nextflow with Mamba for nf-core Pipelines: When running nf-core pipelines, y
 Simply add -profile mamba -process.executor=local to your Nextflow command:
 
 ```console
-nextflow run <pipeline> -profile mamba -process.executor=local <your_nfcore_pipeline.nf>
+nextflow run <your_nfcore_pipeline.nf> -profile mamba -process.executor=local
 ```
 
 Replace `<your_nfcore_pipeline.nf>` with the filename of the nf-core pipeline you want to execute.
@@ -131,5 +131,5 @@ Replace `<your_nfcore_pipeline.nf>` with the filename of the nf-core pipeline yo
 If Mamba encounters issues with older pipelines, you can use the -profile conda option. However, note that this may be slower:
 
 ```console
-nextflow run -profile conda <your_nfcore_pipeline.nf>
+nextflow run <your_nfcore_pipeline.nf> -profile  conda -process.executor=local
 ```
