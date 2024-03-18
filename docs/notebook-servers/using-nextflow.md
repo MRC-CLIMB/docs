@@ -116,7 +116,7 @@ We have tried to make it as easy as possible to use Nextflow on CLIMB, and to ma
 - S3 bucket path-style access is enabled, with `s3.climb.ac.uk` set as the endpoint
 - S3 keys have also been injected from Bryn
 
-# How to run NextFlow Locally with Mamba
+# How to run NextFlow locally with Mamba.
 
 Run Nextflow with Mamba for nf-core Pipelines: When running nf-core pipelines, you can specify the Mamba profile and set the process executor to local. 
 
