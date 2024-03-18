@@ -29,6 +29,9 @@ How to launch, access and get started using a notebook server.
 [Using the terminal](notebook-servers/using-the-terminal.md)  
 How to use the terminal inside a notebook server, with an explanation of caveats.
 
+[Using VS Code](using-vscode.md)
+How to connect to your CLIMB Notebook using VS Code
+
 [Understanding storage](storage/index.md)  
 An explanation of the different storage options available and when to use what.
 

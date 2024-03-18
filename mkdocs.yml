@@ -50,6 +50,7 @@ nav:
       - "Understanding storage": "storage/index.md"
       - "Installing software with Conda": "notebook-servers/installing-software-with-conda.md"
       - "Using Nextflow": "notebook-servers/using-nextflow.md"
+      - "Using VS Code": "notebook-servers/using-vscode.md"
       - "403 Forbidden Error": "notebook-servers/403-forbidden-error.md"
   - "Walkthroughs":
       - "Metagenomics": "walkthroughs/metagenomics-tutorial.md"
