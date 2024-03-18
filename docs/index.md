@@ -47,5 +47,9 @@ A simple walk-through of some CLIMB-BIG-DATA functionality.
 [QIIME 2](walkthroughs/qiime2.md)  
 How to install QIIME 2 on a notebook server and basic usage.
 
+[nf-core pipelines](walkthroughs/nfcore.md)
+How to run some of the nf-core pipelines on CLIMB notebooks
+
 [How to fix login error 403](notebook-servers/403-forbidden-error.md)  
 An explanation of how to resolve login error 403 when accessing notebooks.
+
