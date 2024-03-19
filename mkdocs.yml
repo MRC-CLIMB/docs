@@ -50,10 +50,11 @@ nav:
       - "Understanding storage": "storage/index.md"
       - "Installing software with Conda": "notebook-servers/installing-software-with-conda.md"
       - "Using Nextflow": "notebook-servers/using-nextflow.md"
-      - "Using VS Code": "notebook-servers/using-vscode.md"
+      - "Using Visual Studio Code": "notebook-servers/using-vscode.md"
       - "403 Forbidden Error": "notebook-servers/403-forbidden-error.md"
   - "Walkthroughs":
       - "Metagenomics": "walkthroughs/metagenomics-tutorial.md"
       - "Genome assembly": "walkthroughs/genome-assembly/spades.md"
       - "Custom Nextflow Workflows": "walkthroughs/nextflow-custom-workflows/nextflow-custom.md"
       - "QIIME 2": "walkthroughs/qiime2.md"
+      - "nf-core pipelines": "walkthroughs/nfcore.md"

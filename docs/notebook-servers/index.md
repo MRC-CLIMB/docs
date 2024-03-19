@@ -20,8 +20,8 @@ How to install software using Conda, in the context of a containerized environme
 [Using Nextflow](using-nextflow.md)  
 How to use Nextflow with CLIMB-BIG-DATA.
 
-[Using VS Code](using-vscode.md)
-How to connect to your CLIMB Notebook using VS Code
+[Using Visual Studio Code](using-vscode.md)
+How to connect to your CLIMB Notebook and work from Visual Studio Code
 
 [How to fix login error 403](403-forbidden-error.md)  
 An explanation of how to resolve login error 403 when accessing notebooks.
