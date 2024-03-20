@@ -285,7 +285,7 @@ head(df)
 ```
 
 
-<table class="dataframe">
+<table style="border:1px solid #000000;">
 <caption>A tibble: 6 × 5</caption>
 <thead>
 	<tr><th scope=col>taxonomy_id</th><th scope=col>name</th><th scope=col>rank</th><th scope=col>pluspfp</th><th scope=col>standard16</th></tr>
@@ -318,7 +318,7 @@ df %>%
 
 
     
-![svg](output_47_0.svg)
+![svg](output_46_0.svg)
     
 
 

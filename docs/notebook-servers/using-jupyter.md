@@ -64,7 +64,7 @@ These are just some of the basic Markdown syntax elements you can use to format 
 | `*Italic Text*`        | *Italic Text*                   |
 | `~~Strikethrough~~`    | ~~Strikethrough~~               |
 | `[Link](https://climb.ac.uk/)` | [Link](https://climb.ac.uk/) |
-| `![Image Alt Text](image.jpg)`   | ![Image Alt Text](image.jpg)    |
+| `![Image Alt Text](image.jpg)`   | ![Image Alt Text](https://picsum.photos/80/80)    |
 | `1. Item 1`            | 1. Item 1                       |
 | `2. Item 2`            | 2. Item 2                       |
 | `- Unordered List`     | - Unordered List                |
