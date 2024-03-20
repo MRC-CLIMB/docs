@@ -13,7 +13,9 @@ Some examples of nf-core pipelines include:
 * [nf-core/taxprofiler](https://nf-co.re/taxprofiler/): to run multiple taxonomy profiling tools on a metagenomics dataset
 * [nf-core/mag](https://nf-co.re/mag/): to assemble and bin whole metagenome sequencing runs
 
-See the full list [online](https://nf-co.re/pipelines).
+* See the full list [online](https://nf-co.re/pipelines).
+
+* 💡 See also [Using Nextflow](../../notebook-servers/using-nextflow)
 
 ## How to run a nf-core pipeline?
 
@@ -70,7 +72,7 @@ nextflow run nf-core/fetchngs -r 1.12.0 \
 
 Example execution:
 
-<img src="../img/nf-fetch-run.png" alt="nf-core fetchngs execution" height="500">
+<img src="../../img/nf-fetch-run.png" alt="nf-core fetchngs execution" height="500">
 
 ## S3 buckets
 
