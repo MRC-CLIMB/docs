@@ -9,11 +9,11 @@ Suggested reading before starting this tutorial:
 
 Workflow management systems such as Nextflow can be used to create reproducible and scalable workflows. This tutorial consists of taking a test pipeline with the following workflow:
 
-<img src="../../img/workflow1.png" alt= "Workflow1" height="400">
+<img src="../../../img/workflow1.png" alt= "Workflow1" height="400">
 
 And modifying and extending it to follow this workflow:
 
-<img src="../../img/workflow2.png" alt= "Workflow2" height="500">
+<img src="../../../img/workflow2.png" alt= "Workflow2" height="500">
 
 ## TASK 1: Try running the test pipeline
 

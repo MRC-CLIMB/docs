@@ -4,7 +4,7 @@
 
 QIIME 2 ([Boylan et al., 2019](https://www.nature.com/articles/s41587-019-0209-9)) is a microbiome analysis package with an emphasis on data transparency. In short it allows for end-to-end analysis, including demupltiplexing, noise correction, taxonomic classification, phylogeny inference and plotting. Below is a flow chart of the conceptual outline of QIIME 2 (courtesy of the authors, found [here](https://docs.qiime2.org/2023.7/tutorials/overview/)).
 
-<img src="../img/qiime.png" alt= "Qiime">
+<img src="../../img/qiime.png" alt= "Qiime">
 
 ## Installation
 
