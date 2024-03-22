@@ -6,14 +6,13 @@ Welcome to the [CLIMB-BIG-DATA](https://climb.ac.uk/) documentation!
 
 These docs are designed to help you get the best out of the CLIMB-BIG-DATA infrastructure.
 
-## Getting started
-
-How to access CLIMB-BIG-DATA and find your way around via the **Bryn** web interface.
 [Bryn](https://bryn.climb.ac.uk) is the web interface for CLIMB-BIG-DATA, and is the primary way to access the infrastructure.
-From Bryn  you can manage your team, its resources, the S3 buckets and your notebooks. **CLIMB Notebooks**, on the other hand,
+From Bryn, you can manage your team, its resources, the S3 buckets and your notebooks. **CLIMB Notebooks**, on the other hand,
 are Jupyter notebooks fully integrated with CLIMB and its storage, with first-class support to Nextflow pipelines.
 
 ![Bryn vs CLIMB notebook](img/bryn-notebook.png){ width=600 style="background-color: white; margin: auto;" }
+
+## Getting started
 
 [Registration](getting-started/how-to-register.md)  
 How to register and access CLIMB-BIG-DATA.
@@ -55,7 +54,7 @@ How to connect to your CLIMB Notebook and work from Visual Studio Code.
 [403 Forbidden Error](notebook-servers/403-forbidden-error.md)  
 An explanation of how to resolve login error 403 when accessing notebooks.
 
-### Walkthroughs
+## Walkthroughs
 
 [Metagenomics walkthrough](walkthroughs/metagenomics-tutorial.md)  
 A simple walk-through of some CLIMB-BIG-DATA functionality.
