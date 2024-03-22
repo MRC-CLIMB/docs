@@ -38,11 +38,11 @@ copyright: |
 nav:
   - "Overview": "index.md"
   - "Getting started":
-      - "How to Register": "getting-started/how-to-register.md"
+      - "Registration": "getting-started/how-to-register.md"
       - "Authentication": "getting-started/authentication.md"
   - "Notebook Servers":
       - notebook-servers/index.md
-      - "Read This First!": "notebook-servers/read-this-first.md"
+      - "Read this first!": "notebook-servers/read-this-first.md"
       - "Quick start": "notebook-servers/quick-start.md"
       - "Using the terminal": "notebook-servers/using-the-terminal.md"
       - "Using Jupyter notebooks": "notebook-servers/using-jupyter.md"
@@ -53,8 +53,8 @@ nav:
       - "Using Visual Studio Code": "notebook-servers/using-vscode.md"
       - "403 Forbidden Error": "notebook-servers/403-forbidden-error.md"
   - "Walkthroughs":
-      - "Metagenomics": "walkthroughs/metagenomics-tutorial.md"
+      - "Metagenomics walkthrough": "walkthroughs/metagenomics-tutorial.md"
       - "Genome assembly": "walkthroughs/genome-assembly/spades.md"
-      - "Custom Nextflow Workflows": "walkthroughs/nextflow-custom-workflows/nextflow-custom.md"
+      - "Custom Nextflow workflows": "walkthroughs/nextflow-custom-workflows/nextflow-custom.md"
       - "QIIME 2": "walkthroughs/qiime2.md"
       - "nf-core pipelines": "walkthroughs/nfcore.md"
