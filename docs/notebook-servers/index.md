@@ -11,6 +11,9 @@ How to launch, access and get started using a notebook server.
 [Using the terminal](using-the-terminal.md)  
 How to use the terminal inside a notebook server, with an explanation of caveats.
 
+[Using the interface](using-interface.md)  
+Explore various features of the notebook server interface.
+
 [Using Jupyter notebooks](using-jupyter.md)  
 The basics of working with Jupyter notebooks within a notebook server.
 

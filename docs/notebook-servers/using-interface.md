@@ -1,4 +1,4 @@
-# Using the Jupiter Notebook Interface
+# Using the Jupyter Notebook Interface
 
 ![Screenshot](img/tabs.png)
 
@@ -7,10 +7,10 @@ The Jupyter notebooks are easy to use yet powerful. The interface, for example, 
 * Easily navigate the **file system**, to create, upload, download and manage files and directories.
 * Have multiple tabs, that can be arranged and *snapped* to a corner, to a side, bottom or top of the "snapping area".
 * Tabs can be:
-  * One or more **terminal** tabs, to run commands and scripts.
-  * One or more **notebook** tabs, to write and run code, and to create and manage documents.
-  * One or more **text editor** tabs, to write and edit text files. You can directly edit the text (and save it) from the interface.
-  * Built in preview for HTML files (for example, MultiQC reports), tables (csv, tsv, etc.), and images.
+    * One or more **terminal** tabs, to run commands and scripts.
+    * One or more **notebook** tabs, to write and run code, and to create and manage documents.
+    * One or more **text editor** tabs, to write and edit text files. You can directly edit the text (and save it) from the interface.
+    * Built in preview for HTML files (for example, MultiQC reports), tables (csv, tsv, etc.), and images.
 
 The interface consists of four main components:
 
