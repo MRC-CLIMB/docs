@@ -32,6 +32,39 @@ The notebook server is a virtualised installation of Linux, and as such there ar
 | No running of web services      | Static results (including HTML) can be hosted via S3.                                                                    |
 | No support for opening ports    | This is out of scope for notebooks, but CLIMB-BIG-DATA does have short term leases for more traditional virtual machines |
 
+
+## Resource Allocation and Usage Guidelines
+
+Team members accessing the free tier quota are granted access up to a total of 14 CPUs, with 8 allocated for opening a single notebook and 6 reserved for Nextflow tasks. Additionally, teams receive 1TB of fast SSD team share storage for collaborative projects and 1TB of S3 storage for data storage needs.
+
+### Resource Allocation Breakdown
+
+- **CPU Allocation**:
+  - Total Available CPUs: 14
+    - CPUs for Notebook Opening: 8
+    - CPUs Reserved for Nextflow Tasks: 6
+
+- **Storage Allocation**:
+  - Fast SSD Team Share Storage: 1TB
+  - S3 Storage: 1TB
+
+These resources are designed to support your team's computational and storage needs effectively. Should your team require additional resources beyond the free tier quota, please feel free to contact us for quota expansion options and pricing details.
+
+### Notebook Environment and Usage
+
+- **Data and Environment Persistence**: 
+  - As a user, rest assured that when you stop your notebook, your data and environment settings are safely preserved. Upon relaunching, you'll find all your files and environment configurations intact, though any ongoing processes will cease.
+
+- **Notebook Sharing**:
+  - When you initiate a notebook session, you have the option to share access with another team member for up to 24 hours using a shareable link. However, if your notebook is stopped, another user can launch their own instance independently.
+
+- **Multiple Notebook Usage**:
+  - In situations where you're faced with concurrent workloads, you may find the need for multiple notebooks. Deploying additional notebooks allows you and your team members to work simultaneously, optimizing resource utilization effectively.
+
+- **Best Practices**:
+  - For temporary data storage, it's best to utilize Team Share Storage, avoiding extended storage durations. Optimal data safety is achieved when stored in S3 buckets.
+
+
 ## Acclimatise yourself to the Notebook Server
 
 When you first open the notebook server, you'll be presented with a JupyterLab interface. This is a web-based interface that allows you to interact with the notebook server.
