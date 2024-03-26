@@ -116,20 +116,19 @@ We have tried to make it as easy as possible to use Nextflow on CLIMB, and to ma
 - S3 bucket path-style access is enabled, with `s3.climb.ac.uk` set as the endpoint
 - S3 keys have also been injected from Bryn
 
-## How to run NextFlow locally with Mamba
+### How to run NextFlow locally with Mamba.
+When working with limited computing resources or tasks that don't require additional cores, launching new ones might not be the most efficient choice. In such cases, NextFlow offers a solution by allowing you to utilize the cores already assigned to your notebook for execution.
 
-Run Nextflow with Mamba for nf-core Pipelines: When running nf-core pipelines, you can specify the Mamba profile and set the process executor to local. 
+To achieve this, NextFlow provides the option to specify the Mamba profile and set the process executor to local. By doing so, you can optimize resource usage and minimize unnecessary overhead.
 
-Simply add -profile mamba -process.executor=local to your Nextflow command:
+To run NextFlow with Mamba for nf-core pipelines, follow these steps:
 
 ```console
 nextflow run <your_nfcore_pipeline.nf> -profile mamba -process.executor=local
-```
-
-Replace `<your_nfcore_pipeline.nf>` with the filename of the nf-core pipeline you want to execute.
-
-If Mamba encounters issues with older pipelines, you can use the -profile conda option. However, note that this may be slower:
+ ```
+Replace `<your_nfcore_pipeline.nf>` with the filename of the nf-core Pipeline you want to execute. The options `-profile` and `-process.executor` should be specified to ensure proper configuration.
+If Mamba encounters issues with older Pipelines, you can use the -profile conda option. However, note that this may be slower:
 
 ```console
-nextflow run <your_nfcore_pipeline.nf> -profile  conda -process.executor=local
+nextflow run <your_nfcore_pipeline.nf> -profile conda -process.executor=local
 ```
