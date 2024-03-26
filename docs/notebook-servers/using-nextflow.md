@@ -104,6 +104,18 @@ jovyan:~$ ls /shared/team/nxf_work/demouser.climb-big-data-d/
 assets  capsule  framework  plugins  secrets  tmp  work
 ```
 
+## CLIMB Nextflow config defaults
+
+We have tried to make it as easy as possible to use Nextflow on CLIMB, and to make full use of available resources via our Kubernetes infrastructure. Out-of-the box, we set a number of configuration defaults.
+
+- Nextflow home is set to `/shared/team/nxf_work/$JUPYTERHUB_USER`
+- WorkDir is set to `/shared/team/nxf_work/$JUPYTERHUB_USER/work`
+- Executor is set to `k8s` (plus some supporting config)
+- `/shared/team` and `/shared/public` (read only) are mounted as PVCs to all Nextflow pods
+- A K8s ServiceUser is pre-mounted (no credentials setup required)
+- S3 bucket path-style access is enabled, with `s3.climb.ac.uk` set as the endpoint
+- S3 keys have also been injected from Bryn
+
 ### How to run NextFlow locally with Mamba.
 When working with limited computing resources or tasks that don't require additional cores, launching new ones might not be the most efficient choice. In such cases, NextFlow offers a solution by allowing you to utilize the cores already assigned to your notebook for execution.
 
@@ -120,15 +132,3 @@ If Mamba encounters issues with older Pipelines, you can use the -profile conda 
 ```console
 nextflow run <your_nfcore_pipeline.nf> -profile conda -process.executor=local
 ```
-
-## CLIMB Nextflow config defaults
-
-We have tried to make it as easy as possible to use Nextflow on CLIMB, and to make full use of available resources via our Kubernetes infrastructure. Out-of-the box, we set a number of configuration defaults.
-
-- Nextflow home is set to `/shared/team/nxf_work/$JUPYTERHUB_USER`
-- WorkDir is set to `/shared/team/nxf_work/$JUPYTERHUB_USER/work`
-- Executor is set to `k8s` (plus some supporting config)
-- `/shared/team` and `/shared/public` (read only) are mounted as PVCs to all Nextflow pods
-- A K8s ServiceUser is pre-mounted (no credentials setup required)
-- S3 bucket path-style access is enabled, with `s3.climb.ac.uk` set as the endpoint
-- S3 keys have also been injected from Bryn

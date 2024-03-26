@@ -59,10 +59,10 @@ These resources are designed to support your team's computational and storage ne
   - When you initiate a notebook session, you have the option to share access with another team member for up to 24 hours using a shareable link. However, if your notebook is stopped, another user can launch their own instance independently.
 
 - **Multiple Notebook Usage**:
-  - In situations where you're faced with concurrent workloads, you may find the need for multiple notebooks. Deploying additional notebooks allows you and your team members to work simultaneously, optimizing resource utilization effectively.
+  - When initiating a notebook session, a user has the option to share access with another team member for 24 hours. This can be done by clicking the “share access” button, which generates a shareable link. Using this option means that everyone operates on the same notebook. But if that notebook is stopped, another user can launch their own.
 
 - **Best Practices**:
-  - For temporary data storage, it's best to utilize Team Share Storage, avoiding extended storage durations. Optimal data safety is achieved when stored in S3 buckets.
+  - As a user, when considering storage options, keep in mind that Team Share Storage is primarily intended for temporary data storage. While it offers convenience and accessibility for collaborative projects, it's important to avoid extended storage durations due to its limited capacity. For long-term data storage and enhanced data safety, consider utilizing S3 buckets
 
 
 ## Acclimatise yourself to the Notebook Server
