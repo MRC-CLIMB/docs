@@ -1,0 +1,1162 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../metagenomics-tutorial/">
+      
+      
+        <link rel="next" href="../../nextflow-custom-workflows/nextflow-custom/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.18">
+    
+    
+      
+        <title>Genome assembly - CLIMB-BIG-DATA Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.66ac8b77.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#assembling-a-genome-from-short-reads-eg-illumina-using-spades" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="CLIMB-BIG-DATA Documentation" class="md-header__button md-logo" aria-label="CLIMB-BIG-DATA Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CLIMB-BIG-DATA Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Genome assembly
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="CLIMB-BIG-DATA Documentation" class="md-nav__button md-logo" aria-label="CLIMB-BIG-DATA Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    CLIMB-BIG-DATA Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Getting started
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Getting started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../getting-started/how-to-register/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Registration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../getting-started/authentication/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Authentication
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../notebook-servers/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Notebook Servers
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Notebook Servers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notebook-servers/read-this-first/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Read this first!
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notebook-servers/quick-start/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quick start
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notebook-servers/using-interface/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using the interface
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notebook-servers/using-the-terminal/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using the terminal
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notebook-servers/using-jupyter/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using Jupyter notebooks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notebook-servers/using-rstudio/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using RStudio
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../storage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Understanding storage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notebook-servers/installing-software-with-conda/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installing software with Conda
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notebook-servers/using-nextflow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using Nextflow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notebook-servers/using-vscode/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using Visual Studio Code
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../notebook-servers/403-forbidden-error/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    403 Forbidden Error
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Walkthroughs
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Walkthroughs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../metagenomics-tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Metagenomics walkthrough
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Genome assembly
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Genome assembly
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#begin" class="md-nav__link">
+    <span class="md-ellipsis">
+      BEGIN
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="BEGIN">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#launch-terminal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Launch terminal
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-a-folder-to-store-the-sequenced-read-data-and-the-genome-assembly" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a folder to store the sequenced read data and the genome assembly
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-spades-and-trimmomatic-using-conda" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install SPAdes and trimmomatic using Conda
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-trimmomatic-to-filter-out-bad-reads-and-trim-the-ends-as-needed" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use trimmomatic to filter out bad reads and trim the ends as needed
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assemble-the-genome-using-spades" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assemble the genome using SPAdes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examining-the-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      Examining the output
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#post-assembly-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Post assembly steps
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nextflow-custom-workflows/nextflow-custom/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Custom Nextflow workflows
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../qiime2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    QIIME 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../nfcore/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    nf-core pipelines
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="assembling-a-genome-from-short-reads-eg-illumina-using-spades">Assembling a genome from short reads (e.g. Illumina) using SPAdes<a class="headerlink" href="#assembling-a-genome-from-short-reads-eg-illumina-using-spades" title="Permanent link">#</a></h1>
+<!-- prettier-ignore -->
+<div class="admonition acknowledgements">
+<p class="admonition-title">Acknowledgements</p>
+<p><em>This walkthrough was adapted from <a href="https://conmeehan.github.io/PathogenDataCourse/Worksheets/GenomeAssembly_SPAdes">Conor Meehan's Pathogen genomics course</a> under a CC BY-NC-SA 4.0 license. The walkthrough was modified to include CLIMB-BIG-DATA specific intructions and additional explanation of certain steps.</em> </p>
+</div>
+<p><em>De novo</em> genome assembly is a process used to reconstruct the complete genome sequence of an organism without the need for a reference genome. In the case of bacterial genomes, <em>de novo</em> assembly involves piecing together short DNA sequences, called reads, obtained from high-throughput sequencing technologies. In this walkthrough, you will learn how to use <code>SPAdes</code> to assemble short reads into a genome. If you would like to read more about genome assembly, <a href="../about-genome-assembly/">there is more information here.</a></p>
+<p>Other tools associated with <code>SPAdes</code> can be used to assemble metagenomes sequenced using short read technologies (<code>metaSPAdes</code>) or viral genomes (e.g. <code>rnaviralSPAdes</code> or <code>coronaSPAdes</code>). This is not covered here but is outlined in the SPAdes github and associated <code>metaSPAdes</code> and <code>coronaSPAdes</code> papers.</p>
+<p>We will:</p>
+<ul>
+<li>Manage our software environment using <code>conda</code></li>
+<li>Download some sequenced reads into your CLIMB-BIG-DATA session</li>
+<li>Trim the reads to remove low quality bases and reads with <code>trimmomatic</code></li>
+<li>Assemble the reads into a genome using <code>SPAdes</code></li>
+</ul>
+<p>This demonstration uses one of the samples from <a href="https://journals.asm.org/doi/10.1128/MRA.01212-19">Hikichi et al</a> which are the <em>DRR187559_1.fastqsanger.bz2</em> and <em>DRR187559_2.fastqsanger.bz2</em> files from this <a href="https://zenodo.org/record/4534098">zenodo record</a></p>
+<h2 id="begin">BEGIN<a class="headerlink" href="#begin" title="Permanent link">#</a></h2>
+<h3 id="launch-terminal">Launch terminal<a class="headerlink" href="#launch-terminal" title="Permanent link">#</a></h3>
+<p>Select <code>File -&gt; New -&gt; Terminal</code>, or click the Terminal icon on the launcher pane. You'll get a new terminal tab in the activity bar, and find yourself in a bash shell.</p>
+<p><img alt="Terminal" src="../../../img/terminal-tile.png" /></p>
+<p>This will open a new terminal session </p>
+<p><img alt="Terminal" src="../../../img/jh-tab.png" /></p>
+<h3 id="create-a-folder-to-store-the-sequenced-read-data-and-the-genome-assembly">Create a folder to store the sequenced read data and the genome assembly<a class="headerlink" href="#create-a-folder-to-store-the-sequenced-read-data-and-the-genome-assembly" title="Permanent link">#</a></h3>
+<p>Create a folder called <code>spades-demo</code> followed by your name in the <code>shared-team</code> directory, (i.e. <code>spades-demo-rupert</code>) and move into it. This is where we will store the data and the genome assembly.</p>
+<div class="highlight"><pre><span></span><code>mkdir ~/shared-team/spades-demo-rupert
+cd ~/shared-team/spades-demo-rupert
+</code></pre></div>
+<p>Download the fastq raw data into this folder. These are somewhat large files and will take about one minute.
+<div class="highlight"><pre><span></span><code>wget https://zenodo.org/record/4534098/files/DRR187559_1.fastqsanger.bz2
+wget https://zenodo.org/record/4534098/files/DRR187559_2.fastqsanger.bz2
+</code></pre></div></p>
+<!-- prettier-ignore -->
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Remember you can copy-paste commands from this walkthrough into the terminal.</p>
+</div>
+<p>Trimmomatic and SPAdes prefer gzipped files (files that end in .gz) but our downloaded file is a bzip2 file (ends in .bz2). We need to convert these types before we proceed. We will also rename them into more conventional naming scheme for illumina reads (that is, they end in _1.fastq.gz and _2.fastq.gz)</p>
+<div class="highlight"><pre><span></span><code>bzcat DRR187559_1.fastqsanger.bz2 | gzip -c &gt; DRR187559_1.fastq.gz
+bzcat DRR187559_2.fastqsanger.bz2 | gzip -c &gt; DRR187559_2.fastq.gz
+</code></pre></div>
+<p>Most sequencers produce .gz files so this is not necessary if your file is already in that format.</p>
+<p>Use <code>ls</code> to check that the files are there and have the correct names
+<div class="highlight"><pre><span></span><code>ls -ahl 
+</code></pre></div></p>
+<p>Which should give you something like this:
+<div class="highlight"><pre><span></span><code>jovyan:~/shared-team/spades-demo-rupert$ ls -ahl 
+total 272M
+drwxr-xr-x 2 jovyan users   4 Jul 20 17:17 .
+drwx------ 7 jovyan  1000   9 Jul 20 17:13 ..
+-rw-r--r-- 1 jovyan users 73M Jul 20 17:17 DRR187559_1.fastq.gz
+-rw-r--r-- 1 jovyan users 61M Jul 13 21:00 DRR187559_1.fastqsanger.bz2
+-rw-r--r-- 1 jovyan users 76M Jul 20 17:17 DRR187559_2.fastq.gz
+-rw-r--r-- 1 jovyan users 63M Jul 13 21:00 DRR187559_2.fastqsanger.bz2
+</code></pre></div></p>
+<h3 id="install-spades-and-trimmomatic-using-conda">Install SPAdes and trimmomatic using Conda<a class="headerlink" href="#install-spades-and-trimmomatic-using-conda" title="Permanent link">#</a></h3>
+<p>It is recommended to always install packages for a project in their own environments so here will we create an enironment and install SPAdes in one step.
+<div class="highlight"><pre><span></span><code>conda create --solver libmamba -y -n assembly -c bioconda spades trimmomatic
+conda activate assembly
+</code></pre></div></p>
+<!-- prettier-ignore -->
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Remember you can not install packages in the base Conda environment. You must create a new environment and activate it first.</p>
+</div>
+<h3 id="use-trimmomatic-to-filter-out-bad-reads-and-trim-the-ends-as-needed">Use trimmomatic to filter out bad reads and trim the ends as needed<a class="headerlink" href="#use-trimmomatic-to-filter-out-bad-reads-and-trim-the-ends-as-needed" title="Permanent link">#</a></h3>
+<p>The order of commands for paired end reads is: 
+<div class="highlight"><pre><span></span><code>trimmomatic PE &lt;forward reads input name&gt; 
+               &lt;reverse reads input name&gt; 
+               &lt;trimmed forward reads out name&gt; 
+               &lt;removed forward reads out name&gt; 
+               &lt;trimmed reverse reads out name&gt; 
+               &lt;removed reverse reads out name&gt; 
+               &lt;trimming options&gt;
+</code></pre></div></p>
+<p>We will trim the reads in the follow ways:</p>
+<ul>
+<li>Remove all reads shorter than 30bp MINLEN:30</li>
+<li>Remove bases from the start of a read if they are below a quality score of 20, LEADING:20</li>
+<li>Remove bases from the END of a read if they are below a quality score of 20, TRAILING:20</li>
+<li>Use a sliding window of 4 bases across the read, removing any set of 4 bases where the average score drops below 20, SLIDINGWINDOW:4:20</li>
+</ul>
+<div class="highlight"><pre><span></span><code>trimmomatic PE DRR187559_1.fastq.gz DRR187559_2.fastq.gz DRR187559_trimmed_1.fastq.gz DRR187559_removed_1.fastq.gz DRR187559_trimmed_2.fastq.gz DRR187559_removed_2.fastq.gz  MINLEN:30 LEADING:20 TRAILING:20 SLIDINGWINDOW:4:20
+</code></pre></div>
+<p><img alt="trimmomatic running" src="../../../img/trim-running.png" /></p>
+<p>At this stage you should use Fastqc to look at the read quality and see if it is ok, but we will skip this step as it is not always needed.</p>
+<h2 id="assemble-the-genome-using-spades">Assemble the genome using SPAdes<a class="headerlink" href="#assemble-the-genome-using-spades" title="Permanent link">#</a></h2>
+<ul>
+<li>The <code>-1</code> and <code>-2</code> flags are the forward and reverse trimmed reads that came from trimmomatic, respectively.</li>
+<li><code>-o</code>is the anme of a directory to store the output in</li>
+<li><code>-t</code> is the number of threads to use. This should be the number of cores you have available.</li>
+<li><code>-m</code> is the amount of memory that SPAdes can use. This should be the amount of memory you have available.</li>
+</ul>
+<div class="highlight"><pre><span></span><code>spades.py -1 DRR187559_trimmed_1.fastq.gz -2 DRR187559_trimmed_2.fastq.gz -o DRR187559_spades -t 6 -m 8
+</code></pre></div>
+<h2 id="examining-the-output">Examining the output<a class="headerlink" href="#examining-the-output" title="Permanent link">#</a></h2>
+<p>SPAdes will mention all the output files in the log. All the output will be in the folder we specified with the <code>-o</code> flag.</p>
+<div class="highlight"><pre><span></span><code>===== Terminate finished. 
+
+ * Corrected reads are in /shared/team/spades-demo-rupert/DRR187559_spades/corrected/
+ * Assembled contigs are in /shared/team/spades-demo-rupert/DRR187559_spades/contigs.fasta
+ * Assembled scaffolds are in /shared/team/spades-demo-rupert/DRR187559_spades/scaffolds.fasta
+ * Paths in the assembly graph corresponding to the contigs are in /shared/team/spades-demo-rupert/DRR187559_spades/contigs.paths
+ * Paths in the assembly graph corresponding to the scaffolds are in /shared/team/spades-demo-rupert/DRR187559_spades/scaffolds.paths
+ * Assembly graph is in /shared/team/spades-demo-rupert/DRR187559_spades/assembly_graph.fastg
+ * Assembly graph in GFA format is in /shared/team/spades-demo-rupert/DRR187559_spades/assembly_graph_with_scaffolds.gfa
+</code></pre></div>
+<p>The important output files:</p>
+<ul>
+<li><strong>scaffolds.fasta</strong>: The final assembly you should use</li>
+<li><strong>assembly_graph.fastg</strong>: Assembly graph </li>
+<li><strong>spades.log</strong>: Full log file for bug reporting</li>
+</ul>
+<p>Use the <code>head</code> command to have a look at the final output assembly file:</p>
+<div class="highlight"><pre><span></span><code>head DRR187559_spades/scaffolds.fasta 
+</code></pre></div>
+<p>Which should give you something like this:
+<div class="highlight"><pre><span></span><code>&gt;NODE_1_length_419723_cov_11.898846
+TACAAAGGAGAAAAAAAGAAGACAACCAAGCCCAATAATGGACTGGCCGCCTAATAATAA
+AAACTCTAAAAGTTGTAATTTAAAATAGTTCTTTAAATTATATACCCACCACATTTGGTG
+GAGAACCAAAAATTAGCCGAAAAACATCATTTCTGAAGTTATCGGCTAAAGTTATAAATT
+ATATTTATTTGTACATGAACAAATAATTTACATTAATTTGTCATTTCTTCTTTTTCCCAA
+TCGATTTTATATCTTTCTGAAGAACGATCTGTCCATTTATCTTTAGTATTGGTACCTTTC
+CAATTTGTTGAAGTCCAATGCAATTGGTAGTCATCACGAACTCGTTCGTATATTACATCT
+ATATTTGTTTGTTGTTTGGATGCTTTTCTATCCATAGTAATAACTGTAGCGAAGTCTGGT
+GAAAACCCTGAAGATAATAGAGAACTTGCTTTGTTAGGATCAAGGAAGTTCTCTGCTGCT
+TTCATAGAACCATTTCTAGTTTTCATGAAAAGTTGATTGCCATATACCGGGTTCCAAGAA
+</code></pre></div></p>
+<p>Deactivate your Conda environment when you are finished</p>
+<div class="highlight"><pre><span></span><code>conda deactivate
+</code></pre></div>
+<h2 id="post-assembly-steps">Post assembly steps<a class="headerlink" href="#post-assembly-steps" title="Permanent link">#</a></h2>
+<p>Once assembly is finished you can do a more in depth check of the quality and completeness using the BUSCO and Bandage.
+You can get basic metrics such as N50 using the tool <a href="https://github.com/ablab/quast">Quast</a> which can be <a href="https://anaconda.org/bioconda/quast">downloaded via Conda</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; CLIMB-BIG-DATA 2023
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.sections", "navigation.expand", "navigation.path", "navigation.top", "navigation.indexes", "toc.integrate", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.3220b9d7.min.js"></script>
+      
+    
+  </body>
+</html>

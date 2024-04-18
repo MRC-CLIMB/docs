@@ -1,0 +1,1128 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../installing-software-with-conda/">
+      
+      
+        <link rel="next" href="../using-vscode/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.18">
+    
+    
+      
+        <title>Using Nextflow - CLIMB-BIG-DATA Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.66ac8b77.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#using-nextflow" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="CLIMB-BIG-DATA Documentation" class="md-header__button md-logo" aria-label="CLIMB-BIG-DATA Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CLIMB-BIG-DATA Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Using Nextflow
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CLIMB-BIG-DATA Documentation" class="md-nav__button md-logo" aria-label="CLIMB-BIG-DATA Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    CLIMB-BIG-DATA Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Getting started
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Getting started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/how-to-register/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Registration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/authentication/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Authentication
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Notebook Servers
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Notebook Servers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../read-this-first/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Read this first!
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quick-start/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quick start
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../using-interface/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using the interface
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../using-the-terminal/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using the terminal
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../using-jupyter/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using Jupyter notebooks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../using-rstudio/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using RStudio
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../storage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Understanding storage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installing-software-with-conda/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installing software with Conda
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Using Nextflow
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Using Nextflow
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-nextflow-and-how-does-it-fit-into-the-climb-big-data-platform" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is Nextflow and how does it fit into the CLIMB-BIG-DATA platform?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-can-i-start-using-nextflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      How can I start using Nextflow?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tutorial-using-nf-core" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tutorial using nf-core
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tutorial using nf-core">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-going-on" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is going on?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#where-did-my-output-data-go" class="md-nav__link">
+    <span class="md-ellipsis">
+      Where did my output data go?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#where-are-nextflow-assets-and-temporaryintermediate-workdir-outputs-stored" class="md-nav__link">
+    <span class="md-ellipsis">
+      Where are Nextflow assets and temporary/intermediate (workdir) outputs stored?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#climb-nextflow-config-defaults" class="md-nav__link">
+    <span class="md-ellipsis">
+      CLIMB Nextflow config defaults
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CLIMB Nextflow config defaults">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-to-run-nextflow-locally-with-mamba" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to run NextFlow locally with Mamba.
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../using-vscode/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using Visual Studio Code
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../403-forbidden-error/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    403 Forbidden Error
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Walkthroughs
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Walkthroughs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../walkthroughs/metagenomics-tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Metagenomics walkthrough
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../walkthroughs/genome-assembly/spades/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Genome assembly
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../walkthroughs/nextflow-custom-workflows/nextflow-custom/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Custom Nextflow workflows
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../walkthroughs/qiime2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    QIIME 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../walkthroughs/nfcore/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    nf-core pipelines
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="using-nextflow">Using Nextflow<a class="headerlink" href="#using-nextflow" title="Permanent link">#</a></h1>
+<h2 id="what-is-nextflow-and-how-does-it-fit-into-the-climb-big-data-platform">What is Nextflow and how does it fit into the CLIMB-BIG-DATA platform?<a class="headerlink" href="#what-is-nextflow-and-how-does-it-fit-into-the-climb-big-data-platform" title="Permanent link">#</a></h2>
+<p>In their words, <em>"<a href="https://nextflow.io">Nextflow</a> enables scalable and reproducible scientific workflows using software containers. It allows the adaptation of pipelines written in the most common scripting languages."</em></p>
+<p>We've made Nextflow a first class citizen in CLIMB-BIG-DATA. You'll find an up-to-date stable version pre-installed in your notebook server and, more importantly, pre-configured to take advantage of our scalable Kubernetes infrastructure.</p>
+<h2 id="how-can-i-start-using-nextflow">How can I start using Nextflow?<a class="headerlink" href="#how-can-i-start-using-nextflow" title="Permanent link">#</a></h2>
+<p><a href="../quick-start/">Create a notebook server</a> and start a <a href="../using-the-terminal/">terminal session</a>. Now type:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">jovyan:~$ </span>nextflow<span class="w"> </span>-v
+<span class="go">[...]</span>
+<span class="go">nextflow version 23.04.0.5857</span>
+</code></pre></div>
+<p>Your version may be newer than the above, but the point is that Nextflow is pre-installed and you should usually use this binary rather than downloading another. You don't need to follow the installation instructions in the Nextflow docs.</p>
+<h2 id="tutorial-using-nf-core">Tutorial using nf-core<a class="headerlink" href="#tutorial-using-nf-core" title="Permanent link">#</a></h2>
+<p><a href="https://nf-co.re/">nf-core</a> is a community-curated set of analysis pipelines that use Nextflow. We'll try running <code>nf-core/rnaseq</code> as an example, to demonstrate some features of how Nextflow is configured to work on CLIMB.</p>
+<p>We'll be using <code>-profile test</code>, which includes links to appropriate data. As a result, we'll only need to specify <code>--outdir</code> for now.</p>
+<div class="highlight"><pre><span></span><code><span class="gp">jovyan:~$ </span>nextflow<span class="w"> </span>run<span class="w"> </span>nf-core/rnaseq<span class="w"> </span>-profile<span class="w"> </span><span class="nb">test</span><span class="w"> </span>--outdir<span class="w"> </span>nfout
+<span class="go">[...]</span>
+<span class="go">[-        ] process &gt; NFCORE_RNASEQ:RNASEQ:ALIGN_STAR:BAM_SORT_STATS_SAMTOOLS:BAM_STATS_SAMTOOLS:SAMTOOLS_IDXSTATS -</span>
+<span class="go">[c5/3af707] process &gt; NFCORE_RNASEQ:RNASEQ:QUANTIFY_STAR_SALMON:SALMON_QUANT (RAP1_UNINDUCED_REP1)                 [ 50%] 1 of 2</span>
+<span class="go">[-        ] process &gt; NFCORE_RNASEQ:RNASEQ:QUANTIFY_STAR_SALMON:SALMON_TX2GENE                                     -</span>
+<span class="go">[-        ] process &gt; NFCORE_RNASEQ:RNASEQ:QUANTIFY_STAR_SALMON:SALMON_TXIMPORT                                    -</span>
+<span class="go">[-        ] process &gt; NFCORE_RNASEQ:RNASEQ:QUANTIFY_STAR_SALMON:SALMON_SE_GENE                                     -</span>
+<span class="go">[-        ] process &gt; NFCORE_RNASEQ:RNASEQ:QUANTIFY_STAR_SALMON:SALMON_SE_GENE_LENGTH_SCALED                       -</span>
+<span class="go">[-        ] process &gt; NFCORE_RNASEQ:RNASEQ:QUANTIFY_STAR_SALMON:SALMON_SE_GENE_SCALED                              -</span>
+<span class="go">[-        ] process &gt; NFCORE_RNASEQ:RNASEQ:QUANTIFY_STAR_SALMON:SALMON_SE_TRANSCRIPT                               -</span>
+<span class="go">[-        ] process &gt; NFCORE_RNASEQ:RNASEQ:DESEQ2_QC_STAR_SALMON                                                   -</span>
+<span class="go">[9f/b3b437] process &gt; NFCORE_RNASEQ:RNASEQ:BAM_MARKDUPLICATES_PICARD:PICARD_MARKDUPLICATES (RAP1_UNINDUCED_REP2)   [  0%] 0 of 2</span>
+<span class="go">[-        ] process &gt; NFCORE_RNASEQ:RNASEQ:BAM_MARKDUPLICATES_PICARD:SAMTOOLS_INDEX</span>
+<span class="go">[...etc...]</span>
+</code></pre></div>
+<h3 id="what-is-going-on">What is going on?<a class="headerlink" href="#what-is-going-on" title="Permanent link">#</a></h3>
+<p>The pipeline is executing interdependent process in parallel, using the <a href="https://www.nextflow.io/docs/latest/executor.html#kubernetes">Kubernetes executor</a>. That is to say, rather than running inside your notebook container directly, new Kubernetes pods are being created on the fly and spinning up containers for each process.</p>
+<p>Open another terminal tab alongside, while the workflow is still executing, and try:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">jovyan:~$ </span>kubectl<span class="w"> </span>get<span class="w"> </span>pods
+<span class="go">NAME                                         READY   STATUS              RESTARTS   AGE</span>
+<span class="go">jupyter-demouser-2eclimb-2dbig-2ddata-2dd   1/1     Running             0          12m</span>
+<span class="go">nf-0e32425fc6d3dd42c9a3cbb8dd3ccc8c          0/1     Pending             0          4s</span>
+<span class="go">nf-6171723bfd88a03f1417e2aead99f180          0/1     Terminating         0          12s</span>
+<span class="go">nf-0e69c114a366b717ad115431277c01d7          1/1     Running             0          9s</span>
+<span class="go">nf-31f1f1f534f51863f2e19320ca7447e0          0/1     ContainerCreating   0          4s</span>
+<span class="go">nf-75dc1d907794e300ff2117a49be85c63          0/1     Pending             0          4s</span>
+<span class="go">nf-8491621dd73c44811c49bee448771ae5          0/1     Completed           0          13s</span>
+<span class="go">nf-9aad711fc9476c27e510b9402e3089d5          0/1     ContainerCreating   0          3s</span>
+<span class="go">nf-12656c698dd83e7dc2a31e3c88818227          0/1     ContainerCreating   0          4s</span>
+<span class="go">nf-a57472aaef0073c9e77a0a7e6001a849          0/1     ContainerCreating   0          3s</span>
+<span class="go">nf-f8d94c52e9120b7b8ba117d530f77c3a          0/1     Completed</span>
+</code></pre></div>
+<p><a href="https://kubernetes.io/docs/reference/kubectl/"><code>kubectl</code></a> is the Kubernetes command line tool. It's also pre-installed in the CLIMB notebook environment, and pre-configured with credentials that map to a ServiceUser for your team.</p>
+<p>This service user has certain privileges within your <em><a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/">namespace</a></em>, or in other words an isolated part of our cluster created specifically for your team. The command <code>kubectl get pods</code> above is returning a list of pods currently running in your namespace. You'll see your notebook server (<code>jupyter-demouser-2eclimb-2dbig-2ddata-2dd</code>) and a number of Nextflow pods that are running workflow process containers. These will be in various states as they execute and then disappear.</p>
+<p>Once the workflow has finished, run the above command again:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">jovyan:~$ </span>kubectl<span class="w"> </span>get<span class="w"> </span>pods
+<span class="go">NAME                                         READY   STATUS    RESTARTS   AGE</span>
+<span class="go">jupyter-demouser-2eclimb-2dbig-2ddata-2dd   1/1     Running   0          17m</span>
+<span class="gp">jovyan:~$</span>
+</code></pre></div>
+<p>... and you're back to just your notebook server (you may also see those belonging to others in your Bryn team).</p>
+<h3 id="where-did-my-output-data-go">Where did my output data go?<a class="headerlink" href="#where-did-my-output-data-go" title="Permanent link">#</a></h3>
+<p>Once the workflow completes you'll see something like:</p>
+<div class="highlight"><pre><span></span><code><span class="go">-[nf-core/rnaseq] Pipeline completed successfully with skipped sampl(es)- -[nf-core/rnaseq] Please check MultiQC report: 1/5 samples failed strandedness check.-</span>
+<span class="go">Completed at: 16-Apr-2023 13:26:51</span>
+<span class="go">Duration : 5m 50s</span>
+<span class="go">CPU hours : 0.4</span>
+<span class="go">Succeeded : 196</span>
+</code></pre></div>
+<p>We specified <code>nfout</code> as out outdir and you'll see the directory in the file browser on the left hand side of the JupyterLab interface. Take a look in <code>nfout/pipeline_info/</code> inside your file browser. Try double clicking on the various HTML, YAML and CSV files here and you'll see that they open in new tabs for immediate reading.</p>
+<p>One thing to note here, when opening HTML files such as <code>execution_report_[date].html</code>, JavaScript is disabled in the tab by default. Right click the file and select <code>Open in New Browser Tab</code> from the context window to see the full report.</p>
+<h3 id="where-are-nextflow-assets-and-temporaryintermediate-workdir-outputs-stored">Where are Nextflow assets and temporary/intermediate (workdir) outputs stored?<a class="headerlink" href="#where-are-nextflow-assets-and-temporaryintermediate-workdir-outputs-stored" title="Permanent link">#</a></h3>
+<p>By default, the CLIMB Nextflow config sets Nextflow 'home' to <code>/shared/team/nxf_work/$JUPYTERHUB_USER</code>. You'll see a number of subdirectories exist at that location, including <code>assets</code>, which will now contain the rnaseq workflow we just used, and <code>work</code>: where the intermediate outputs are located.</p>
+<div class="highlight"><pre><span></span><code><span class="gp">jovyan:~$ </span>ls<span class="w"> </span>/shared/team/nxf_work/demouser.climb-big-data-d/
+<span class="go">assets  capsule  framework  plugins  secrets  tmp  work</span>
+</code></pre></div>
+<h2 id="climb-nextflow-config-defaults">CLIMB Nextflow config defaults<a class="headerlink" href="#climb-nextflow-config-defaults" title="Permanent link">#</a></h2>
+<p>We have tried to make it as easy as possible to use Nextflow on CLIMB, and to make full use of available resources via our Kubernetes infrastructure. Out-of-the box, we set a number of configuration defaults.</p>
+<ul>
+<li>Nextflow home is set to <code>/shared/team/nxf_work/$JUPYTERHUB_USER</code></li>
+<li>WorkDir is set to <code>/shared/team/nxf_work/$JUPYTERHUB_USER/work</code></li>
+<li>Executor is set to <code>k8s</code> (plus some supporting config)</li>
+<li><code>/shared/team</code> and <code>/shared/public</code> (read only) are mounted as PVCs to all Nextflow pods</li>
+<li>A K8s ServiceUser is pre-mounted (no credentials setup required)</li>
+<li>S3 bucket path-style access is enabled, with <code>s3.climb.ac.uk</code> set as the endpoint</li>
+<li>S3 keys have also been injected from Bryn</li>
+</ul>
+<h3 id="how-to-run-nextflow-locally-with-mamba">How to run NextFlow locally with Mamba.<a class="headerlink" href="#how-to-run-nextflow-locally-with-mamba" title="Permanent link">#</a></h3>
+<p>When working with limited computing resources or tasks that don't require additional cores, launching new ones might not be the most efficient choice. In such cases, NextFlow offers a solution by allowing you to utilize the cores already assigned to your notebook for execution.</p>
+<p>To achieve this, NextFlow provides the option to specify the Mamba profile and set the process executor to local. By doing so, you can optimize resource usage and minimize unnecessary overhead.</p>
+<p>To run NextFlow with Mamba for nf-core pipelines, follow these steps:</p>
+<div class="highlight"><pre><span></span><code><span class="go">nextflow run &lt;your_nfcore_pipeline.nf&gt; -profile mamba -process.executor=local</span>
+<span class="go"> ```</span>
+<span class="go">Replace `&lt;your_nfcore_pipeline.nf&gt;` with the filename of the nf-core Pipeline you want to execute. The options `-profile` and `-process.executor` should be specified to ensure proper configuration.</span>
+<span class="go">If Mamba encounters issues with older Pipelines, you can use the -profile conda option. However, note that this may be slower:</span>
+
+<span class="go">```console</span>
+<span class="go">nextflow run &lt;your_nfcore_pipeline.nf&gt; -profile conda -process.executor=local</span>
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; CLIMB-BIG-DATA 2023
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "navigation.expand", "navigation.path", "navigation.top", "navigation.indexes", "toc.integrate", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.3220b9d7.min.js"></script>
+      
+    
+  </body>
+</html>

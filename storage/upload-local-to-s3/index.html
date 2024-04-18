@@ -1,0 +1,1023 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.18">
+    
+    
+      
+        <title>Transferring from your local machine to the CLIMB-BIG-DATA S3 buckets - CLIMB-BIG-DATA Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.66ac8b77.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#transferring-from-your-local-machine-to-the-climb-big-data-s3-buckets" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="CLIMB-BIG-DATA Documentation" class="md-header__button md-logo" aria-label="CLIMB-BIG-DATA Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CLIMB-BIG-DATA Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Transferring from your local machine to the CLIMB-BIG-DATA S3 buckets
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CLIMB-BIG-DATA Documentation" class="md-nav__button md-logo" aria-label="CLIMB-BIG-DATA Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    CLIMB-BIG-DATA Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Getting started
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Getting started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/how-to-register/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Registration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/authentication/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Authentication
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../notebook-servers/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Notebook Servers
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Notebook Servers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notebook-servers/read-this-first/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Read this first!
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notebook-servers/quick-start/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quick start
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notebook-servers/using-interface/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using the interface
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notebook-servers/using-the-terminal/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using the terminal
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notebook-servers/using-jupyter/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using Jupyter notebooks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notebook-servers/using-rstudio/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using RStudio
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Understanding storage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notebook-servers/installing-software-with-conda/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installing software with Conda
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notebook-servers/using-nextflow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using Nextflow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notebook-servers/using-vscode/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using Visual Studio Code
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notebook-servers/403-forbidden-error/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    403 Forbidden Error
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Walkthroughs
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Walkthroughs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../walkthroughs/metagenomics-tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Metagenomics walkthrough
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../walkthroughs/genome-assembly/spades/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Genome assembly
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../walkthroughs/nextflow-custom-workflows/nextflow-custom/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Custom Nextflow workflows
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../walkthroughs/qiime2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    QIIME 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../walkthroughs/nfcore/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    nf-core pipelines
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="transferring-from-your-local-machine-to-the-climb-big-data-s3-buckets">Transferring from your local machine to the CLIMB-BIG-DATA S3 buckets<a class="headerlink" href="#transferring-from-your-local-machine-to-the-climb-big-data-s3-buckets" title="Permanent link">#</a></h1>
+<p>Transfer between your local machine to the S3 buckets can be done in a number of ways:</p>
+<ul>
+<li><a href="#using-bryns-web-interface">Using Bryn's web interface - for Windows, MacOSX and Linux</a></li>
+<li><a href="#using-a-file-transfer-client">Using a file transfer client (like cyberduck) - for Windows and MacOSX</a></li>
+<li><a href="#using-s3cmd-on-the-command-line">Using the command line - for Windows, MacOSX and Linux</a></li>
+</ul>
+<h3 id="reminder-what-are-the-s3-buckets">Reminder; what are the S3 buckets?<a class="headerlink" href="#reminder-what-are-the-s3-buckets" title="Permanent link">#</a></h3>
+<p>S3 (Simple Storage Service) buckets are cloud storage containers provided by Amazon Web Services (AWS). They allow users to store and retrieve any amount of data securely, making it a scalable and cost-effective solution for storing various types of data, such as files, images, videos, backups, and application data. S3 buckets are highly durable and accessible over the internet, making them a popular choice for hosting static websites, data archiving, and serving as the backend for various cloud applications.</p>
+<h2 id="using-bryns-web-interface">Using Bryn's web interface<a class="headerlink" href="#using-bryns-web-interface" title="Permanent link">#</a></h2>
+<p>This option is available to all users, via the <a href="https://bryn.climb.ac.uk">Bryn</a> web interface. First navigate to the section on S3 buckets, using the side menu:</p>
+<p><img alt="Bryn's web interface" src="../img/bryn-s3.png" /></p>
+<p>You will then see a list of all the S3 buckets for your team. Click on the bucket you want to upload to.</p>
+<p><img alt="Bryn's web interface" src="../img/bryn-s3-bucket.png" /></p>
+<p>This will should the contents of the bucket, and there are buttons in the top right to add files or folders to the bucket.</p>
+<p><img alt="Bryn's web interface" src="../img/bryn-s3-bucket-upload.png" /></p>
+<h2 id="using-a-file-transfer-client">Using a file transfer client<a class="headerlink" href="#using-a-file-transfer-client" title="Permanent link">#</a></h2>
+<p>You can a number of file transfer client software to transfer files to the S3 buckets. You will require <em>API keys</em> to use such clients. These are available in the <em>S3 buckets</em> section of Bryn. Click on the <em>API keys</em> button to reveal your keys.</p>
+<p><img alt="Bryn's web interface" src="../img/bryn-s3-bucket-key.png" /></p>
+<p>To demonstrate, how to transfer files using a file transfer client, we will use <a href="https://cyberduck.io/">Cyberduck</a>. This is available for Windows and MacOSX. <a href="https://cyberduck.io/download/">Download and install the software</a>, and then open it. You will be presented with a window like this:</p>
+<p><img alt="Cyberduck" src="../img/cyberduck.png" /></p>
+<p>Click on the <em>Open Connection</em> button, and then select <em>Amazon S3</em> from the dropdown menu. You will then be presented with a window like this:</p>
+<p><img alt="Cyberduck" src="../img/cyberduck-s3.png" /></p>
+<p>Enter the following details:</p>
+<ul>
+<li><strong>Server</strong>: s3.climb.ac.uk</li>
+<li><strong>Access Key ID</strong>: Your access key ID from Bryn</li>
+<li><strong>Secret Access Key</strong>: Your secret access key from Bryn</li>
+</ul>
+<p>Then click <em>Connect</em>. You will then be presented with a window of all the buckets, mirroring that in Bryn. Double click on the bucket you want to upload to, and you will see the contents of the bucket.</p>
+<p>You can upload to the bucket using the upload button in the top left of the window. You can also drag and drop files and folders into the window to upload them.
+You can right click on files and folders to download them.</p>
+<p><img alt="Cyberduck" src="../img/cyberduck-s3-download.png" /></p>
+<p>For more information about Cyberduck, see <a href="https://docs.cyberduck.io/cyberduck/">here</a>.</p>
+<h2 id="using-s3cmd-on-the-command-line">Using <code>s3cmd</code> on the command line<a class="headerlink" href="#using-s3cmd-on-the-command-line" title="Permanent link">#</a></h2>
+<p>You can also use the command line to transfer files from your local machine to the S3 buckets. You will require <em>API keys</em> to use the command line. These are available in the <em>S3 buckets</em> section of Bryn. Click on the <em>API keys</em> button to reveal your keys.</p>
+<p><img alt="Bryn's web interface" src="../img/bryn-s3-bucket-key.png" /></p>
+<!-- prettier-ignore -->
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Remember, these are the steps required for you local machine, not the notebook server. The notebook server already has the <code>s3cmd</code> installed and configured.</p>
+</div>
+<p>To demonstrate, how to transfer files using the command line, we will use <a href="https://s3tools.org/s3cmd"><code>s3cmd</code></a>. This is available for Windows, Linux and MacOSX. <a href="https://s3tools.org/download">Download and install the software</a>.</p>
+<p>You can also install <code>s3cmd</code> using pip:</p>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>s3cmd<span class="w"> </span>-U
+</code></pre></div>
+<p>Once <code>s3cmd</code> is installed, use the following command to configure it:</p>
+<div class="highlight"><pre><span></span><code><span class="o">(</span>s3cmd<span class="o">)</span><span class="w"> </span>ubuntu@eroll:~$<span class="w"> </span>s3cmd<span class="w"> </span>--configure
+</code></pre></div>
+<p>It will then ask a series of questions. The answers are:</p>
+<ul>
+<li><strong>Access Key:</strong> <em>Your access key, as displayed in Bryn (see above)</em></li>
+<li><strong>Secret Key:</strong> <em>Your access key, as displayed in Bryn (see above)</em></li>
+<li><strong>S3 Endpoint:</strong> s3.climb.ac.uk</li>
+<li><strong>DNS-style bucket+hostname:port template for accessing a bucket:</strong> %(bucket)s.s3.climb.ac.uk</li>
+</ul>
+<p>All other options just use the default values, listed in the square brackets [ ]. You can just press enter to accept the default values.</p>
+<p>If we use <code>s3cmd</code> to list the buckets, we can see the buckets for our team:</p>
+<div class="highlight"><pre><span></span><code><span class="o">(</span>s3cmd<span class="o">)</span><span class="w"> </span>ubuntu@eroll:~$<span class="w"> </span>s3cmd<span class="w"> </span>ls
+<span class="m">2023</span>-07-21<span class="w"> </span><span class="m">08</span>:50<span class="w">  </span>s3://quadram-bioinfo-training
+</code></pre></div>
+<p>Once this is configured correctly, <code>s3cmd</code> will behave the same as running it on the notebook server. There is more information on <a href="../fetch-s3-to-notebook/">how to use <code>s3cmd</code> here</a>.</p>
+<p>This is the full configuration process, for reference.</p>
+<div class="highlight"><pre><span></span><code><span class="o">(</span>s3cmd<span class="o">)</span><span class="w"> </span>ubuntu@eroll:~$<span class="w"> </span>s3cmd<span class="w"> </span>--configure
+
+Enter<span class="w"> </span>new<span class="w"> </span>values<span class="w"> </span>or<span class="w"> </span>accept<span class="w"> </span>defaults<span class="w"> </span><span class="k">in</span><span class="w"> </span>brackets<span class="w"> </span>with<span class="w"> </span>Enter.
+Refer<span class="w"> </span>to<span class="w"> </span>user<span class="w"> </span>manual<span class="w"> </span><span class="k">for</span><span class="w"> </span>detailed<span class="w"> </span>description<span class="w"> </span>of<span class="w"> </span>all<span class="w"> </span>options.
+
+Access<span class="w"> </span>key<span class="w"> </span>and<span class="w"> </span>Secret<span class="w"> </span>key<span class="w"> </span>are<span class="w"> </span>your<span class="w"> </span>identifiers<span class="w"> </span><span class="k">for</span><span class="w"> </span>Amazon<span class="w"> </span>S3.<span class="w"> </span>Leave<span class="w"> </span>them<span class="w"> </span>empty<span class="w"> </span><span class="k">for</span><span class="w"> </span>using<span class="w"> </span>the<span class="w"> </span>env<span class="w"> </span>variab
+Access<span class="w"> </span>Key:<span class="w"> </span>XXXXXXXXXXXXX
+Secret<span class="w"> </span>Key:<span class="w"> </span>XXXXXXXXXXXXX
+Default<span class="w"> </span>Region<span class="w"> </span><span class="o">[</span>US<span class="o">]</span>:
+
+Use<span class="w"> </span><span class="s2">&quot;s3.amazonaws.com&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>S3<span class="w"> </span>Endpoint<span class="w"> </span>and<span class="w"> </span>not<span class="w"> </span>modify<span class="w"> </span>it<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>target<span class="w"> </span>Amazon<span class="w"> </span>S3.
+S3<span class="w"> </span>Endpoint<span class="w"> </span><span class="o">[</span>s3.amazonaws.com<span class="o">]</span>:<span class="w"> </span>s3.climb.ac.uk
+
+Use<span class="w"> </span><span class="s2">&quot;%(bucket)s.s3.amazonaws.com&quot;</span><span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>target<span class="w"> </span>Amazon<span class="w"> </span>S3.<span class="w"> </span><span class="s2">&quot;%(bucket)s&quot;</span><span class="w"> </span>and<span class="w"> </span><span class="s2">&quot;%(location)s&quot;</span><span class="w"> </span>vars<span class="w"> </span>can<span class="w"> </span>be
+<span class="k">if</span><span class="w"> </span>the<span class="w"> </span>target<span class="w"> </span>S3<span class="w"> </span>system<span class="w"> </span>supports<span class="w"> </span>dns<span class="w"> </span>based<span class="w"> </span>buckets.
+DNS-style<span class="w"> </span>bucket+hostname:port<span class="w"> </span>template<span class="w"> </span><span class="k">for</span><span class="w"> </span>accessing<span class="w"> </span>a<span class="w"> </span>bucket<span class="w"> </span><span class="o">[</span>%<span class="o">(</span>bucket<span class="o">)</span>s.s3.amazonaws.com<span class="o">]</span>:<span class="w"> </span>%<span class="o">(</span>bucket<span class="o">)</span>s.s3.climb.ac.uk
+
+Encryption<span class="w"> </span>password<span class="w"> </span>is<span class="w"> </span>used<span class="w"> </span>to<span class="w"> </span>protect<span class="w"> </span>your<span class="w"> </span>files<span class="w"> </span>from<span class="w"> </span>reading
+by<span class="w"> </span>unauthorized<span class="w"> </span>persons<span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="k">in</span><span class="w"> </span>transfer<span class="w"> </span>to<span class="w"> </span>S3
+Encryption<span class="w"> </span>password:
+Path<span class="w"> </span>to<span class="w"> </span>GPG<span class="w"> </span>program<span class="w"> </span><span class="o">[</span>/usr/bin/gpg<span class="o">]</span>:
+
+When<span class="w"> </span>using<span class="w"> </span>secure<span class="w"> </span>HTTPS<span class="w"> </span>protocol<span class="w"> </span>all<span class="w"> </span>communication<span class="w"> </span>with<span class="w"> </span>Amazon<span class="w"> </span>S3
+servers<span class="w"> </span>is<span class="w"> </span>protected<span class="w"> </span>from<span class="w"> </span>3rd<span class="w"> </span>party<span class="w"> </span>eavesdropping.<span class="w"> </span>This<span class="w"> </span>method<span class="w"> </span>is
+slower<span class="w"> </span>than<span class="w"> </span>plain<span class="w"> </span>HTTP,<span class="w"> </span>and<span class="w"> </span>can<span class="w"> </span>only<span class="w"> </span>be<span class="w"> </span>proxied<span class="w"> </span>with<span class="w"> </span>Python<span class="w"> </span><span class="m">2</span>.7<span class="w"> </span>or<span class="w"> </span>newer
+Use<span class="w"> </span>HTTPS<span class="w"> </span>protocol<span class="w"> </span><span class="o">[</span>Yes<span class="o">]</span>:
+
+On<span class="w"> </span>some<span class="w"> </span>networks<span class="w"> </span>all<span class="w"> </span>internet<span class="w"> </span>access<span class="w"> </span>must<span class="w"> </span>go<span class="w"> </span>through<span class="w"> </span>a<span class="w"> </span>HTTP<span class="w"> </span>proxy.
+Try<span class="w"> </span>setting<span class="w"> </span>it<span class="w"> </span>here<span class="w"> </span><span class="k">if</span><span class="w"> </span>you<span class="w"> </span>can<span class="s1">&#39;t connect to S3 directly</span>
+<span class="s1">HTTP Proxy server name:</span>
+
+<span class="s1">New settings:</span>
+<span class="s1">  Access Key: XXXXXXXXXX</span>
+<span class="s1">  Secret Key: XXXXXXXXXX</span>
+<span class="s1">  Default Region: US</span>
+<span class="s1">  S3 Endpoint: s3.climb.ac.uk</span>
+<span class="s1">  DNS-style bucket+hostname:port template for accessing a bucket: %(bucket)s.s3.climb.ac.uk</span>
+<span class="s1">  Encryption password:</span>
+<span class="s1">  Path to GPG program: /usr/bin/gpg</span>
+<span class="s1">  Use HTTPS protocol: True</span>
+<span class="s1">  HTTP Proxy server name:</span>
+<span class="s1">  HTTP Proxy server port: 0</span>
+
+<span class="s1">Test access with supplied credentials? [Y/n]</span>
+<span class="s1">Please wait, attempting to list all buckets...</span>
+<span class="s1">Success. Your access key and secret key worked fine :-)</span>
+
+<span class="s1">Now verifying that encryption works...</span>
+<span class="s1">Not configured. Never mind.</span>
+
+<span class="s1">Save settings? [y/N] Y</span>
+<span class="s1">Configuration saved to &#39;</span>/home/ubuntu/.s3cfg<span class="err">&#39;</span>
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; CLIMB-BIG-DATA 2023
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "navigation.expand", "navigation.path", "navigation.top", "navigation.indexes", "toc.integrate", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.3220b9d7.min.js"></script>
+      
+    
+  </body>
+</html>

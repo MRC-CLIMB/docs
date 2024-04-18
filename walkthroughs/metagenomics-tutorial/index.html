@@ -1,0 +1,1193 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../notebook-servers/403-forbidden-error/">
+      
+      
+        <link rel="next" href="../genome-assembly/spades/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.18">
+    
+    
+      
+        <title>Metagenomics walkthrough - CLIMB-BIG-DATA Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.66ac8b77.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#climb-big-data-metagenomics-in-brum" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="CLIMB-BIG-DATA Documentation" class="md-header__button md-logo" aria-label="CLIMB-BIG-DATA Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CLIMB-BIG-DATA Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Metagenomics walkthrough
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CLIMB-BIG-DATA Documentation" class="md-nav__button md-logo" aria-label="CLIMB-BIG-DATA Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    CLIMB-BIG-DATA Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Getting started
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Getting started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/how-to-register/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Registration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/authentication/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Authentication
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../notebook-servers/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Notebook Servers
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Notebook Servers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notebook-servers/read-this-first/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Read this first!
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notebook-servers/quick-start/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quick start
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notebook-servers/using-interface/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using the interface
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notebook-servers/using-the-terminal/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using the terminal
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notebook-servers/using-jupyter/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using Jupyter notebooks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notebook-servers/using-rstudio/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using RStudio
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../storage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Understanding storage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notebook-servers/installing-software-with-conda/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installing software with Conda
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notebook-servers/using-nextflow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using Nextflow
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notebook-servers/using-vscode/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using Visual Studio Code
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notebook-servers/403-forbidden-error/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    403 Forbidden Error
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Walkthroughs
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Walkthroughs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Metagenomics walkthrough
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Metagenomics walkthrough
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#before-you-begin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Before you begin
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up-the-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting up the environment
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-kraken2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Running Kraken2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#eek" class="md-nav__link">
+    <span class="md-ellipsis">
+      Eek!
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#r-and-rstudio" class="md-nav__link">
+    <span class="md-ellipsis">
+      R and RStudio
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../genome-assembly/spades/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Genome assembly
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nextflow-custom-workflows/nextflow-custom/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Custom Nextflow workflows
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../qiime2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    QIIME 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nfcore/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    nf-core pipelines
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="climb-big-data-metagenomics-in-brum">CLIMB-BIG-DATA: Metagenomics in Brum<a class="headerlink" href="#climb-big-data-metagenomics-in-brum" title="Permanent link">#</a></h1>
+<p>In this tutorial we will look at some metagenomics sequences that were sequenced from DNA extracted from the Worcester and Birmingham Canal at the University of Birmingham. In this case the canal water was fetched, DNA extracted and data was generated on the Oxford Nanopore MinION sequencing platform by Josh Quick.</p>
+<p><img alt="image.png" src="https://s0.geograph.org.uk/geophotos/03/42/44/3424466_b680b84c_original.jpg" /></p>
+<p>The Worcester and Birmingham Canal near University Station (photo by Philip Halling)</p>
+<h2 id="before-you-begin">Before you begin<a class="headerlink" href="#before-you-begin" title="Permanent link">#</a></h2>
+<p>This tutorial assumes you are working on CLIMB-BIG-DATA in a JupyterHub notebook. That is why many of the commands are prepended with the "!" (exclamation mark) symbol - which tells the notebook to run the command as if it was on the command line.</p>
+<p>You could do the tutorial without JupyterHub notebooks in the Terminal, in which case remove the "!" before each command.</p>
+<p>Have a look around this documentation site if you would like to understand more about what a JupyterHub notebook is.</p>
+<h2 id="setting-up-the-environment">Setting up the environment<a class="headerlink" href="#setting-up-the-environment" title="Permanent link">#</a></h2>
+<p>When working on CLIMB-BIG-DATA with Conda, always work in a new Conda environment. You will not be able to add software to the base environment.</p>
+<p>We speed the process along by using <code>mamba</code>, a drop-in replacement for <code>conda</code> to create a new environment.</p>
+<p>Our environment will be called <code>metagenomics-tutorial</code>.</p>
+<p>In order for this tutorial to function correctly within JupyterHub, also install <code>ipykernel</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="err">!</span><span class="n">mamba</span> <span class="n">create</span> <span class="o">-</span><span class="n">y</span> <span class="o">-</span><span class="n">n</span> <span class="n">metagenomics</span><span class="o">-</span><span class="n">tutorial</span> <span class="n">ipykernel</span>
+</code></pre></div>
+<p>Next, we will need the following software:</p>
+<ul>
+<li><code>kraken2</code> - a taxonomic profiler for metagenomics data</li>
+<li><code>krona</code> - an interactive visualiser for the output of Kraken2</li>
+<li><code>krakentools</code> - some useful scripts for manipulating Kraken2 output</li>
+<li><code>taxpasta</code> - a useful tool for converting and merging Kraken2 outputs into other formats like Excel</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="err">!</span><span class="n">mamba</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="n">kraken2</span> <span class="n">krona</span> <span class="n">blast</span> <span class="n">krakentools</span> 
+</code></pre></div>
+<p>Krona reminds us to run <code>ktUpdateTaxonomy.sh</code> before it can be used.</p>
+<div class="highlight"><pre><span></span><code><span class="err">!</span><span class="n">ktUpdateTaxonomy</span><span class="o">.</span><span class="n">sh</span>
+</code></pre></div>
+<p>Let's grab the CanalSeq data.</p>
+<p>This is available from the <a href="https://loman-labz-public-datasets.s3.climb.ac.uk/canalseq.fasta">following link</a>.</p>
+<p>Note that this link is served via the CLIMB S3 service. You can serve your own public data the same way simply by creating a public S3 bucket and uploading files to it!</p>
+<h2 id="running-kraken2">Running Kraken2<a class="headerlink" href="#running-kraken2" title="Permanent link">#</a></h2>
+<p>You can test <code>kraken2</code> was installed correctly by running it with no command-line options.</p>
+<div class="highlight"><pre><span></span><code><span class="err">!</span><span class="n">kraken2</span>
+</code></pre></div>
+<p>Pre-computed Kraken2 databases are available on the <code>/shared/public</code> file system within CLIMB-BIG-DATA. These databases are downloaded from <a href="https://benlangmead.github.io/aws-indexes/k2">Ben Langmad's publicly available Kraken2 indexes page</a>. These datasets are updated regularly and we will keep all versions that we download available permenantly. Within each database directory <code>latest</code> will always point towards the latest version available.</p>
+<p>The <code>/shared/public</code> area is designed to store frequently used, important databases for the microbial genomics community. We are just getting started building this resource so please contact us with suggestions for other databases you would like to see here.</p>
+<p>We can take a look at the latest versions of the databases that are available, and their sizes:</p>
+<div class="highlight"><pre><span></span><code><span class="err">!</span><span class="n">du</span> <span class="o">-</span><span class="n">h</span> <span class="o">/</span><span class="n">shared</span><span class="o">/</span><span class="n">public</span><span class="o">/</span><span class="n">db</span><span class="o">/</span><span class="n">kraken2</span><span class="o">/*/</span><span class="n">latest</span><span class="o">/</span>
+</code></pre></div>
+<p>11G     /shared/public/db/kraken2/eupathDB46/latest/
+9.6G    /shared/public/db/kraken2/minusb/latest/
+743G    /shared/public/db/kraken2/nt/latest/
+15G     /shared/public/db/kraken2/pluspf_16gb/latest/
+7.6G    /shared/public/db/kraken2/pluspf_8gb/latest/
+75G     /shared/public/db/kraken2/pluspf/latest/
+16G     /shared/public/db/kraken2/pluspfp_16gb/latest/
+7.9G    /shared/public/db/kraken2/pluspfp_8gb/latest/
+169G    /shared/public/db/kraken2/pluspfp/latest/
+15G     /shared/public/db/kraken2/standard_16gb/latest/
+7.6G    /shared/public/db/kraken2/standard_8gb/latest/
+70G     /shared/public/db/kraken2/standard/latest/
+633M    /shared/public/db/kraken2/viral/latest/</p>
+<p>We can run Kraken2 directly within this JupyterHub notebook which is running in a container. A standard container has 8 CPu cores and 64Gb of memory. Kraken2 doesn't run well unless the database fits into memory, so we can use one of the smaller databases for now such as <code>standard_16gb</code> which contains archaea, bacteria, viral, plasmid, human and UniVec_Core sequences from RefSeq, but subsampled down to a 16Gb database. This will be fast, but we trade off specificity and sensitivity against bigger databases.</p>
+<div class="highlight"><pre><span></span><code><span class="err">!</span><span class="n">kraken2</span> <span class="o">--</span><span class="n">threads</span> <span class="mi">8</span> \
+   <span class="o">--</span><span class="n">db</span> <span class="o">/</span><span class="n">shared</span><span class="o">/</span><span class="n">public</span><span class="o">/</span><span class="n">db</span><span class="o">/</span><span class="n">kraken2</span><span class="o">/</span><span class="n">standard_16gb</span><span class="o">/</span><span class="n">latest</span> \
+   <span class="o">--</span><span class="n">output</span> <span class="n">canalseq</span><span class="o">.</span><span class="n">hits</span><span class="o">.</span><span class="n">txt</span> \
+   <span class="o">--</span><span class="n">report</span> <span class="n">canalseq</span><span class="o">.</span><span class="n">report</span><span class="o">.</span><span class="n">txt</span> \
+   <span class="n">canalseq</span><span class="o">.</span><span class="n">fasta</span>
+</code></pre></div>
+<pre><code>Loading database information... done.
+37407 sequences (91.32 Mbp) processed in 4.876s (460.3 Kseq/m, 1123.76 Mbp/m).
+  12486 sequences classified (33.38%)
+  24921 sequences unclassified (66.62%)
+</code></pre>
+<p>About a third of sequences were classified and two-thirds were not.</p>
+<p>The <code>canalseq.report.txt</code> gives a human-readable output from Kraken2.</p>
+<div class="highlight"><pre><span></span><code><span class="err">!</span><span class="n">cat</span> <span class="n">canalseq</span><span class="o">.</span><span class="n">report</span><span class="o">.</span><span class="n">txt</span>
+</code></pre></div>
+<p>People worry about getting Leptospirosis if they swim in the canal. Any evidence of <em>Leptospira sp.</em> in these results?</p>
+<div class="highlight"><pre><span></span><code><span class="err">!</span><span class="n">grep</span> <span class="n">Leptospira</span> <span class="n">canalseq</span><span class="o">.</span><span class="n">report</span><span class="o">.</span><span class="n">txt</span>
+</code></pre></div>
+<pre><code>  0.03  10  0   O   1643688           Leptospirales
+  0.03  10  0   F   170             Leptospiraceae
+  0.02  9   2   G   171               Leptospira
+  0.01  2   2   S   173                 Leptospira interrogans
+  0.00  1   1   S   28182                   Leptospira noguchii
+  0.00  1   1   S   28183                   Leptospira santarosai
+  0.00  1   1   S   1917830                 Leptospira kobayashii
+  0.00  1   1   S   2564040                 Leptospira tipperaryensis
+  0.00  1   0   G1  2633828                 unclassified Leptospira
+  0.00  1   1   S   1513297                   Leptospira sp. GIMC2001
+</code></pre>
+<h2 id="eek">Eek!<a class="headerlink" href="#eek" title="Permanent link">#</a></h2>
+<p>It's easier to look at Kraken2 results visually using a Krona plot:</p>
+<div class="highlight"><pre><span></span><code><span class="err">!</span><span class="n">ktImportTaxonomy</span> <span class="o">-</span><span class="n">t</span> <span class="mi">5</span> <span class="o">-</span><span class="n">m</span> <span class="mi">3</span> <span class="n">canalseq</span><span class="o">.</span><span class="n">report</span><span class="o">.</span><span class="n">txt</span> <span class="o">-</span><span class="n">o</span> <span class="n">KronaReport</span><span class="o">.</span><span class="n">html</span>
+</code></pre></div>
+<pre><code>   [ WARNING ]  Score column already in use; not reading scores.
+Loading taxonomy...
+Importing canalseq.report.txt...
+Writing KronaReport.html...
+</code></pre>
+<p>We can look at the Krona report directly within the browser by using the file navigator to the left - open up the KronaReport.html within the <code>shared-team</code> directory where we are working. Click around the Krona report to see what is in there.</p>
+<p>With the <code>extract_kraken_reads.py</code> script in <code>krakentools</code> we can quite easily extract a set of reads that we are interested in for further exploration: perhaps to use a more specific method like BLAST against a large protein database, or to extract for de novo assembly.</p>
+<div class="highlight"><pre><span></span><code><span class="err">!</span><span class="n">extract_kraken_reads</span><span class="o">.</span><span class="n">py</span> <span class="o">-</span><span class="n">k</span> <span class="n">canalseq</span><span class="o">.</span><span class="n">hits</span><span class="o">.</span><span class="n">txt</span> <span class="o">-</span><span class="n">s</span> <span class="n">canalseq</span><span class="o">.</span><span class="n">fasta</span> <span class="o">-</span><span class="n">r</span> <span class="n">canalseq</span><span class="o">.</span><span class="n">report</span><span class="o">.</span><span class="n">txt</span> <span class="o">-</span><span class="n">t</span> <span class="mi">171</span> <span class="o">-</span><span class="n">o</span> <span class="n">leptospira</span><span class="o">.</span><span class="n">fasta</span> <span class="o">--</span><span class="n">include</span><span class="o">-</span><span class="n">children</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">!</span><span class="n">extract_kraken_reads</span><span class="o">.</span><span class="n">py</span> <span class="o">-</span><span class="n">k</span> <span class="n">canalseq</span><span class="o">.</span><span class="n">hits</span><span class="o">.</span><span class="n">txt</span> <span class="o">-</span><span class="n">s</span> <span class="n">canalseq</span><span class="o">.</span><span class="n">fasta</span> <span class="o">-</span><span class="n">r</span> <span class="n">canalseq</span><span class="o">.</span><span class="n">report</span><span class="o">.</span><span class="n">txt</span> <span class="o">-</span><span class="n">t</span> <span class="mi">173</span> <span class="o">-</span><span class="n">o</span> <span class="n">linterrogens</span><span class="o">.</span><span class="n">fasta</span> <span class="o">--</span><span class="n">include</span><span class="o">-</span><span class="n">children</span>
+</code></pre></div>
+<pre><code>PROGRAM START TIME: 04-16-2023 18:40:00
+&gt;&gt; STEP 0: PARSING REPORT FILE canalseq.report.txt
+    1 taxonomy IDs to parse
+&gt;&gt; STEP 1: PARSING KRAKEN FILE FOR READIDS canalseq.hits.txt
+    0.04 million reads processed
+    2 read IDs saved
+&gt;&gt; STEP 2: READING SEQUENCE FILES AND WRITING READS
+    2 read IDs found (0.02 mill reads processed)
+    2 reads printed to file
+    Generated file: linterrogens.fasta
+PROGRAM END TIME: 04-16-2023 18:40:00
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="err">!</span><span class="n">cat</span> <span class="n">leptospira</span><span class="o">.</span><span class="n">fasta</span>
+</code></pre></div>
+<p>If you wished you could go and take these reads and BLAST them over at NCBI-BLAST. There is also the <code>nr</code> BLAST database available on CLIMB-BIG-DATA if you wanted to run <code>blastx</code> on them. The BLAST databases are found in <code>/shared/public/db/blast</code>.</p>
+<p>It was a bit disappointing that only 33% of the reads in our dataset were assigned. We could try a much bigger database than <code>standard_16gb</code> such as <code>pluspfp</code> which contains protozoal, fungal and plant sequences, as well as taxa contained in <code>standard</code>. </p>
+<p>To do this we will need to use the Kubernetes cluster in CLIMB-BIG-DATA. With the Kubernetes cluster we can run much bigger tasks requiring much more CPU power, or more memory than in a notebook container like this.</p>
+<p>The easiest way to get started with Kubernetes is using Nextflow.</p>
+<p>When you run a Nextflow script it will automagically use Kubernetes.</p>
+<p>There are a few Kraken2 Nextflow scripts, the simplest one I have found is <a href="https://github.com/metashot/kraken2">metashot/kraken2</a>. This will also do a few extra steps like running Bracken.</p>
+<p>If you wanted to run Kraken2 through Nextflow the same way as before you could run:</p>
+<div class="highlight"><pre><span></span><code><span class="err">!</span><span class="n">nextflow</span> <span class="n">run</span> <span class="n">metashot</span><span class="o">/</span><span class="n">kraken2</span> \
+  <span class="o">-</span><span class="n">c</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">nextflow</span><span class="o">.</span><span class="n">config</span> \
+  <span class="o">--</span><span class="n">reads</span> <span class="n">canalseq</span><span class="o">.</span><span class="n">fastq</span> \
+  <span class="o">--</span><span class="n">kraken2_db</span> <span class="o">/</span><span class="n">shared</span><span class="o">/</span><span class="n">public</span><span class="o">/</span><span class="n">db</span><span class="o">/</span><span class="n">kraken2</span><span class="o">/</span><span class="n">standard_16gb</span><span class="o">/</span><span class="n">latest</span> \
+  <span class="o">--</span><span class="n">read_len</span> <span class="mi">100</span> \
+  <span class="o">--</span><span class="n">outdir</span> <span class="n">canalseq</span><span class="o">-</span><span class="n">standard16</span> \
+  <span class="o">--</span><span class="n">single_end</span>
+</code></pre></div>
+<p>But - and for our final trick - we would like to use a much bigger database <code>pluspfp</code>. We can just re-check it's size.</p>
+<div class="highlight"><pre><span></span><code><span class="err">!</span><span class="n">du</span> <span class="o">-</span><span class="n">h</span> <span class="o">-</span><span class="n">d1</span> <span class="o">/</span><span class="n">shared</span><span class="o">/</span><span class="n">public</span><span class="o">/</span><span class="n">db</span><span class="o">/</span><span class="n">kraken2</span><span class="o">/</span><span class="n">pluspfp</span><span class="o">/</span><span class="n">latest</span>
+</code></pre></div>
+<p>As this database is around 145Gb, we can ask Nextflow to give us 200 gigabytes of RAM when running this container, to ensure this database fits easily in memory. We could also ask for a lot more CPUs to speed things along further! Nextflow and Kubernetes will take care of finding a machine the best size for this workflow.</p>
+<div class="highlight"><pre><span></span><code><span class="err">!</span><span class="n">nextflow</span> <span class="n">run</span> <span class="n">metashot</span><span class="o">/</span><span class="n">kraken2</span> \
+  <span class="o">-</span><span class="n">c</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">nextflow</span><span class="o">.</span><span class="n">config</span> \
+  <span class="o">--</span><span class="n">reads</span> <span class="n">canalseq</span><span class="o">.</span><span class="n">fasta</span> \
+  <span class="o">--</span><span class="n">kraken2_db</span> <span class="o">/</span><span class="n">shared</span><span class="o">/</span><span class="n">public</span><span class="o">/</span><span class="n">db</span><span class="o">/</span><span class="n">kraken2</span><span class="o">/</span><span class="n">pluspfp</span><span class="o">/</span><span class="n">latest</span> \
+  <span class="o">--</span><span class="n">read_len</span> <span class="mi">100</span> \
+  <span class="o">--</span><span class="n">outdir</span> <span class="n">canalseq</span><span class="o">-</span><span class="n">pluspfp</span> \
+  <span class="o">--</span><span class="n">single_end</span> \
+  <span class="o">--</span><span class="n">max_memory</span> <span class="mf">200.</span><span class="n">G</span> \
+  <span class="o">--</span><span class="n">max_cpus</span> <span class="mi">64</span>
+</code></pre></div>
+<p>Ah, OK this gives 80% assignment! We can go and take a look at this in Krona again.</p>
+<div class="highlight"><pre><span></span><code><span class="err">!</span><span class="n">ktImportTaxonomy</span> <span class="o">-</span><span class="n">t</span> <span class="mi">5</span> <span class="o">-</span><span class="n">m</span> <span class="mi">3</span> <span class="o">-</span><span class="n">o</span> <span class="n">krona</span><span class="o">-</span><span class="n">canalseq</span><span class="o">-</span><span class="n">pluspfp</span><span class="o">.</span><span class="n">html</span> <span class="n">canalseq</span><span class="o">-</span><span class="n">pluspfp</span><span class="o">/</span><span class="n">kraken2</span><span class="o">/</span><span class="n">canalseq</span><span class="o">.</span><span class="n">kraken2</span><span class="o">.</span><span class="n">report</span>
+</code></pre></div>
+<pre><code>   [ WARNING ]  Score column already in use; not reading scores.
+Loading taxonomy...
+Importing canalseq-pluspfp/kraken2/canalseq.kraken2.report...
+   [ WARNING ]  The following taxonomy IDs were not found in the local
+                database and were set to root (if they were recently added to
+                NCBI, use updateTaxonomy.sh to update the local database):
+                42857
+Writing krona-canalseq-pluspfp.html...
+</code></pre>
+<p>Lots more taxa to explore if you open up <code>krona-canalseq-pluspfp.htm</code> in the browser on the left!</p>
+<h2 id="r-and-rstudio">R and RStudio<a class="headerlink" href="#r-and-rstudio" title="Permanent link">#</a></h2>
+<p>Let's finish up by comparing the results of Kraken2 using the standard-16 database versus the full-fat PlusPFP database!</p>
+<p>We can use a nice little tool called <code>taxpasta</code> to take the results of the two Kraken2 runs, merge them together and write out a tabular format file that will load easily into R.</p>
+<div class="highlight"><pre><span></span><code><span class="err">!</span><span class="n">cp</span> <span class="n">canalseq</span><span class="o">-</span><span class="n">pluspfp</span><span class="o">/</span><span class="n">kraken2</span><span class="o">/</span><span class="n">canalseq</span><span class="o">.</span><span class="n">kraken2</span><span class="o">.</span><span class="n">report</span> <span class="n">pluspfp</span><span class="o">.</span><span class="n">report</span>
+<span class="err">!</span><span class="n">cp</span> <span class="n">canalseq</span><span class="o">-</span><span class="n">standard16</span><span class="o">/</span><span class="n">kraken2</span><span class="o">/</span><span class="n">canalseq</span><span class="o">.</span><span class="n">kraken2</span><span class="o">.</span><span class="n">report</span> <span class="n">standard16</span><span class="o">.</span><span class="n">report</span>
+<span class="err">!</span><span class="n">taxpasta</span> <span class="n">merge</span> <span class="o">--</span><span class="n">profiler</span> <span class="n">kraken2</span>  <span class="o">--</span><span class="n">output</span><span class="o">-</span><span class="nb">format</span> <span class="n">tsv</span> <span class="o">--</span><span class="n">add</span><span class="o">-</span><span class="n">name</span> <span class="o">--</span><span class="n">add</span><span class="o">-</span><span class="n">rank</span> <span class="o">--</span><span class="n">taxonomy</span> <span class="o">/</span><span class="n">shared</span><span class="o">/</span><span class="n">public</span><span class="o">/</span><span class="n">db</span><span class="o">/</span><span class="n">taxonomy</span><span class="o">/</span><span class="n">latest</span> <span class="o">-</span><span class="n">o</span> <span class="n">canalseq</span><span class="o">.</span><span class="n">merged</span><span class="o">.</span><span class="n">tsv</span> <span class="n">pluspfp</span><span class="o">.</span><span class="n">report</span> <span class="n">standard16</span><span class="o">.</span><span class="n">report</span>
+</code></pre></div>
+<p>Now we can do some magic with R.</p>
+<p>For the next part, either change the running kernel type (using the dropdown menu on the top right) to "R", or flip over to RStudio (via File - New Launcher in the menu bar).</p>
+<div class="highlight"><pre><span></span><code><span class="n">library</span><span class="p">(</span><span class="n">tidyverse</span><span class="p">)</span>
+</code></pre></div>
+<pre><code>UsageError: Cell magic `%%R` not found.
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">df</span> <span class="o">=</span> <span class="n">read_tsv</span><span class="p">(</span><span class="s2">&quot;canalseq.merged.tsv&quot;</span><span class="p">,</span> <span class="n">show_col_types</span><span class="o">=</span><span class="n">F</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">head</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</code></pre></div>
+<table style="border:1px solid #000000;">
+<caption>A tibble: 6 × 5</caption>
+<thead>
+    <tr><th scope=col>taxonomy_id</th><th scope=col>name</th><th scope=col>rank</th><th scope=col>pluspfp</th><th scope=col>standard16</th></tr>
+    <tr><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+    <tr><td>     0</td><td>NA                </td><td>NA          </td><td>7751</td><td>24921</td></tr>
+    <tr><td>     1</td><td>root              </td><td>no rank     </td><td>  45</td><td>   20</td></tr>
+    <tr><td>131567</td><td>cellular organisms</td><td>no rank     </td><td>2167</td><td>  381</td></tr>
+    <tr><td>  2759</td><td>Eukaryota         </td><td>superkingdom</td><td> 742</td><td>    1</td></tr>
+    <tr><td> 33090</td><td>Viridiplantae     </td><td>kingdom     </td><td>  12</td><td>    0</td></tr>
+    <tr><td> 35493</td><td>Streptophyta      </td><td>phylum      </td><td>   0</td><td>    0</td></tr>
+</tbody>
+</table>
+
+<p>A bit of <code>tidyverse</code> magic can plot us the top 20 genera for each of the Kraken2 databases used side by side.</p>
+<div class="highlight"><pre><span></span><code><span class="n">df</span> <span class="o">%&gt;%</span> 
+    <span class="n">gather</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s2">&quot;db&quot;</span><span class="p">,</span> <span class="n">val</span><span class="o">=</span><span class="s2">&quot;count&quot;</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span><span class="mi">5</span><span class="p">)</span> <span class="o">%&gt;%</span>
+    <span class="nb">filter</span><span class="p">(</span><span class="n">rank</span><span class="o">==</span><span class="s1">&#39;genus&#39;</span><span class="p">)</span> <span class="o">%&gt;%</span>
+    <span class="n">slice_max</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">count</span><span class="p">,</span> <span class="n">by</span><span class="o">=</span><span class="s2">&quot;db&quot;</span><span class="p">)</span> <span class="o">%&gt;%</span>
+    <span class="n">ggplot</span><span class="p">(</span><span class="o">.</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">count</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="n">db</span><span class="p">))</span> <span class="o">+</span>
+    <span class="n">geom_bar</span><span class="p">(</span><span class="n">stat</span><span class="o">=</span><span class="s1">&#39;identity&#39;</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="s2">&quot;dodge&quot;</span><span class="p">)</span> <span class="o">+</span>
+    <span class="n">theme</span><span class="p">(</span><span class="n">axis</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">element_text</span><span class="p">(</span><span class="n">angle</span> <span class="o">=</span> <span class="mi">90</span><span class="p">,</span> <span class="n">vjust</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">hjust</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+</code></pre></div>
+<p><img alt="svg" src="../output_46_0.svg" /></p>
+<p>And that's the end of the tutorial. </p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; CLIMB-BIG-DATA 2023
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "navigation.expand", "navigation.path", "navigation.top", "navigation.indexes", "toc.integrate", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.3220b9d7.min.js"></script>
+      
+    
+  </body>
+</html>
