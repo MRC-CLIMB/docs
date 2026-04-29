@@ -1,29 +1,32 @@
-site_name: CLIMB-BIG-DATA Documentation
+site_name: CLIMB | Cloud Infrastructure for Microbial Bioinformatics
 theme:
   name: material
+  logo: assets/logo-square_CLIMB-BIG-DATA.png
+  favicon: assets/logo-square_CLIMB-BIG-DATA.png
   features:
-    - navigation.sections
-    - navigation.expand
-    - navigation.path
-    - navigation.top
-    - navigation.indexes
-    - toc.integrate
+    - navigation.sections # Render sections as groups
+    - navigation.expand # Expand all sections
+    - navigation.path # Breadcrumb navigation
+    - navigation.top # Back to top button
+    - navigation.indexes # Section index pages
+    - navigation.tabs # Top-level tabs
+    - navigation.tabs.sticky # Keep tabs visible
+    - toc.integrate # Merge with sidebar
     - search.suggest
     - search.highlight
     - content.tabs.link
-    - content.code.annotation
     - content.code.copy
   language: en
   palette:
     - scheme: default
       toggle:
-        icon: material/toggle-switch-off-outline
+        icon: material/brightness-4
         name: Switch to dark mode
       primary: indigo
       accent: amber
     - scheme: slate
       toggle:
-        icon: material/toggle-switch
+        icon: material/brightness-7
         name: Switch to light mode
 markdown_extensions:
   - attr_list
@@ -32,30 +35,12 @@ markdown_extensions:
   - admonition
   - pymdownx.details
   - pymdownx.superfences
-
+  - md_in_html
+  - pymdownx.blocks.caption
 copyright: |
-  &copy; CLIMB-BIG-DATA 2023
-nav:
-  - "Overview": "index.md"
-  - "Getting started":
-      - "Registration": "getting-started/how-to-register.md"
-      - "Authentication": "getting-started/authentication.md"
-  - "Notebook Servers":
-      - notebook-servers/index.md
-      - "Read this first!": "notebook-servers/read-this-first.md"
-      - "Quick start": "notebook-servers/quick-start.md"
-      - "Using the interface": "notebook-servers/using-interface.md"
-      - "Using the terminal": "notebook-servers/using-the-terminal.md"
-      - "Using Jupyter notebooks": "notebook-servers/using-jupyter.md"
-      - "Using RStudio": "notebook-servers/using-rstudio.md"
-      - "Understanding storage": "storage/index.md"
-      - "Installing software with Conda": "notebook-servers/installing-software-with-conda.md"
-      - "Using Nextflow": "notebook-servers/using-nextflow.md"
-      - "Using Visual Studio Code": "notebook-servers/using-vscode.md"
-      - "403 Forbidden Error": "notebook-servers/403-forbidden-error.md"
-  - "Walkthroughs":
-      - "Metagenomics walkthrough": "walkthroughs/metagenomics-tutorial.md"
-      - "Genome assembly": "walkthroughs/genome-assembly/spades.md"
-      - "Custom Nextflow workflows": "walkthroughs/nextflow-custom-workflows/nextflow-custom.md"
-      - "QIIME 2": "walkthroughs/qiime2.md"
-      - "nf-core pipelines": "walkthroughs/nfcore.md"
+  Copyright &copy; CLIMB 2026
+
+extra:
+  social:
+    - icon: fontawesome/solid/paper-plane
+      link: mailto:<climb@quadram.ac.uk>
