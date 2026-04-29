@@ -1,75 +1,52 @@
-# Overview
+---
+title: Home
+---
 
-![CLIMB-BIG-DATA](img/climb_big_data_white_450px.png){ width=250 style="background-color: black;" }
+# **What is CLIMB ?**
 
-Welcome to the [CLIMB-BIG-DATA](https://climb.ac.uk/) documentation!
+---
 
-These docs are designed to help you get the best out of the CLIMB-BIG-DATA infrastructure.
+![**CLIMB logo**](assets/climb.jpg)
 
-[Bryn](https://bryn.climb.ac.uk) is the web interface for CLIMB-BIG-DATA, and is the primary way to access the infrastructure.
-From Bryn, you can manage your team, its resources, the S3 buckets and your notebooks. **CLIMB Notebooks**, on the other hand,
-are Jupyter notebooks fully integrated with CLIMB and its storage, with first-class support to Nextflow pipelines.
+**CLIMB** (Cloud Infrastructure for Microbial Bioinformatics) is the UK’s leading cloud computing infrastructure originally designed for microbial bioinformatics and now available for the broader community. We provide researchers with powerful computational resources, specialised tools, and dedicated support to accelerate discoveries in genomics, microbiology, public health, and beyond.
 
-![Bryn vs CLIMB notebook](img/bryn-notebook.png){ width=600 style="background-color: white; margin: auto;" }
+---
 
-## Getting started
+## **Our mission**
+CLIMB exists to democratise access to cutting-edge computational resources for all bioinformaticians, no matter their career level. We aim to accelerate scientific discovery by providing researchers with the infrastructure, tools, and support needed to analyse their data efficiently and effectively.
 
-[Registration](getting-started/how-to-register.md)  
-How to register and access CLIMB-BIG-DATA.
+---
 
-[Authentication](getting-started/authentication.md)  
-How to login to Bryn, and setup two-factor authentication.
+## **Key features**
++ **Powerful Computational Resources**. Access computing resources from anywhere through flexible JupyterLab environments with options for vCPU and vGPU resources to tackle your most complex analyses, to train the new generation of bioinformaticians, or to perform your routine analyses.
++ **Specialised for Microbial Research - available for all**. Pre-installed bioinformatics tools, reference databases, and Nextflow workflows specifically designed for microbial genomics and metagenomics analysis. And we are open to listen to your needs and broaden what we offer!
++ **Secure and Collaborative**. Share resources within your team, control access permissions, and maintain data security while collaborating on research projects.
++ **Expert Support**. Our team provides documentation, tutorials, and direct support to help you make the most of CLIMB capabilities.
 
-## Notebook Servers
+---
 
-Everything you need to understand, use and get the most out of Jupyter Notebook Servers.
+## **CLIMB packages**
+CLIMB provides access through justified packages, aligned with specific use cases:
 
-[Read this first!](notebook-servers/read-this-first.md)  
-An introduction to the what and why of notebook servers.
++ **Research**. Support for funded research projects, multi-institutional collaborative research, PhD and postdoctoral research activities, international research collaboration.
++ **Training**. Bioinformatics skills development, capacity building initiatives, workshops and tutorials.
++ **Surveillance**. Public health surveillance activities, pathogen monitoring and analysis, emergency response capabilities, collaboration with public health agencies.
++ **Trial**. Time-limited access for evaluation purposes or proof-of-concept activities, transition pathway to sustained access, new user onboarding and assessment.
 
-[Quick start](notebook-servers/quick-start.md)  
-How to launch, access and get started using a notebook server.
+For information on costs, see our [**Pricing page**](2.Pricing/index.md).
 
-[Using the terminal](notebook-servers/using-the-terminal.md)  
-How to use the terminal inside a notebook server, with an explanation of caveats.
+---
 
-[Using the interface](notebook-servers/using-interface.md)  
-Explore various features of the notebook server interface.
+## **Who uses CLIMB ?**
 
-[Using Jupyter notebooks](notebook-servers/using-jupyter.md)  
-The basics of working with Jupyter notebooks within a notebook server.
+CLIMB supports **120+** active research groups across the UK and has been acknowledged in **80+** scientific papers annually. See our [**Citation page**](1.Overview/1.5.citation.md) on how you can also cite us.
 
-[Using RStudio](notebook-servers/using-rstudio.md)  
-How to get started with RStudio within a notebook server.
+To register for CLIMB access, please visit [**Bryn**](https://bryn.climb.ac.uk/), the CLIMB user portal and see our [**Registration page**](3.Getting-started/3.1.registration.md).
 
-[Understanding storage](storage/index.md)  
-An explanation of the different storage options available and when to use what.
+---
 
-[Installing software with Conda](notebook-servers/installing-software-with-conda.md)  
-How to install software using Conda, in the context of a containerized environment.
+## **Access to support**
 
-[Using Nextflow](notebook-servers/using-nextflow.md)  
-How to use Nextflow with CLIMB-BIG-DATA.
+To view user documentation and tutorials please see our [**Documentation page**](4.Documentation/index.md).
 
-[Using Visual Studio Code](notebook-servers/using-vscode.md)  
-How to connect to your CLIMB Notebook and work from Visual Studio Code.
-
-[403 Forbidden Error](notebook-servers/403-forbidden-error.md)  
-An explanation of how to resolve login error 403 when accessing notebooks.
-
-## Walkthroughs
-
-[Metagenomics walkthrough](walkthroughs/metagenomics-tutorial.md)  
-A simple walk-through of some CLIMB-BIG-DATA functionality.
-
-[Genome assembly](walkthroughs/genome-assembly/spades.md)  
-Assembling a genome from short reads using SPAdes.
-
-[Custom Nextflow workflows](walkthroughs/nextflow-custom-workflows/nextflow-custom.md)  
-A guide on writing custom nextflow workflows.
-
-[QIIME 2](walkthroughs/qiime2.md)  
-How to install QIIME 2 on a notebook server and basic usage.
-
-[nf-core pipelines](walkthroughs/nfcore.md)  
-How to run some of the nf-core pipelines on CLIMB notebooks.
+Should you have any problem, or technical question, please open a ticket via [**Bryn**](https://bryn.climb.ac.uk/). You’ll find the option to open a ticket at the bottom left of your Bryn interface or send an email to **support@climb.ac.uk** and a member of our team will be happy to help !
