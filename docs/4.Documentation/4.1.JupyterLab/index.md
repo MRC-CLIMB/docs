@@ -31,3 +31,7 @@ Everything you need to understand, use and get the most out of the resources ava
 + [**Nextflow**](4.1.6.nextflow.md)
 
     Find out more about how to use Nextflow within a JupyterLab environment.
+
++ [**Conda**](4.1.7.conda.md)
+
+    Find out more about how to install software within a JupyterLab environment using conda.
