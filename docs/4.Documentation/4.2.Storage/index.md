@@ -16,6 +16,10 @@ There are multiple locations to store, transfer and utilise data within CLIMB.
 
     Find out more about how to create and use S3 Buckets.
 
-+ [**Data transfer into S3 buckets**](4.2.3.data-transfer-local.md)
++ [**Local data transfer**](4.2.3.data-transfer-local.md)
 
-    Find out more about how data can be transferred from your local machine into S3 buckets.
+    Find out more about how to transfer local data into S3 Buckets.
+
++ [**Data transfer within JupyterLab environments**](4.2.4.data-transfer-jupyterlab.md)
+
+    Find out more about how to access data from S3 buckets within JupyterLab environments.
