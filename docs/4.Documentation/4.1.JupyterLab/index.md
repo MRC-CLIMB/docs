@@ -35,3 +35,7 @@ Everything you need to understand, use and get the most out of the resources ava
 + [**Conda**](4.1.7.conda.md)
 
     Find out more about how to install software within a JupyterLab environment using conda.
+
++ [**SquarePeg**](4.1.8.squarepeg.md)
+
+    Find out how to run individual memory- or CPU-hungry commands in their own pod from a small JupyterLab environment.
