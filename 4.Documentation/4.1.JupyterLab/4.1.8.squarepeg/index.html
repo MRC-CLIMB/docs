@@ -1,0 +1,4132 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../4.1.7.conda/">
+      
+      
+        <link rel="next" href="../../4.2.Storage/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/logo-square_CLIMB-BIG-DATA.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Using SquarePeg - CLIMB | Cloud Infrastructure for Microbial Bioinformatics</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#using-squarepeg" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="CLIMB | Cloud Infrastructure for Microbial Bioinformatics" class="md-header__button md-logo" aria-label="CLIMB | Cloud Infrastructure for Microbial Bioinformatics" data-md-component="logo">
+      
+  <img src="../../../assets/logo-square_CLIMB-BIG-DATA.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CLIMB | Cloud Infrastructure for Microbial Bioinformatics
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Using SquarePeg
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../1.Overview/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  1.Overview
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../2.Pricing/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  2.Pricing
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../3.Getting-started/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  3.Getting started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  4.Documentation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../5.Support/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  5.Support
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../6.Archive/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  6.Archive
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="CLIMB | Cloud Infrastructure for Microbial Bioinformatics" class="md-nav__button md-logo" aria-label="CLIMB | Cloud Infrastructure for Microbial Bioinformatics" data-md-component="logo">
+      
+  <img src="../../../assets/logo-square_CLIMB-BIG-DATA.png" alt="logo">
+
+    </a>
+    CLIMB | Cloud Infrastructure for Microbial Bioinformatics
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../1.Overview/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.Overview
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    1.Overview
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1.Overview/1.1.T%26Cs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    T&C's
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1.Overview/1.2.Privacy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Privacy policy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1.Overview/1.3.team/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Our team
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1.Overview/1.4.history/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Our history
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1.Overview/1.5.citation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Citation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../2.Pricing/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.Pricing
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    2.Pricing
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.Pricing/2.1.Research-package/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Research package
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.Pricing/2.2.Training-package/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Training package
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.Pricing/2.3.Surveillance-package/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Surveillance package
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.Pricing/2.4.Trial-package/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Trial package
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../3.Getting-started/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3.Getting started
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    3.Getting started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3.Getting-started/3.1.registration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Registration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3.Getting-started/3.2.authentication/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authentication
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../3.Getting-started/3.3.bryn/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bryn interface
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.Documentation
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    4.Documentation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.1.JupyterLab
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_2" id="__nav_5_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    4.1.JupyterLab
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.1.1.jupyterLab-envs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    JupyterLab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.1.2.interface/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    JupyterLab interface
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.1.3.terminal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    terminal
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.1.4.jupyter-notebook/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Jupyter notebooks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.1.5.rstudio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RStudio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.1.6.nextflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Nextflow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.1.7.conda/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Conda
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Using SquarePeg
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Using SquarePeg
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-should-you-use-squarepeg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why should you use SquarePeg ?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#climb-squarepeg-config-defaults" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLIMB SquarePeg config defaults
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#your-first-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Your first run
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#worked-example-kraken2-with-the-pluspf-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Worked example: Kraken2 with the PlusPF database
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Worked example: Kraken2 with the PlusPF database">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-find-the-database-and-check-how-big-it-is" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Find the database and check how big it is
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-put-your-reads-somewhere-the-pod-can-see-them" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Put your reads somewhere the pod can see them
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-pick-a-container-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Pick a container image
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-check-the-pod-with-a-dry-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Check the pod with a dry run
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-run-kraken2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Run Kraken2
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#important-command-line-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Important command line options
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Important command line options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resources
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-gpus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using GPUs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#files-and-directories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Files and directories
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment variables
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#naming-inspecting-and-debugging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Naming, inspecting and debugging
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-several-commands-in-one-pod" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Running several commands in one pod
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tips-for-longer-runs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tips for longer runs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cleaning-up-leftover-pods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cleaning up leftover pods
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-kubectl-directly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using kubectl directly
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Further information
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../4.2.Storage/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.2.Storage
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_3" id="__nav_5_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    4.2.Storage
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4.2.Storage/4.2.1.storage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Storage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4.2.Storage/4.2.2.s3-buckets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    S3 Buckets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4.2.Storage/4.2.3.data-transfer-local/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Local data transfer into S3 buckets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4.2.Storage/4.2.4.data-transfer-jupyterlab/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data access within JupyterLab environments
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.3.Projects
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    4.3.Projects
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4.3.Projects/projects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Projects
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../5.Support/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5.Support
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    5.Support
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../6.Archive/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6.Archive
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    6.Archive
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_2" id="__nav_7_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../6.Archive/getting-started/authentication/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authentication
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../6.Archive/getting-started/how-to-register/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How to register
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../6.Archive/notebook-servers/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Notebook servers
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7_3" id="__nav_7_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Notebook servers
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../6.Archive/notebook-servers/403-forbidden-error/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    403 Forbidden Error
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../6.Archive/notebook-servers/installing-software-with-conda/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installing software with Conda
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../6.Archive/notebook-servers/quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Notebook servers, quick start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../6.Archive/notebook-servers/read-this-first/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Read this first - Notebook Servers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../6.Archive/notebook-servers/using-interface/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Using the Jupyter Notebook Interface
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../6.Archive/notebook-servers/using-jupyter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Using Jupyter Notebooks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../6.Archive/notebook-servers/using-nextflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Using Nextflow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../6.Archive/notebook-servers/using-rstudio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Using RStudio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../6.Archive/notebook-servers/using-the-terminal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Jump into the terminal
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../6.Archive/notebook-servers/using-vscode/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Working on your notebook from Visual Studio Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../6.Archive/reference/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7_4" id="__nav_7_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../6.Archive/reference/file-permissions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    File permissions in Linux
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../6.Archive/reference/glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../6.Archive/reference/linux-commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About the Unix Command Line
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../6.Archive/reference/linux-pipelines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About Linux Pipelines
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../6.Archive/reference/rsync/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About Rsync
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../6.Archive/reference/scp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorial: Secure Copy (SCP) - Transfer Files Securely Over SSH
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../6.Archive/storage/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Storage
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7_5" id="__nav_7_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Storage
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../6.Archive/storage/fetch-s3-to-notebook/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transferring within your CLIMB-BIG-DATA notebook server (S3 to notebook)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../6.Archive/storage/program-s3-fetch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transferring programmatically between an S3 bucket and CLIMB-BIG-DATA notebook server (using python)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../6.Archive/storage/transfer-from-vm-to-s3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transferring data from CLIMB VMs to S3 Buckets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../6.Archive/storage/upload-local-to-s3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transferring from your local machine to the CLIMB-BIG-DATA S3 buckets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../6.Archive/storage/upload-to-notebook/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transferring from your local machine to and from your CLIMB-BIG-DATA notebook server
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_6" id="__nav_7_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Walkthroughs
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Walkthroughs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../6.Archive/walkthroughs/metagenomics-tutorial/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLIMB-BIG-DATA: Metagenomics in Brum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../6.Archive/walkthroughs/nfcore/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Running nf-core pipelines
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../6.Archive/walkthroughs/qiime2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Using QIIME 2 on Jupyter Notbook Servers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_6_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_6_4" id="__nav_7_6_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Genome assembly
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_7_6_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_6_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Genome assembly
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../6.Archive/walkthroughs/genome-assembly/about-genome-assembly/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    What is a genome assembler doing?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../6.Archive/walkthroughs/genome-assembly/spades/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Assembling a genome from short reads (e.g. Illumina) using SPAdes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_6_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_6_5" id="__nav_7_6_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Nextflow custom workflows
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_7_6_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_6_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Nextflow custom workflows
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../6.Archive/walkthroughs/nextflow-custom-workflows/nextflow-custom/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Creating Custom Nextflow Workflows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    4.Documentation
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    4.1.JupyterLab
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="using-squarepeg"><strong>Using SquarePeg</strong><a class="headerlink" href="#using-squarepeg" title="Permanent link">#</a></h1>
+<hr />
+<p><a href="https://github.com/BioWilko/squarepeg"><strong>SquarePeg</strong></a> lets you run a single command inside a container on CLIMB's Kubernetes infrastructure, with as many CPUs and as much memory as the command needs, straight from the terminal of a small JupyterLab environment.</p>
+<p>SquarePeg is pre-installed and pre-configured in every JupyterLab environment, so there is nothing to set up.</p>
+<p>This page covers using SquarePeg on CLIMB. For more technical documentation, including every command line option, the configuration format, how runs are carried out and clean-up behaviour, see the <a href="https://github.com/BioWilko/squarepeg/wiki"><strong>SquarePeg wiki</strong></a>.</p>
+<p>This page covers the following sections:</p>
+<ul>
+<li><a href="./#why-should-you-use-squarepeg"><strong>Why should you use SquarePeg ?</strong></a></li>
+<li><a href="./#climb-squarepeg-config-defaults"><strong>CLIMB SquarePeg config defaults</strong></a></li>
+<li><a href="./#your-first-run"><strong>Your first run</strong></a></li>
+<li><a href="./#worked-example-kraken2-with-the-pluspf-database"><strong>Worked example: Kraken2 with the PlusPF database</strong></a></li>
+<li><a href="./#important-command-line-options"><strong>Important command line options</strong></a></li>
+<li><a href="./#using-gpus"><strong>Using GPUs</strong></a></li>
+<li><a href="./#tips-for-longer-runs"><strong>Tips for longer runs</strong></a></li>
+<li><a href="./#troubleshooting"><strong>Troubleshooting</strong></a></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">This page assumes you already understand advanced workings of the terminal and containers. For more information on using the terminal, please see our <a href="4.1.3.terminal"><strong>terminal</strong></a> page.</p>
+</div>
+<hr />
+<h2 id="why-should-you-use-squarepeg"><strong>Why should you use SquarePeg ?</strong><a class="headerlink" href="#why-should-you-use-squarepeg" title="Permanent link">#</a></h2>
+<p>Your JupyterLab environment has a fixed amount of CPU and memory, chosen when you launched it. That is usually enough for exploring data, writing scripts and running small jobs. Sometimes, though, a single step needs far more than that. Common examples include:</p>
+<ul>
+<li>Classifying reads with <strong>Kraken2</strong> against a large database that must be loaded entirely into memory</li>
+<li>Assembling a large or complex dataset</li>
+<li>Building an index or database</li>
+<li>Any multi-threaded tool that would run much faster with 16 or 32 cores</li>
+</ul>
+<p>You could relaunch your environment with a bigger profile, but then those resources stay reserved (and count against your team's quota) for as long as the environment is running, even while you're just reading output or editing code. You could also write a Nextflow pipeline, but that's a lot of setup for a single command.</p>
+<p>SquarePeg sits between these two options. Your JupyterLab environment stays small, and only the heavy command gets the large resources, only for as long as it runs:</p>
+<div class="highlight"><pre><span></span><code>JupyterLab environment (small) -&gt; squarepeg run ... -&gt; pod with the CPU/memory you asked for -&gt; output streamed back -&gt; pod deleted
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">SquarePeg or Nextflow?</p>
+<p>Use <strong>SquarePeg</strong> for one-off commands or simple shell loops. Use <a href="../4.1.6.nextflow/"><strong>Nextflow</strong></a> for multi-step pipelines that need caching, resuming and many tasks running in parallel.</p>
+</div>
+<hr />
+<h2 id="climb-squarepeg-config-defaults"><strong>CLIMB SquarePeg config defaults</strong><a class="headerlink" href="#climb-squarepeg-config-defaults" title="Permanent link">#</a></h2>
+<p>SquarePeg in your JupyterLab environment reads a CLIMB config file from <code>/etc/squarepeg/config.yaml</code> (set through the <code>SQUAREPEG_CONFIG</code> environment variable). It uses the credentials that are already set up for your team, so every pod it starts runs in your team's own space on the cluster and uses the same resource quota. The config sets the following defaults:</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/shared/public</code></td>
+<td>Mounted <strong>read-only</strong> in every pod. This is where the shared databases are, such as the Kraken2 databases in <code>/shared/public/db/kraken2</code>.</td>
+</tr>
+<tr>
+<td><code>/shared/team</code></td>
+<td>Mounted <strong>read-write</strong> in every pod. Keep your inputs and outputs here.</td>
+</tr>
+<tr>
+<td>CPUs / memory</td>
+<td><strong>1 CPU and 8 GB</strong> unless you set <code>--cpus</code> / <code>--memory</code></td>
+</tr>
+<tr>
+<td>User</td>
+<td>Pods run as the same <code>jovyan</code> user (UID 1000, GID 100) as your JupyterLab environment, so files they write belong to you</td>
+</tr>
+<tr>
+<td>Environment</td>
+<td>Your S3 credentials (<code>AWS_ACCESS_KEY_ID</code>, <code>AWS_SECRET_ACCESS_KEY</code>, <code>AWS_ENDPOINT_URL</code>) and Onyx credentials (<code>ONYX_DOMAIN</code>, <code>ONYX_TOKEN</code>) are passed through to the container</td>
+</tr>
+<tr>
+<td>Clean-up</td>
+<td>The pod is deleted when the command finishes. Leftover pods from earlier runs that crashed are also cleaned up automatically.</td>
+</tr>
+<tr>
+<td>Start-up timeout</td>
+<td>300 seconds to pull the image and start the container</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Your home directory is not available inside the pod</p>
+<p>The pod is separate from your JupyterLab environment and usually runs on a different node in the cluster. Your home directory (<code>/home/jovyan</code>) is attached only to your own environment, so the pod can't see it or any other files on your environment's local disk. Only <code>/shared/team</code> and <code>/shared/public</code> are mounted. <strong>All input files must be in <code>/shared/team</code> (or <code>/shared/public</code>), and all output must be written to <code>/shared/team</code></strong>, or it will be lost when the pod is deleted.</p>
+</div>
+<p>You can see the complete resolved config at any time with:</p>
+<div class="highlight"><pre><span></span><code>squarepeg config
+</code></pre></div>
+<hr />
+<h2 id="your-first-run"><strong>Your first run</strong><a class="headerlink" href="#your-first-run" title="Permanent link">#</a></h2>
+<p>Open a <a href="../4.1.3.terminal/"><strong>terminal</strong></a> and run:</p>
+<div class="highlight"><pre><span></span><code>squarepeg run alpine echo "hello from a pod"
+</code></pre></div>
+<p>SquarePeg will:</p>
+<ol>
+<li>Print the Kubernetes context and namespace it is using</li>
+<li>Create a pod running the <code>alpine</code> image</li>
+<li>Wait for the pod to start (pulling the image if needed)</li>
+<li>Stream the container's output (<code>hello from a pod</code>) to your terminal</li>
+<li>Delete the pod</li>
+<li>Exit with the container's exit code</li>
+</ol>
+<p>SquarePeg's own status messages are prefixed <code>[squarepeg:&lt;run-id&gt;]</code> and go to <strong>stderr</strong>, so they never get mixed into your command's output.</p>
+<div class="admonition warning">
+<p class="admonition-title">The container's stdout and stderr are combined</p>
+<p>Everything your command prints, both its normal output (<strong>stdout</strong>) and its log or progress messages (<strong>stderr</strong>), arrives on SquarePeg's <strong>stdout</strong> as a single stream. This is a current limitation of Kubernetes, not of SquarePeg. SquarePeg reads output through the Kubernetes log API, which records both streams together and hands them back as one. Kubernetes has a feature to keep them separate, but it's still experimental, so it isn't enabled on CLIMB.</p>
+<p>In practice, <code>squarepeg run ... &gt; output.txt</code> captures your command's messages as well as its results, and <code>2&gt;</code> won't separate them. If you need a clean output file, have the tool write it directly with its own output option (such as Kraken2's <code>--output</code>), or redirect <strong>inside</strong> the pod with <code>bash -c "... &gt; /shared/team/output.txt"</code> (see <a href="./#running-several-commands-in-one-pod"><strong>Running several commands in one pod</strong></a>).</p>
+</div>
+<p>The general form of the command is:</p>
+<div class="highlight"><pre><span></span><code>squarepeg run [SQUAREPEG OPTIONS] IMAGE [COMMAND...]
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Everything <strong>after</strong> the image name is passed to the container exactly as written, including anything that looks like a flag. All SquarePeg options must therefore come <strong>before</strong> the image name.</p>
+</div>
+<hr />
+<h2 id="worked-example-kraken2-with-the-pluspf-database"><strong>Worked example: Kraken2 with the PlusPF database</strong><a class="headerlink" href="#worked-example-kraken2-with-the-pluspf-database" title="Permanent link">#</a></h2>
+<p><a href="https://github.com/DerrickWood/kraken2"><strong>Kraken2</strong></a> is a taxonomic classifier commonly used in metagenomics. By default it loads its whole database into memory before classifying anything. The <strong>PlusPF</strong> database (archaea, bacteria, viral, plasmid, human, UniVec_Core, protozoa and fungi) is far too large to fit in a typical JupyterLab environment, which makes it a good example of a job to hand to SquarePeg.</p>
+<h3 id="1-find-the-database-and-check-how-big-it-is"><strong>1. Find the database and check how big it is</strong><a class="headerlink" href="#1-find-the-database-and-check-how-big-it-is" title="Permanent link">#</a></h3>
+<p>Pre-built Kraken2 databases are kept in <code>/shared/public/db/kraken2</code>, and <code>latest</code> always points to the newest version. These are the <a href="https://benlangmead.github.io/aws-indexes/k2"><strong>Ben Langmead Kraken2 indexes</strong></a>. Check the size of the PlusPF hash file, because that is roughly how much memory Kraken2 will need:</p>
+<div class="highlight"><pre><span></span><code>du -sh /shared/public/db/kraken2/pluspf/latest/hash.k2d
+</code></pre></div>
+<p>Ask for <strong>this much memory plus some headroom</strong>. The examples below use 128 GB for a database of roughly 110 GB. Adjust this to match the size <code>du</code> reports for any database you wish to use.</p>
+<h3 id="2-put-your-reads-somewhere-the-pod-can-see-them"><strong>2. Put your reads somewhere the pod can see them</strong><a class="headerlink" href="#2-put-your-reads-somewhere-the-pod-can-see-them" title="Permanent link">#</a></h3>
+<p>Your input files must be under <code>/shared/team</code>. For example:</p>
+<div class="highlight"><pre><span></span><code>mkdir -p /shared/team/kraken_demo/{reads,results}
+cp ~/my_sample_R1.fastq.gz ~/my_sample_R2.fastq.gz /shared/team/kraken_demo/reads/
+</code></pre></div>
+<h3 id="3-pick-a-container-image"><strong>3. Pick a container image</strong><a class="headerlink" href="#3-pick-a-container-image" title="Permanent link">#</a></h3>
+<p>Any public container image with Kraken2 in it will work. Here we use the <a href="https://biocontainers.pro/"><strong>BioContainers</strong></a> image:</p>
+<div class="highlight"><pre><span></span><code>quay.io/biocontainers/kraken2:2.17.2--pl5321h3be2455_0
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Use a specific version tag rather than <code>latest</code>, so that your analysis is reproducible.</p>
+</div>
+<h3 id="4-check-the-pod-with-a-dry-run"><strong>4. Check the pod with a dry run</strong><a class="headerlink" href="#4-check-the-pod-with-a-dry-run" title="Permanent link">#</a></h3>
+<p>Before using a lot of resources, you can add <code>--dry-run</code> to print the exact pod definition SquarePeg would create, without creating anything:</p>
+<div class="highlight"><pre><span></span><code>squarepeg run --dry-run \
+    --cpus 16 --memory 128g \
+    quay.io/biocontainers/kraken2:2.17.2--pl5321h3be2455_0 \
+    kraken2 --version
+</code></pre></div>
+<p>Look for the <code>resources</code> section (your CPU and memory) and the <code>volumeMounts</code> section (<code>/shared/public</code> and <code>/shared/team</code>).</p>
+<h3 id="5-run-kraken2"><strong>5. Run Kraken2</strong><a class="headerlink" href="#5-run-kraken2" title="Permanent link">#</a></h3>
+<p>Once you are happy with the resource requests, you can run the full squarepeg command:</p>
+<div class="highlight"><pre><span></span><code>squarepeg run \
+    --cpus 16 \
+    --memory 128g \
+    -w /shared/team/kraken_demo \
+    quay.io/biocontainers/kraken2:2.17.2--pl5321h3be2455_0 \ # Everything after this is passed directly to the container
+    kraken2 \
+        --db /shared/public/db/kraken2/pluspf/latest \
+        --threads 16 \
+        --paired --gzip-compressed \
+        --report results/my_sample.kreport \
+        --output results/my_sample.kraken \
+        reads/my_sample_R1.fastq.gz reads/my_sample_R2.fastq.gz
+</code></pre></div>
+<p>Taking each part in turn:</p>
+<table>
+<thead>
+<tr>
+<th>Part</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>squarepeg run</code></td>
+<td>Runs one command in a new pod</td>
+</tr>
+<tr>
+<td><code>--cpus 16</code></td>
+<td>Asks for 16 CPU cores for this pod</td>
+</tr>
+<tr>
+<td><code>--memory 128g</code></td>
+<td>Asks for 128 GB of memory, enough to load PlusPF</td>
+</tr>
+<tr>
+<td><code>-w /shared/team/kraken_demo</code></td>
+<td>Sets the working directory inside the container, so the relative paths <code>reads/</code> and <code>results/</code> work</td>
+</tr>
+<tr>
+<td><code>quay.io/biocontainers/kraken2:...</code></td>
+<td>The container image. <strong>Everything after this goes to the container.</strong></td>
+</tr>
+<tr>
+<td><code>kraken2 --db ...</code></td>
+<td>The Kraken2 command itself, run inside the pod. The database is read straight from the read-only <code>/shared/public</code> mount.</td>
+</tr>
+<tr>
+<td><code>--threads 16</code></td>
+<td>A Kraken2 option. Keep it equal to <code>--cpus</code> so Kraken2 uses the cores you asked for.</td>
+</tr>
+</tbody>
+</table>
+<p>Kraken2's progress messages will appear in your terminal as it runs. When it finishes, <code>my_sample.kreport</code> and <code>my_sample.kraken</code> will be in <code>/shared/team/kraken_demo/results</code>, and you can work with them from your JupyterLab environment as normal.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The resources you request count against your <strong>team's</strong> CPU and memory quota for as long as the pod runs. If the team has used up its quota, the pod can't be scheduled and you won't be able to launch new JupyterLab or Nextflow pods either. Only ask for what the command needs.</p>
+</div>
+<hr />
+<h2 id="important-command-line-options"><strong>Important command line options</strong><a class="headerlink" href="#important-command-line-options" title="Permanent link">#</a></h2>
+<p>These are the options you'll use most often. Remember that they all go <strong>before</strong> the image name. Run <code>squarepeg run --help</code> for the full list, or see the <a href="https://github.com/BioWilko/squarepeg/wiki/CLI-Reference"><strong>SquarePeg CLI reference</strong></a>.</p>
+<h3 id="resources"><strong>Resources</strong><a class="headerlink" href="#resources" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--cpus</code></td>
+<td><code>--cpus 16</code></td>
+<td>Number of CPU cores. Decimals are allowed (<code>0.5</code>). Default: <code>1</code>.</td>
+</tr>
+<tr>
+<td><code>-m</code>, <code>--memory</code></td>
+<td><code>--memory 128g</code></td>
+<td>Memory, in the same units as Docker (<code>512m</code>, <code>8g</code>, <code>128g</code>). Default: <code>8G</code>.</td>
+</tr>
+<tr>
+<td><code>--gpus</code></td>
+<td><code>--gpus 1</code></td>
+<td>Number of whole GPUs. Default: none. See <a href="#using-gpus"><strong>Using GPUs</strong></a>.</td>
+</tr>
+</tbody>
+</table>
+<p><code>--cpus</code> and <code>--memory</code> set both the Kubernetes <em>request</em> and <em>limit</em>. If your command goes over the memory limit, the pod is killed and SquarePeg exits with code <code>137</code> and reports <code>OOMKilled</code>. If that happens, rerun with more memory.</p>
+<h3 id="using-gpus"><strong>Using GPUs</strong><a class="headerlink" href="#using-gpus" title="Permanent link">#</a></h3>
+<p>If your team has GPU quota, <code>--gpus</code> gives the pod its own NVIDIA A100 GPU(s). This means you can run a GPU tool from a standard, CPU-only JupyterLab environment, and the GPU is only reserved while the command runs. SquarePeg sets up everything else the pod needs to use the GPU. You don't need to change any config.</p>
+<p>To check that you can get a GPU, run <code>nvidia-smi</code> in a CUDA image:</p>
+<div class="highlight"><pre><span></span><code>squarepeg run --gpus 1 nvidia/cuda:12.4.1-base-ubuntu22.04 nvidia-smi
+</code></pre></div>
+<p>A real job looks like any other SquarePeg command, with <code>--gpus</code> added. The image must include GPU (CUDA) support:</p>
+<div class="highlight"><pre><span></span><code>squarepeg run --gpus 1 --cpus 8 --memory 32g -w /shared/team/project \
+    MY_GPU_IMAGE my_gpu_tool --input data/ --output results/
+</code></pre></div>
+<p>A few things to know:</p>
+<ul>
+<li><strong>Only a number is accepted</strong> (<code>--gpus 1</code> or <code>--gpus count=1</code>). Docker's <code>--gpus all</code> and <code>--gpus device=0</code> forms are rejected, because Kubernetes chooses which GPUs to give you.</li>
+<li><strong>GPUs are scarce.</strong> If none is free, or your team's GPU quota is used up, the pod waits and SquarePeg prints a warning such as <code>FailedScheduling: ... Insufficient nvidia.com/gpu</code>. It keeps waiting until <code>--timeout</code> (300 seconds by default) in case a GPU becomes free. Press Ctrl+C to stop waiting.</li>
+<li><strong>Still ask for CPUs and memory.</strong> <code>--gpus</code> doesn't change the defaults of 1 CPU and 8 GB, and most GPU tools need more than that for loading data.</li>
+</ul>
+<h3 id="files-and-directories"><strong>Files and directories</strong><a class="headerlink" href="#files-and-directories" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-w</code>, <code>--workdir</code></td>
+<td><code>-w /shared/team/project</code></td>
+<td>Working directory inside the container. Without it, the image's default is used (often <code>/</code>), so set it, or use absolute paths everywhere.</td>
+</tr>
+</tbody>
+</table>
+<p><code>/shared/team</code> and <code>/shared/public</code> are mounted in every pod automatically, so you shouldn't need any other mounts. Point your command at files under these paths and set <code>-w</code> to a directory in <code>/shared/team</code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Avoid <code>-v</code> / <code>--volume</code></p>
+<p>SquarePeg accepts Docker's <code>-v</code> option, but on CLIMB it rarely does what you would expect, so we recommend not using it. What <code>-v</code> does depends on what comes before the <code>:</code>:</p>
+<ul>
+<li><strong>A path, such as <code>-v /home/jovyan/data:/data</code> or <code>-v ./data:/data</code>: rejected with an error.</strong> In Docker, this shares a folder from the machine you're on. Your SquarePeg pod isn't running on that machine. Your home directory is a storage volume attached only to your own JupyterLab environment, so other pods can't see it, and the path would point at the node's own disk rather than your files. SquarePeg therefore refuses any <code>-v</code> source that starts with <code>/</code> or <code>.</code>. This includes paths under <code>/shared/team</code>, so you can't mount a subfolder such as <code>-v /shared/team/project:/data</code> at a different path either. Copy your files to <code>/shared/team</code> and use them at their real path.</li>
+<li><strong>Just a container path, such as <code>-v /scratch</code>: an empty temporary directory.</strong> It is created on the node's local disk and <strong>deleted with the pod</strong>, so anything written there is lost when the command finishes. It also uses the node's limited local disk, and if it fills that disk Kubernetes may evict your pod part-way through the run.</li>
+<li><strong>A name, such as <code>-v shared-team:/data</code>: a named volume.</strong> CLIMB's config defines two names: <code>shared-team</code> and <code>shared-public</code>. These mount the <strong>whole</strong> team or public share at the extra path you give (add <code>:ro</code> for read-only), alongside the usual <code>/shared/team</code> and <code>/shared/public</code>. This is only useful if a tool insists on a fixed path. <strong>Any other name silently gives you an empty temporary directory</strong>, exactly like <code>-v /scratch</code>. For example, a typo such as <code>-v shared_team:/data</code> doesn't produce an error: your command just sees an empty <code>/data</code>, and anything written there is lost. Unlike Docker named volumes, these temporary directories aren't kept between runs.</li>
+</ul>
+<p>In almost every case, the simplest option is to use files at their real paths under <code>/shared/team</code> and <code>/shared/public</code>. Write temporary files to a directory under <code>/shared/team</code> too, and delete them when you're done.</p>
+</div>
+<h3 id="environment-variables"><strong>Environment variables</strong><a class="headerlink" href="#environment-variables" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-e</code>, <code>--env</code></td>
+<td><code>-e MY_VAR=value</code></td>
+<td>Sets an environment variable in the container. Repeatable.</td>
+</tr>
+<tr>
+<td><code>-e</code> (bare)</td>
+<td><code>-e MY_VAR</code></td>
+<td>Copies <code>MY_VAR</code> from your terminal into the container</td>
+</tr>
+</tbody>
+</table>
+<h3 id="naming-inspecting-and-debugging"><strong>Naming, inspecting and debugging</strong><a class="headerlink" href="#naming-inspecting-and-debugging" title="Permanent link">#</a></h3>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--name NAME</code></td>
+<td>Pod name (lowercase letters, digits and <code>-</code>, up to 63 characters)</td>
+</tr>
+<tr>
+<td><code>--dry-run</code></td>
+<td>Prints the pod definition and exits without creating anything</td>
+</tr>
+<tr>
+<td><code>--dry-run-server</code></td>
+<td>Sends the pod definition to the cluster for validation without creating it. This catches quota or permission problems before a real run.</td>
+</tr>
+<tr>
+<td><code>--keep</code></td>
+<td>Keeps the pod after it finishes so you can inspect it with <code>kubectl describe pod NAME</code> / <code>kubectl logs NAME</code>. Delete it yourself afterwards (see <a href="#using-kubectl-directly"><strong>Using <code>kubectl</code> directly</strong></a>).</td>
+</tr>
+<tr>
+<td><code>--quiet</code></td>
+<td>Hides SquarePeg's own status messages and shows only the container's output</td>
+</tr>
+<tr>
+<td><code>--timeout SECONDS</code></td>
+<td>How long to wait for the pod to <strong>start</strong> (default 300). Large images may need longer. This doesn't limit how long the command runs.</td>
+</tr>
+<tr>
+<td><code>--entrypoint CMD</code></td>
+<td>Overrides the image's entrypoint, for example <code>--entrypoint bash</code> with <code>-c "cmd1 &amp;&amp; cmd2"</code> to run several commands</td>
+</tr>
+</tbody>
+</table>
+<h3 id="running-several-commands-in-one-pod"><strong>Running several commands in one pod</strong><a class="headerlink" href="#running-several-commands-in-one-pod" title="Permanent link">#</a></h3>
+<p>Because everything after the image name goes to the container, you can use a shell to chain commands or use pipes and redirection <strong>inside</strong> the pod:</p>
+<div class="highlight"><pre><span></span><code>squarepeg run --cpus 8 --memory 16g -w /shared/team/project \
+    quay.io/biocontainers/kraken2:2.17.2--pl5321h3be2455_0 \
+    bash -c "kraken2 --db /shared/public/db/kraken2/standard_16gb/latest --threads 8 reads.fq.gz &gt; out.kraken &amp;&amp; echo done"
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Without <code>bash -c "..."</code>, any <code>&gt;</code> or <code>|</code> is run by <strong>your</strong> JupyterLab shell, not by the pod. For example, <code>squarepeg run ... kraken2 ... &gt; out.kraken</code> writes the container's output to a file on your JupyterLab environment, but that file <strong>also contains Kraken2's progress messages</strong>, because Kubernetes combines stdout and stderr into one stream. It is also slower, since all the data is streamed back through your terminal. Write output files directly to <code>/shared/team</code> from inside the pod instead, either with the tool's own output options or with <code>bash -c</code>. Inside the pod, <code>&gt;</code> and <code>2&gt;</code> work normally.</p>
+</div>
+<hr />
+<h2 id="tips-for-longer-runs"><strong>Tips for longer runs</strong><a class="headerlink" href="#tips-for-longer-runs" title="Permanent link">#</a></h2>
+<ul>
+<li><strong>Write results to files, not to the terminal.</strong> Use the tool's output options (such as Kraken2's <code>--output</code> and <code>--report</code>) to write directly to <code>/shared/team</code>. This keeps your results separate from the tool's log messages and avoids streaming large outputs back through your terminal.</li>
+<li><strong>Run one sample after another with a loop.</strong> SquarePeg exits with the container's exit code, so it works in ordinary shell scripts:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>cd /shared/team/kraken_demo
+for r1 in reads/*_R1.fastq.gz; do
+    sample=$(basename "$r1" _R1.fastq.gz)
+    squarepeg run --cpus 16 --memory 128g -w /shared/team/kraken_demo \
+        quay.io/biocontainers/kraken2:2.17.2--pl5321h3be2455_0 \
+        kraken2 --db /shared/public/db/kraken2/pluspf/latest --threads 16 \
+            --paired --gzip-compressed \
+            --report "results/${sample}.kreport" --output "results/${sample}.kraken" \
+            "reads/${sample}_R1.fastq.gz" "reads/${sample}_R2.fastq.gz" \
+        || echo "${sample} failed"
+done
+</code></pre></div>
+<ul>
+<li><strong>Ctrl+C</strong> once stops the run, deletes the pod and exits. Pressing Ctrl+C a second time exits straight away and <strong>leaves the pod running</strong> (see <a href="#using-kubectl-directly"><strong>Using <code>kubectl</code> directly</strong></a>).</li>
+<li>SquarePeg also works from a Jupyter notebook cell with <code>!squarepeg run ...</code>.</li>
+</ul>
+<hr />
+<h2 id="troubleshooting"><strong>Troubleshooting</strong><a class="headerlink" href="#troubleshooting" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>What it means / what to do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Exit code <code>137</code> and <code>OOMKilled</code></td>
+<td>The command used more memory than you asked for. Increase <code>--memory</code>.</td>
+</tr>
+<tr>
+<td>Exit code <code>125</code></td>
+<td>SquarePeg couldn't run the container. For example, the image name is wrong, the pull failed or the pod didn't start within <code>--timeout</code>. Read the message above it for the specific reason.</td>
+</tr>
+<tr>
+<td>Exit code <code>2</code></td>
+<td>A problem with the SquarePeg command itself, such as an unsupported flag or a bad value. Check that all SquarePeg options come <strong>before</strong> the image name.</td>
+</tr>
+<tr>
+<td>Pod stays waiting and then times out with <code>Insufficient cpu</code> / <code>Insufficient memory</code></td>
+<td>No node has enough free resources, or your team's quota is used up. Ask for less, or wait for other team pods to finish. <code>kubectl get pods</code> shows what's running.</td>
+</tr>
+<tr>
+<td><code>No such file or directory</code> for an input</td>
+<td>The file is probably in your home directory. Move it into <code>/shared/team</code>.</td>
+</tr>
+<tr>
+<td>Output files are missing</td>
+<td>They were written somewhere other than <code>/shared/team</code> inside the pod and were deleted with it.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="cleaning-up-leftover-pods"><strong>Cleaning up leftover pods</strong><a class="headerlink" href="#cleaning-up-leftover-pods" title="Permanent link">#</a></h3>
+<p>Leftover pods of yours that have finished or are stuck (for example, because of a mistyped image name) are cleaned up automatically the next time you use <code>squarepeg run</code>, once they're more than 5 minutes old. To clean them up straight away, without starting a new run, use <code>squarepeg clean</code>. First, list what it would delete without deleting anything:</p>
+<div class="highlight"><pre><span></span><code>squarepeg clean --dry-run
+</code></pre></div>
+<p>Then run it without <code>--dry-run</code> to delete them:</p>
+<div class="highlight"><pre><span></span><code>squarepeg clean
+</code></pre></div>
+<p><code>squarepeg clean</code> doesn't ask for confirmation, but it only ever deletes SquarePeg pods that have already finished or are stuck and can never start. It never touches a pod that is still running, or one started with <code>--keep</code>.</p>
+<p>Pods you kept with <code>--keep</code> are never cleaned up automatically, and nor are pods left running after a second Ctrl+C, until they finish. You'll need to delete these yourself with <code>kubectl</code>. Read the warning below first.</p>
+<h3 id="using-kubectl-directly"><strong>Using <code>kubectl</code> directly</strong><a class="headerlink" href="#using-kubectl-directly" title="Permanent link">#</a></h3>
+<div class="admonition danger">
+<p class="admonition-title">ADVANCED USERS ONLY: <code>kubectl</code> acts on your whole team, not just you</p>
+<p>The <code>kubectl</code> credentials in your JupyterLab environment belong to your <strong>team</strong>, not to you personally. With them you can see, and <strong>delete</strong>, every pod in your team's space: your teammates' JupyterLab environments, their Nextflow tasks and their SquarePeg runs, as well as your own. <code>kubectl</code> won't ask "are you sure?" and won't stop you deleting someone else's work, and a deleted pod can't be brought back. A mistyped name, or a command that matches more pods than you meant, can kill a colleague's long-running job or their whole JupyterLab environment, including any unsaved work.</p>
+<p>SquarePeg is designed to only ever clean up SquarePeg pods. When you use <code>kubectl</code> yourself, there's no such safety net.</p>
+</div>
+<p>Commands that only <strong>read</strong> information are safe to use at any time:</p>
+<div class="highlight"><pre><span></span><code>kubectl get pods -l app.kubernetes.io/managed-by=squarepeg   # list SquarePeg pods (all team squarepeg pods)
+kubectl describe pod POD_NAME                                 # details and events for one pod
+kubectl logs POD_NAME                                         # output from one pod
+</code></pre></div>
+<p>Before you <strong>delete</strong> anything, check that the pod is yours. CLIMB tags every SquarePeg pod with the JupyterHub user who started it:</p>
+<div class="highlight"><pre><span></span><code>kubectl get pod POD_NAME -o jsonpath='{.metadata.annotations.user}'
+</code></pre></div>
+<p>This should print <code>sp-</code> followed by your own JupyterHub username. For example:</p>
+<div class="highlight"><pre><span></span><code>kubectl get pod POD_NAME -o jsonpath='{.metadata.annotations.user}'
+sp-sajwilkinson.loman-labz
+</code></pre></div>
+<p>Only then delete it, by its exact name:</p>
+<div class="highlight"><pre><span></span><code>kubectl delete pod POD_NAME
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Only ever delete pods one at a time, by exact name. Don't use <code>kubectl delete</code> with <code>--all</code>, label selectors (<code>-l</code>) or wildcards, because these can match your teammates' pods as well as your own. If you're not sure whether a pod is yours, ask your team before deleting it.</p>
+</div>
+<hr />
+<h2 id="further-information"><strong>Further information</strong><a class="headerlink" href="#further-information" title="Permanent link">#</a></h2>
+<p>The full SquarePeg documentation, including all options and advanced configuration, is on the <a href="https://github.com/BioWilko/squarepeg/wiki"><strong>SquarePeg wiki</strong></a>.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; CLIMB 2026
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="mailto:<climb@quadram.ac.uk>" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M536.4-26.3c9.8-3.5 20.6-1 28 6.3s9.8 18.2 6.3 28l-178 496.9c-5 13.9-18.1 23.1-32.8 23.1-14.2 0-27-8.6-32.3-21.7l-64.2-158c-4.5-11-2.5-23.6 5.2-32.6l94.5-112.4c5.1-6.1 4.7-15-.9-20.6s-14.6-6-20.6-.9l-112.4 94.3c-9.1 7.6-21.6 9.6-32.6 5.2L38.1 216.8c-13.1-5.3-21.7-18.1-21.7-32.3 0-14.7 9.2-27.8 23.1-32.8z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.sections", "navigation.expand", "navigation.path", "navigation.top", "navigation.indexes", "navigation.tabs", "navigation.tabs.sticky", "toc.integrate", "search.suggest", "search.highlight", "content.tabs.link", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
