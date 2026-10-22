@@ -38,4 +38,4 @@ Everything you need to understand, use and get the most out of the resources ava
 
 + [**SquarePeg**](4.1.8.squarepeg.md)
 
-    Find out how to run individual memory- or CPU-hungry commands in their own pod from a small JupyterLab environment.
+    Find out how to run individual memory- or CPU-intensive commands in their own pod from within a small JupyterLab environment.
